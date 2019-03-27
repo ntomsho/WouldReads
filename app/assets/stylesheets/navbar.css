@@ -1,0 +1,42 @@
+.navbar-container {
+  height: 65px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.navbar-container img {
+  align-self: center;
+}
+
+.navbar-container .session-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.navbar-container .session-input {
+  border-radius: 3px;
+  border: #DCD6CC 1px solid;
+  width: 120px;
+  height: 16px;
+  padding: 5px;
+  margin: 2px;
+  font-size: 13px;
+}
+
+.navbar-container .session-submit {
+  width: 41px;
+  height: 14px;
+  padding: 8px 12px;
+  margin: 1px;
+  box-sizing: content-box;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  color: white;
+  font-size: 14px;
+  background-color: #382110;
+  border: 1px solid #382110;
+  border-radius: 3px;
+}

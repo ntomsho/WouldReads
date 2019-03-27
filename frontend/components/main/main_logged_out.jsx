@@ -5,9 +5,9 @@ import {withRouter} from 'react-router-dom';
 const MainLoggedOut = () => {
 
   return (
-    <div className="logged-out-subheader">
+    <div className="logged-out-masthead">
       <div className="logged-out-splash-message">
-        <h3>Meet your next favorite book.</h3>
+        <h3>A home for all those books that you <i>would</i> read, but...</h3>
       </div>
       <SignupFormContainer />
     </div>

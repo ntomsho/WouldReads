@@ -10,16 +10,15 @@ class Main extends React.Component {
 
   render() {
     if (this.props.currentUser) {
-      this.content = (<div>
+      this.content = (<div className="main-masthead">
         <MainLoggedInContainer />
       </div>)
     } else {
-      this.content = (<div>
+      this.content = (<div className="main-masthead">
         <MainLoggedOutContainer />
       </div>)
     }
 
-    debugger
     return (
       <div>
         {this.content}
