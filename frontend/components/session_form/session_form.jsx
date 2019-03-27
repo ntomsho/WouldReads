@@ -45,12 +45,12 @@ class SessionForm extends React.Component {
     };
   };
 
-  emailField() {
+  usernameField() {
     if (this.props.formType === "signup") {
       return (
         <>
-        <input type="text" value={this.state.email} placeholder="Email" onChange={this.update('email')} className="session-input" />
-        <br />
+          <input type="text" value={this.state.username} placeholder="Name" onChange={this.update('username')} className="session-input" />
+          <br />
         </>
       )
     };
@@ -60,13 +60,12 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="session-form-container">
-        <h2 className="session-form-header"> {this.props.formType} </h2>
         <form onSubmit={this.handleSubmit} className="session-form-box">
           {this.signupGreeting()}
           {this.renderErrors()}
-          <input type="text" value={this.state.username} placeholder="Name" onChange={this.update('username')} className="session-input"/>
-          <br/>
-          {this.emailField()}
+          {this.usernameField()}
+          <input type="text" value={this.state.email} placeholder="Email" onChange={this.update('email')} className="session-input" />
+          <br />
           <input type="text" value={this.state.password} placeholder="Password" onChange={this.update('password')} className="session-input"/>
           <br/>
           <input type="submit" value={this.props.formType} className="session-submit"/>
