@@ -38,9 +38,20 @@ class SessionForm extends React.Component {
   }
 
   signupGreeting() {
-    if (!this.props.currentUser) {
+    if (this.props.formType === "signup") {
       return (
         <p>New here? Create a free account!</p>
+      )
+    };
+  };
+
+  emailField() {
+    if (this.props.formType === "signup") {
+      return (
+        <>
+        <input type="text" value={this.state.email} placeholder="Email" onChange={this.update('email')} className="session-input" />
+        <br />
+        </>
       )
     };
   };
@@ -55,8 +66,7 @@ class SessionForm extends React.Component {
           {this.renderErrors()}
           <input type="text" value={this.state.username} placeholder="Name" onChange={this.update('username')} className="session-input"/>
           <br/>
-          <input type="text" value={this.state.email} placeholder="Email" onChange={this.update('email')} className="session-input"/>
-          <br/>
+          {this.emailField()}
           <input type="text" value={this.state.password} placeholder="Password" onChange={this.update('password')} className="session-input"/>
           <br/>
           <input type="submit" value={this.props.formType} className="session-submit"/>
