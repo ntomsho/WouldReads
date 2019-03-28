@@ -40,3 +40,11 @@
   border: 1px solid #382110;
   border-radius: 3px;
 }
+
+.logged-in-header {
+  display: flex;
+}
+
+.logout-button {
+  cursor: pointer
+}

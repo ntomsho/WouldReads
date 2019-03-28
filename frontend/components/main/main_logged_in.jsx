@@ -1,11 +1,12 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import ShelfIndexContainer from '../shelves/shelf_index_container';
 
 const MainLoggedIn = (props) => {
   return (
     <div className="logged-in-placeholder">
       <p>Placeholder</p>
-      <button onClick={props.logout}>Logout</button>
+      <ShelfIndexContainer />
     </div>
   );
 };
