@@ -3,7 +3,7 @@ class Api::ShelvesController < ApplicationController
   before_action :require_logged_in, only: [:create, :update, :destroy]
 
   def index
-    @shelves = Shelf.all
+    @shelves = Shelf.where(:user_id => params[:id])
     render :index
   end
 
