@@ -1,15 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import SigninFormContainer from '../session_form/signin_form_container';
-import SignupFormContainer from '../session_form/signup_form_container';
 
 const Navbar = ({currentUser, logout}) => {
   
   const loggedOutNavbar = () => {
     return (
       <div className="navbar-container">
-        <img src="https://s.gr-assets.com/assets/home/header_logo-8d96d7078a3d63f9f31d92282fd67cf4.png"
-        className="navbar-logo" />
+        <Link to="/"><img src="https://s.gr-assets.com/assets/home/header_logo-8d96d7078a3d63f9f31d92282fd67cf4.png"
+          className="navbar-logo" /></Link>
         <SigninFormContainer />
       </div>
     );

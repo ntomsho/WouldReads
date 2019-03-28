@@ -26,21 +26,23 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error ${i}:`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+    if (this.props.errors.length > 0) {
+      return (
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li key={`error ${i}:`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    };
   }
 
   signupGreeting() {
     if (this.props.formType === "Sign up") {
       return (
-        <p>New here? Create a free account!</p>
+        <p className="signup-greeting">New here? Create a free account!</p>
       )
     };
   };

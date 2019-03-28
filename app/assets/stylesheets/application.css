@@ -17,3 +17,11 @@
  #root {
    background-image: url("session_page_background.jpg");
  }
+
+ body {
+   margin: 0px;
+ }
+
+ .session-submit {
+   cursor: pointer;
+ }
