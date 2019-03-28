@@ -68,6 +68,27 @@
   left: 2px;
 }
 
+.sign-up-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-user-button {
+  width: 283px;
+  height: 32px;
+  background: #333333;
+  border-radius: 4px 4px 0 0;
+  padding: 13px 0 5px 0;
+  font-size: 12px;
+  color: white;
+  box-sizing: content-box;
+  text-align: center;
+  position: relative;
+  right: 50px;
+  top: 51px;
+  cursor: pointer;
+}
+
 .logged-in-placeholder {
   height: 294px;
   display: flex;
