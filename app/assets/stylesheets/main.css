@@ -30,6 +30,7 @@
   height: 190px;
   position: relative;
   right: 52px;
+  top: 20px;
 }
 
 .signup-greeting {
@@ -47,10 +48,12 @@
   border: #DCD6CC 1px solid;
   width: 270px;
   height: 19px;
-  padding: 5px 7px;
+  padding: 7px 5px;
   margin: 2px;
   font-size: 13px;
   font-weight: lighter;
+  color: #333333;
+  border-radius: 3px;
 }
 
 .logged-out-masthead .session-submit {
