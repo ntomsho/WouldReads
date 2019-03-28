@@ -57,7 +57,6 @@ class SessionForm extends React.Component {
     };
   };
 
-
   render() {
     return (
       <div className="session-form-container">
@@ -67,7 +66,7 @@ class SessionForm extends React.Component {
           {this.usernameField()}
           <input type="text" value={this.state.email} placeholder="Email Address" onChange={this.update('email')} className="session-input" />
           <input type="text" value={this.state.password} placeholder="Password" onChange={this.update('password')} className="session-input"/>
-          <input type="submit" value={this.props.formType} className="session-submit"/>
+          <input type="submit" value={this.props.formType} className="session-submit" />
         </form>
       </div>
     )

@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {signup} from '../../actions/session_actions';
+import {signin} from '../../actions/session_actions';
 import MainLoggedOut from './main_logged_out';
 
 const msp = ({errors}) => {
@@ -8,4 +8,10 @@ const msp = ({errors}) => {
   };
 };
 
-export default connect(msp)(MainLoggedOut);
+const mdp = (dispatch) => {
+  return {
+    signin: (user) => dispatch(signin(user))
+  };
+};
+
+export default connect(msp, mdp)(MainLoggedOut);
