@@ -67,3 +67,12 @@
   position: relative;
   left: 2px;
 }
+
+.logged-in-placeholder {
+  height: 294px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  bottom: 25px;
+}
