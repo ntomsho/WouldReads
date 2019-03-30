@@ -9,4 +9,12 @@ class Shelf < ApplicationRecord
     foreign_key: :user_id,
     class_name: :User
 
+  has_many :shelf_books,
+    foreign_key: :shelf_id,
+    class_name: :ShelfBook
+
+  has_many :books,
+    through: :shelf_books,
+    source: :book
+
 end

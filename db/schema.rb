@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_145214) do
+ActiveRecord::Schema.define(version: 2019_03_30_214056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "books", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "isbn", null: false
+    t.string "author", null: false
+    t.string "genre", null: false
+    t.text "synopsis", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author"], name: "index_books_on_author"
+    t.index ["genre"], name: "index_books_on_genre"
+    t.index ["isbn"], name: "index_books_on_isbn", unique: true
+    t.index ["title"], name: "index_books_on_title"
+  end
+
+  create_table "shelf_books", force: :cascade do |t|
+    t.integer "shelf_id", null: false
+    t.integer "book_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_shelf_books_on_book_id"
+    t.index ["shelf_id", "book_id"], name: "index_shelf_books_on_shelf_id_and_book_id", unique: true
+    t.index ["shelf_id"], name: "index_shelf_books_on_shelf_id"
+  end
 
   create_table "shelves", force: :cascade do |t|
     t.integer "user_id", null: false
