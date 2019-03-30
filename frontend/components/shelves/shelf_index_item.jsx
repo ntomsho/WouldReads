@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 
 class ShelfIndexItem extends React.Component {
 
@@ -9,10 +9,15 @@ class ShelfIndexItem extends React.Component {
 
   render() {
     const { title } = this.props.shelf;
-    debugger
+    let deleteButton
+    if (this.props.shelf.default_shelf === false) {
+      deleteButton = (<button onClick={() => this.props.deleteShelf(this.props.shelf.id)}>X</button>);
+    }
+    
     return (
     <li className="shelf-index-item">
-      <p>{title}</p>
+      <NavLink to="">{title}</NavLink>
+      {deleteButton}
     </li>
     )
   };

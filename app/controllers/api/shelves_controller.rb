@@ -1,6 +1,6 @@
 class Api::ShelvesController < ApplicationController
 
-  before_action :require_logged_in, only: [:create, :update, :destroy]
+  before_action :ensure_logged_in, only: [:create, :update, :destroy]
 
   def index
     @shelves = Shelf.where(:user_id => params[:id])
@@ -13,7 +13,7 @@ class Api::ShelvesController < ApplicationController
   end
 
   def create
-    @shelf = Shelf.new(user_params)
+    @shelf = Shelf.new(shelf_params)
     @shelf.user_id = current_user.id
     if @shelf.save!
       render "api/shelves/show"
@@ -39,7 +39,7 @@ class Api::ShelvesController < ApplicationController
 
   private
 
-  def user_params
+  def shelf_params
     params.require(:shelf).permit(:title, :default_shelf)
   end
 

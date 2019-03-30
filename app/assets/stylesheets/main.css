@@ -92,11 +92,27 @@
   cursor: pointer;
 }
 
-.logged-in-placeholder {
+.main-logged-in {
   height: 294px;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   position: relative;
-  bottom: 25px;
+}
+
+.shelves-index-container {
+  margin: 10px 0 0 5px;
+}
+
+.shelves-header {
+  font-size: 14px;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  margin: 0;
+}
+
+.shelves-index-list {
+  margin: 0;
+  padding: 0px;
+  list-style: none;
 }

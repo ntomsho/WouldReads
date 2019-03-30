@@ -6,8 +6,8 @@ export const REMOVE_SHELF = "REMOVE_SHELF";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 
-export const fetchShelves = (filters) => dispatch => {
-  return ShelfApiUtil.fetchShelves(filters).then(shelves => dispatch(receiveShelves(shelves)));
+export const fetchShelves = (user) => dispatch => {
+  return ShelfApiUtil.fetchShelves(user).then(shelves => dispatch(receiveShelves(shelves)));
 };
 
 export const fetchShelf = (id) => dispatch => {

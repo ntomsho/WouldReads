@@ -4,8 +4,7 @@ import ShelfIndexContainer from '../shelves/shelf_index_container';
 
 const MainLoggedIn = (props) => {
   return (
-    <div className="logged-in-placeholder">
-      <p>Placeholder</p>
+    <div className="main-logged-in">
       <ShelfIndexContainer />
     </div>
   );
