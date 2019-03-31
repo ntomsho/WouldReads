@@ -1,0 +1,56 @@
+.shelf-index-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #00635d;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+}
+
+.shelves-index-list {
+    margin-bottom: 20px;
+}
+
+.shelf-index-item button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.add-shelf-header {
+    margin: 0;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-right: 3px;
+}
+
+.add-shelf-field-button  {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 3px;
+    border: 1px solid #D6D0C4;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    background-color: #F4F1EA;
+    width: 46px;
+    height: 11px;
+    box-sizing: content-box;
+    line-height: 1;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.add-shelf-button {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 3px;
+    border: 1px solid #D6D0C4;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    background-color: #F4F1EA;
+    width: 18px;
+    height: 11px;
+    box-sizing: content-box;
+    line-height: 1;
+    text-align: left;
+    white-space: nowrap;
+}
