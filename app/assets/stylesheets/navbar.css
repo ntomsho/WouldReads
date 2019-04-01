@@ -39,4 +39,27 @@
   background-color: #382110;
   border: 1px solid #382110;
   border-radius: 3px;
+<<<<<<< HEAD
+=======
+}
+
+.logged-in-header {
+  display: flex;
+}
+
+.logout-button {
+  cursor: pointer;
+  width: 41px;
+  height: 14px;
+  padding: 8px 12px;
+  margin: 1px;
+  box-sizing: content-box;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  color: white;
+  font-size: 14px;
+  background-color: #382110;
+  border: 1px solid #382110;
+  border-radius: 3px;
+  align-self: center;
+>>>>>>> f9f5f011a7598d2e07cddb7ad02e6062c60be57a
 }

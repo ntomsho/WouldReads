@@ -92,6 +92,7 @@
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 .logged-in-placeholder {
   height: 294px;
   display: flex;
@@ -99,4 +100,29 @@
   align-items: center;
   position: relative;
   bottom: 25px;
+=======
+.main-logged-in {
+  height: 294px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+}
+
+.shelves-index-container {
+  margin: 10px 0 0 5px;
+}
+
+.shelves-header {
+  font-size: 14px;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  margin: 0;
+}
+
+.shelves-index-list {
+  margin: 0;
+  padding: 0px;
+  list-style: none;
+>>>>>>> f9f5f011a7598d2e07cddb7ad02e6062c60be57a
 }
