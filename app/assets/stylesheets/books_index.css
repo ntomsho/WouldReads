@@ -1,0 +1,24 @@
+.shelf-books-list {
+  text-align: left;
+}
+
+.shelf-show-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shelf-show-cell {
+  font-size: 14px;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: table-cell;
+  padding: 12px 5px 5px 0;
+  margin: 0;
+}
+
+.shelf-show-cover {
+  width: 50px;
+}
+
+.shelf-show-title {
+  width: 25%;
+}

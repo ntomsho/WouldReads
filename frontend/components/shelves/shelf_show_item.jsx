@@ -8,16 +8,30 @@ class ShelfShowItem extends React.Component {
   }
 
   render() {
-    debugger
     return (
-      <li className="shelf-show-item">
-        <div className="shelf-show-title">
+      <tr className="shelf-show-item">
+        <td className="shelf-show-cell" className="shelf-show-cover">
+          <p>PH</p>
+        </td >
+        <td className="shelf-show-cell" className="shelf-show-title">
           <p>{this.props.book.title}</p>
-        </div>
-        <div className="shelf-show-author">
+        </td>
+        <td className="shelf-show-cell" className="shelf-show-author">
           <p>{this.props.book.author}</p>
-        </div>
-      </li>
+        </td>
+        <td className="shelf-show-cell" className="shelf-show-avg-rating">
+          <p>Placeholder</p>
+        </td>
+        <td className="shelf-show-cell" className="shelf-show-rating">
+          <p>Placeholder</p>
+        </td>
+        <td className="shelf-show-cell" className="shelf-show-shelves">
+          <p>Placeholder</p>
+        </td >
+        <td className="shelf-show-cell" className="shelf-show-date-added">
+          <p>Placeholder</p>
+        </td >
+      </tr>
     )
   };
 
