@@ -13,7 +13,6 @@ class ShelfIndexItem extends React.Component {
     if (this.props.shelf.default_shelf === false) {
       deleteButton = (<button onClick={() => {
         this.props.deleteShelf(this.props.shelf.id);
-        // this.props.fetchShelves(this.props.currentUser);
         }
       }>X</button>);
     }
