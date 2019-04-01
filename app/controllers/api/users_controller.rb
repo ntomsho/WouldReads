@@ -8,6 +8,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save!
+      create_default_shelves(@user)
       signin(@user)
       render "api/users/show"
     else
@@ -28,6 +29,32 @@ class Api::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
+  end
+
+  def create_default_shelves(user)
+    Shelf.create!(
+      title: "All",
+      user_id: user.id,
+      default_shelf: true
+    )
+    
+    Shelf.create!(
+      title: "Read",
+      user_id: user.id,
+      default_shelf: true
+    )
+    
+    Shelf.create!(
+      title: "Currently Reading",
+      user_id: user.id,
+      default_shelf: true
+    )
+
+    Shelf.create!(
+      title: "Want to Read",
+      user_id: user.id,
+      default_shelf: true
+    )
   end
 
 end

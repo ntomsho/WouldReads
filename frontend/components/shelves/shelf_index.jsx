@@ -8,47 +8,51 @@ class ShelfIndex extends React.Component {
     super(props);
     this.state = {shelfAdd: false};
     this.addShelfField = this.addShelfField.bind(this);
+    this.removeShelfField = this.removeShelfField.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchShelves(this.props.currentUser)
+    this.props.fetchShelves(this.props.currentUser);
   }
 
   addShelfField() {
-    this.setState({shelfAdd: true})
+    this.setState({shelfAdd: true});
   }
 
-  // addShelfField() {
-  //   const shelfAddButton = () => {
-  //     return (
-  //       <button onClick={this.setState({shelfAdd: true})}>Add Field</button>
-  //     );
-  //   };
-
-  //   const shelfAddField = () => {
-  //     return (
-  //       <AddShelfForm />
-  //     )
-  //   }
-
-  //   return this.state.shelfAdd ? shelfAddButton : shelfAddField
-  // }
+  removeShelfField() {
+    this.setState({shelfAdd: false});
+  }
 
   render () {
     const shelfAdd = this.state.shelfAdd ? 
-      <AddShelfForm /> : <button className="add-shelf-field-button" onClick={this.addShelfField}>Add shelf</button>
+      <AddShelfForm removeShelfField={this.removeShelfField} /> : <button className="add-shelf-field-button" onClick={this.addShelfField}>Add shelf</button>
     
     return (
       <div className="shelves-index-container">
         <p className="shelves-header">Bookshelves</p>
         <ul className="shelves-index-list">
-          {this.props.shelves.map(shelf => (
-            <ShelfIndexItem
-              shelf={shelf}
-              key={shelf.id}
-              deleteShelf={this.props.deleteShelf}
-            />
-          ))}
+          {this.props.shelves.map(shelf => {
+            if (shelf.default_shelf) {
+            return (
+              <ShelfIndexItem
+                shelf={shelf}
+                key={shelf.id}
+                deleteShelf={this.props.deleteShelf}
+              />
+            )}
+          })}
+          <div className="shelves-divider"> </div>
+          {this.props.shelves.map(shelf => {
+            if (!shelf.default_shelf) {
+              return (
+                <ShelfIndexItem
+                  shelf={shelf}
+                  key={shelf.id}
+                  deleteShelf={this.props.deleteShelf}
+                />
+              )
+            }
+          })}
         </ul>
         {shelfAdd}
       </div>

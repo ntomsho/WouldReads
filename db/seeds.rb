@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.delete_all
 Shelf.delete_all
+Book.delete_all
+ShelfBook.delete_all
 
 cage = User.create!(
   username: "Nicolas Cage",
@@ -14,7 +16,13 @@ cage = User.create!(
   password: "notthebees"
 );
 
-  Shelf.create!(
+  cageall = Shelf.create!(
+    title: "All",
+    user_id: cage.id,
+    default_shelf: true
+  )
+
+  cageread = Shelf.create!(
     title: "Read",
     user_id: cage.id,
     default_shelf: true
@@ -31,3 +39,5 @@ cage = User.create!(
     user_id: cage.id,
     default_shelf: true
   )
+
+  

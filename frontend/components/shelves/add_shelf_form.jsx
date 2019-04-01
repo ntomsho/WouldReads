@@ -3,8 +3,8 @@ import {withRouter} from 'react-router';
 
 class AddShelfForm extends React.Component {
     constructor(props) {
-        super(props)
-        this.state = {title: ""}
+        super(props);
+        this.state = {title: ""};
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -12,13 +12,15 @@ class AddShelfForm extends React.Component {
         return e => this.setState({
             title: e.target.value
         });
-    };
+    }
 
     handleSubmit(e) {
         e.preventDefault();
         const newShelf = Object.assign({}, this.state);
         newShelf.default_shelf = false;
         this.props.createShelf(newShelf);
+        this.setState({title: ""});
+        this.props.removeShelfField();
     }
 
     render() {
