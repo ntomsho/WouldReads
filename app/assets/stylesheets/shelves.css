@@ -11,6 +11,13 @@
     margin-bottom: 20px;
 }
 
+.shelves-divider {
+    border-bottom: 1px solid #D8D8D8;
+    margin: 0.5em 0;
+    width: 180px;
+    font-size: 14px;
+}
+
 .shelf-index-item button {
     background: transparent;
     border: none;

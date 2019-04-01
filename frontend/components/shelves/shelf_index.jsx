@@ -15,10 +15,6 @@ class ShelfIndex extends React.Component {
     this.props.fetchShelves(this.props.currentUser);
   }
 
-  // componentDidUpdate() {
-  //   this.props.fetchShelves(this.props.currentUser);
-  // }
-
   addShelfField() {
     this.setState({shelfAdd: true});
   }
@@ -35,14 +31,28 @@ class ShelfIndex extends React.Component {
       <div className="shelves-index-container">
         <p className="shelves-header">Bookshelves</p>
         <ul className="shelves-index-list">
-          {this.props.shelves.map(shelf => (
-            <ShelfIndexItem
-              shelf={shelf}
-              key={shelf.id}
-              deleteShelf={this.props.deleteShelf}
-              // fetchShelves={this.props.fetchShelves}
-            />
-          ))}
+          {this.props.shelves.map(shelf => {
+            if (shelf.default_shelf) {
+            return (
+              <ShelfIndexItem
+                shelf={shelf}
+                key={shelf.id}
+                deleteShelf={this.props.deleteShelf}
+              />
+            )}
+          })}
+          <div className="shelves-divider"> </div>
+          {this.props.shelves.map(shelf => {
+            if (!shelf.default_shelf) {
+              return (
+                <ShelfIndexItem
+                  shelf={shelf}
+                  key={shelf.id}
+                  deleteShelf={this.props.deleteShelf}
+                />
+              )
+            }
+          })}
         </ul>
         {shelfAdd}
       </div>
