@@ -9,9 +9,9 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   attr_reader :password
 
-  has_many :shelves,
-    foreign_key: :user_id,
-    class_name: :Shelf
+  # has_many :shelves,
+  #   foreign_key: :user_id,
+  #   class_name: :Shelf
 
   def password=(password)
     @password = password
