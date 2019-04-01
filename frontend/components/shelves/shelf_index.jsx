@@ -25,7 +25,8 @@ class ShelfIndex extends React.Component {
 
   render () {
     const shelfAdd = this.state.shelfAdd ? 
-      <AddShelfForm removeShelfField={this.removeShelfField} /> : <button className="add-shelf-field-button" onClick={this.addShelfField}>Add shelf</button>
+      <AddShelfForm removeShelfField={this.removeShelfField} /> : 
+      <button className="add-shelf-field-button" onClick={this.addShelfField}>Add shelf</button>
     
     return (
       <div className="shelves-index-container">
