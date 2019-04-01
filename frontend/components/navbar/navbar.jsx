@@ -21,7 +21,7 @@ const Navbar = ({currentUser, logout}) => {
           className="navbar-logo" /></Link>
       <div className="logged-in-header">
         <h2 className="header-name">Placeholder {currentUser.username}</h2>
-        <button className="logout-button" onClick={logout}>Logout</button>
+          <Link to="/" className="logout-button-container"><button className="logout-button" onClick={logout}>Logout</button></Link>
       </div>
     </div>
     );

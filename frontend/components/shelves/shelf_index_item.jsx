@@ -19,7 +19,7 @@ class ShelfIndexItem extends React.Component {
     
     return (
     <li className="shelf-index-item">
-      <NavLink to="">{title}</NavLink>
+      <NavLink to={`/shelves/${this.props.shelf.id}`} shelf={this.props.shelf}>{title}</NavLink>
       {deleteButton}
     </li>
     )
@@ -27,4 +27,4 @@ class ShelfIndexItem extends React.Component {
 
 }
 
-export default ShelfIndexItem
+export default withRouter(ShelfIndexItem);

@@ -11,7 +11,10 @@ const MainLoggedOut = (props) => {
       </div>
       <div className="sign-up-area">
         <SignupFormContainer />
-        <button className="demo-user-button" onClick={() => props.signin({ username: 'Nicolas Cage', email: 'wild@heart.com', password: 'notthebees' })}>Or sign in as a demo user</button>
+        <button className="demo-user-button" onClick={() => {
+          props.signin({ username: 'Nicolas Cage', email: 'wild@heart.com', password: 'notthebees' })
+          .then(() => props.history.push(`/shelves`))
+          }}>Or sign in as a demo user</button>
       </div>
     </div>
   )

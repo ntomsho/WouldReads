@@ -45,6 +45,10 @@
   display: flex;
 }
 
+.logout-button-container {
+  align-self: center;
+}
+
 .logout-button {
   cursor: pointer;
   width: 41px;
@@ -58,5 +62,4 @@
   background-color: #382110;
   border: 1px solid #382110;
   border-radius: 3px;
-  align-self: center;
 }

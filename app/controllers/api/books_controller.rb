@@ -1,7 +1,9 @@
 class Api::BooksController < ApplicationController
 
     def index
-        @books = Book.joins(:shelves).where('shelf.id' => params[:id])
+        shelf = Shelf.find(params[:id])
+        @books = shelf.books
+        # @books = Book.joins(:shelves).where('shelf.id' => params[:id])
         render :index
     end
 
