@@ -16,28 +16,28 @@ cage = User.create!(
   password: "notthebees"
 );
 
-  cageall = Shelf.create!(
-    title: "All",
-    user_id: cage.id,
-    default_shelf: true
-  )
+  # cageall = Shelf.create!(
+  #   title: "All",
+  #   user_id: cage.id,
+  #   default_shelf: true
+  # )
 
-  cageread = Shelf.create!(
-    title: "Read",
-    user_id: cage.id,
-    default_shelf: true
-  )
+  # cageread = Shelf.create!(
+  #   title: "Read",
+  #   user_id: cage.id,
+  #   default_shelf: true
+  # )
 
-  Shelf.create!(
-    title: "Currently Reading",
-    user_id: cage.id,
-    default_shelf: true
-  )
+  # Shelf.create!(
+  #   title: "Currently Reading",
+  #   user_id: cage.id,
+  #   default_shelf: true
+  # )
 
-  Shelf.create!(
-    title: "Want to Read",
-    user_id: cage.id,
-    default_shelf: true
-  )
+  # Shelf.create!(
+  #   title: "Want to Read",
+  #   user_id: cage.id,
+  #   default_shelf: true
+  # )
 
   
