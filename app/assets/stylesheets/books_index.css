@@ -1,5 +1,14 @@
 .shelf-books-list {
   text-align: left;
+  width: 100%;
+  border-spacing: 2px;
+}
+
+th {
+  font-size: 12px;
+  font-weight: 700;
+  color: #382110;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .shelf-show-item {
@@ -21,4 +30,24 @@
 
 .shelf-show-title {
   width: 25%;
+}
+
+.shelf-show-author {
+  width: 50px;
+}
+
+.shelf-show-avg-rating {
+  width: 50px;
+}
+
+.shelf-show-rating {
+  width: 50px;
+}
+
+.shelf-show-shelves {
+  width: 50px;
+}
+
+.shelf-show-date-added {
+  width: 50px;
 }

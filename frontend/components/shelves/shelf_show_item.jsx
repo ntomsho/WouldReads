@@ -10,25 +10,25 @@ class ShelfShowItem extends React.Component {
   render() {
     return (
       <tr className="shelf-show-item">
-        <td className="shelf-show-cell" className="shelf-show-cover">
+        <td className="shelf-show-cell">
           <p>PH</p>
         </td >
-        <td className="shelf-show-cell" className="shelf-show-title">
+        <td className="shelf-show-cell">
           <p>{this.props.book.title}</p>
         </td>
-        <td className="shelf-show-cell" className="shelf-show-author">
+        <td className="shelf-show-cell">
           <p>{this.props.book.author}</p>
         </td>
-        <td className="shelf-show-cell" className="shelf-show-avg-rating">
+        <td className="shelf-show-cell">
           <p>Placeholder</p>
         </td>
-        <td className="shelf-show-cell" className="shelf-show-rating">
+        <td className="shelf-show-cell">
           <p>Placeholder</p>
         </td>
-        <td className="shelf-show-cell" className="shelf-show-shelves">
+        <td className="shelf-show-cell">
           <p>Placeholder</p>
         </td >
-        <td className="shelf-show-cell" className="shelf-show-date-added">
+        <td className="shelf-show-cell">
           <p>Placeholder</p>
         </td >
       </tr>
