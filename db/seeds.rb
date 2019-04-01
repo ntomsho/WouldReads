@@ -15,6 +15,12 @@ cage = User.create!(
 );
 
   Shelf.create!(
+    title: "All",
+    user_id: cage.id,
+    default_shelf: true
+  )
+
+  Shelf.create!(
     title: "Read",
     user_id: cage.id,
     default_shelf: true

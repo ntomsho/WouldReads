@@ -32,9 +32,10 @@ class Api::ShelvesController < ApplicationController
   end
 
   def destroy
-    @shelf = Shelf.find_by(params[:id])
-    @shelf.delete
-    render "api/shelves/index"
+    @shelf = Shelf.find(params[:id])
+    shelf_id = @shelf.id
+    @shelf.destroy
+    render json: {id: shelf_id}
   end
 
   private
