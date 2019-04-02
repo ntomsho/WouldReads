@@ -19,7 +19,7 @@ const App = () => (
     </header>
     <Switch>
       <ProtectedRoute path="/shelves" component={MainLoggedIn} />
-      <ProtectedRoute path="/books/:id" component={BookShowContainer} />
+      <Route path="/books/:id" component={BookShowContainer} />
       <AuthRoute exact path="/" component={MainLoggedOut} />
     </Switch>
     {/* <Route path="/signin" component={SigninFormContainer}/>

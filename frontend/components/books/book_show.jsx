@@ -11,10 +11,6 @@ class BookShow extends React.Component {
     this.props.fetchBook(this.props.match.params.id);
   }
 
-  componentWillUnmount() {
-
-  }
-
   render() {
     const bookShow = () => {
       if (this.props.currentBook) {

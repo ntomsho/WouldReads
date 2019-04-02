@@ -1,3 +1,7 @@
+.shelves-index-container {
+    margin-right: 10px;
+}
+
 .shelf-index-item {
     display: flex;
     justify-content: space-between;
@@ -7,8 +11,16 @@
     text-decoration: none;
 }
 
+.shelf-index-name {
+    color: #00635d;
+}
+
+.shelf-index-name-active {
+    color: #777777;
+}
+
 .shelves-index-list {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .shelves-divider {

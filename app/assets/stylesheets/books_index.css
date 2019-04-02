@@ -36,6 +36,16 @@ th {
   padding: 12px 5px 5px 0;
   margin: 0;
   vertical-align: text-top;
+  word-wrap: break-word;
+}
+
+.shelf-show-link {
+  color: #00635d;
+  text-decoration: none;
+}
+
+.shelf-show-link:hover {
+  text-decoration: underline;
 }
 
 .shelf-show-cover {

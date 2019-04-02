@@ -12,7 +12,7 @@ class ShelfShowItem extends React.Component {
     let shelvesByBook = book.shelves.map (id => {
       if (shelves[id].title !== "All") {
         return (
-          <Link to={`/shelves/${id}`} key={shelves[id].id}>{shelves[id].title}</Link>
+          <Link to={`/shelves/${id}`} className="shelf-show-link" key={shelves[id].id}>{shelves[id].title}</Link>
         );
       }
     });
@@ -23,7 +23,7 @@ class ShelfShowItem extends React.Component {
           <Link to={`/books/${this.props.book.id}`}>PH</Link>
         </td >
         <td className="shelf-show-cell shelf-show-title">
-          <Link to={`/books/${this.props.book.id}`}>{this.props.book.title}</Link>
+          <Link to={`/books/${this.props.book.id}`} className="shelf-show-link">{this.props.book.title}</Link>
         </td>
         <td className="shelf-show-cell shelf-show-author">
           <p>{this.props.book.author}</p>
