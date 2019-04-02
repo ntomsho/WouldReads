@@ -10,9 +10,11 @@ class ShelfShowItem extends React.Component {
   render() {
     const {book, shelves} = this.props;
     let shelvesByBook = book.shelves.map (id => {
-      return (
-        <Link to="" key={shelves[id].id}>{shelves[id].title}</Link>
-      );
+      if (shelves[id].title !== "All") {
+        return (
+          <Link to="" key={shelves[id].id}>{shelves[id].title}</Link>
+        );
+      }
     });
 
     return (
