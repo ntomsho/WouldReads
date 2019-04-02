@@ -13,6 +13,11 @@
 
 .shelf-index-name {
     color: #00635d;
+    text-decoration: none;
+}
+
+.shelf-index-name:hover {
+    text-decoration: underline;
 }
 
 .shelf-index-name-active {
