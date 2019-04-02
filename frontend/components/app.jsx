@@ -2,6 +2,7 @@ import React from 'react';
 import NavbarContainer from './navbar/navbar_container';
 import MainLoggedIn from './main/main_logged_in_container';
 import MainLoggedOut from './main/main_logged_out_container';
+import BookShowContainer from './books/book_show_container';
 import {
   Route,
   Redirect,
@@ -18,6 +19,7 @@ const App = () => (
     </header>
     <Switch>
       <ProtectedRoute path="/shelves" component={MainLoggedIn} />
+      <ProtectedRoute path="/books/:id" component={BookShowContainer} />
       <AuthRoute exact path="/" component={MainLoggedOut} />
     </Switch>
     {/* <Route path="/signin" component={SigninFormContainer}/>

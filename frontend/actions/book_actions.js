@@ -8,7 +8,7 @@ export const fetchBooks = (shelf) => dispatch => {
 };
 
 export const fetchBook = (id) => dispatch => {
-  return BookApiUtil.fetchBook(id).then(book => dispatch(receiveShelf(book)));
+  return BookApiUtil.fetchBook(id).then(book => dispatch(receiveBook(book)));
 };
 
 export const receiveBooks = (books) => ({

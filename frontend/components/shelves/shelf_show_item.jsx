@@ -12,7 +12,7 @@ class ShelfShowItem extends React.Component {
     let shelvesByBook = book.shelves.map (id => {
       if (shelves[id].title !== "All") {
         return (
-          <Link to="" key={shelves[id].id}>{shelves[id].title}</Link>
+          <Link to={`/shelves/${id}`} key={shelves[id].id}>{shelves[id].title}</Link>
         );
       }
     });
@@ -20,10 +20,10 @@ class ShelfShowItem extends React.Component {
     return (
       <tr className="shelf-show-item">
         <td className="shelf-show-cell shelf-show-cover">
-          <p>PH</p>
+          <Link to={`/books/${this.props.book.id}`}>PH</Link>
         </td >
         <td className="shelf-show-cell shelf-show-title">
-          <p>{this.props.book.title}</p>
+          <Link to={`/books/${this.props.book.id}`}>{this.props.book.title}</Link>
         </td>
         <td className="shelf-show-cell shelf-show-author">
           <p>{this.props.book.author}</p>
@@ -48,4 +48,4 @@ class ShelfShowItem extends React.Component {
 
 }
 
-export default ShelfShowItem;
+export default withRouter(ShelfShowItem);

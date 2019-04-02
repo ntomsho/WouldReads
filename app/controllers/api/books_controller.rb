@@ -7,7 +7,7 @@ class Api::BooksController < ApplicationController
     end
 
     def show
-        @book = Book.find_by(params[:id])
+        @book = Book.find(params[:id])
         render :show
     end
 
