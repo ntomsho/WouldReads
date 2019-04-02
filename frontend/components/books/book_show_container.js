@@ -5,7 +5,7 @@ import * as BookActions from '../../actions/book_actions';
 const msp = ({session, entities}, ownProps) => {
   return {
     currentUser: entities.users[session.id],
-    book: entities.books,
+    currentBook: entities.books[parseInt(ownProps.match.params.id)],
     shelves: Object.keys(entities.shelves).map(id => entities.shelves[id])
   };
 };

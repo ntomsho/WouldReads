@@ -47,6 +47,11 @@
   margin: 0;
 }
 
+.book-show-avg-rating {
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
 .book-show-synopsis {
   font-family: "Merriweather", "Georgia", serif;
   color: #181818;
