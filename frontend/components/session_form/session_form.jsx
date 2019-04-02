@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    debugger
   }
 
   handleSubmit(e) {
@@ -26,9 +27,11 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
+    debugger
     if (this.props.errors.length > 0) {
+      debugger
       return (
-        <ul>
+        <ul className="errors-list">
           {this.props.errors.map((error, i) => (
             <li key={`error ${i}:`}>
               {error}
@@ -62,11 +65,13 @@ class SessionForm extends React.Component {
       <div className="session-form-container">
         <form onSubmit={this.handleSubmit} className="session-form-box">
           {this.signupGreeting()}
-          {this.renderErrors()}
           {this.usernameField()}
           <input type="text" value={this.state.email} placeholder="Email Address" onChange={this.update('email')} className="session-input" />
           <input type="text" value={this.state.password} placeholder="Password" onChange={this.update('password')} className="session-input"/>
-          <input type="submit" value={this.props.formType} className="session-submit" />
+          <div className="submit-and-errors">
+            <input type="submit" value={this.props.formType} className="session-submit" />
+            {this.renderErrors()}
+          </div>
         </form>
       </div>
     )

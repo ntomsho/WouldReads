@@ -56,6 +56,11 @@
   border-radius: 3px;
 }
 
+.submit-and-errors {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .logged-out-masthead .session-submit {
   box-sizing: content-box;
   width: 69px;
@@ -69,6 +74,11 @@
   color: #333333;
   position: relative;
   left: 2px;
+}
+
+.session-errors-list {
+  font-size: 12px;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
 }
 
 .sign-up-area {

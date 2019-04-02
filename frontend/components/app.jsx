@@ -22,9 +22,6 @@ const App = () => (
       <Route path="/books/:id" component={BookShowContainer} />
       <AuthRoute exact path="/" component={MainLoggedOut} />
     </Switch>
-    {/* <Route path="/signin" component={SigninFormContainer}/>
-    <Route path="/signup" component={SignupFormContainer} /> */}
-    
   </div>
 );
 
