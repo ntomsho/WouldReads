@@ -30,7 +30,7 @@ class BookShow extends React.Component {
                   {this.props.book.title}
                 </div>
                 <div className="book-show-author">
-                  {this.props.book.author}
+                  <p>by {this.props.book.author}</p>
                 </div>
                 <div className="book-show-avg-rating">
                 </div>
@@ -49,7 +49,7 @@ class BookShow extends React.Component {
         )
       }
     }
-    debugger
+
     return (
       <>
         {bookShow()}

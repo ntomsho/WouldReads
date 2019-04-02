@@ -3,7 +3,6 @@ import BookShow from './book_show';
 import * as BookActions from '../../actions/book_actions';
 
 const msp = ({session, entities}, ownProps) => {
-  debugger
   return {
     currentUser: entities.users[session.id],
     book: entities.books,
