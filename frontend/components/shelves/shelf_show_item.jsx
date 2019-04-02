@@ -8,28 +8,37 @@ class ShelfShowItem extends React.Component {
   }
 
   render() {
+    const {book, shelves} = this.props;
+    let shelvesByBook = book.shelves.map (id => {
+      return (
+        <Link to="" key={shelves[id].id}>{shelves[id].title}</Link>
+      );
+    });
+
     return (
       <tr className="shelf-show-item">
-        <td className="shelf-show-cell">
+        <td className="shelf-show-cell shelf-show-cover">
           <p>PH</p>
         </td >
-        <td className="shelf-show-cell">
+        <td className="shelf-show-cell shelf-show-title">
           <p>{this.props.book.title}</p>
         </td>
-        <td className="shelf-show-cell">
+        <td className="shelf-show-cell shelf-show-author">
           <p>{this.props.book.author}</p>
         </td>
-        <td className="shelf-show-cell">
-          <p>Placeholder</p>
+        <td className="shelf-show-cell shelf-show-avg-rating">
+          <p>PH</p>
         </td>
-        <td className="shelf-show-cell">
-          <p>Placeholder</p>
+        <td className="shelf-show-cell shelf-show-rating">
+          <p>PH</p>
         </td>
-        <td className="shelf-show-cell">
-          <p>Placeholder</p>
+        <td className="shelf-show-cell shelf-show-shelves">
+          <div className="shelves-by-book">
+            {shelvesByBook}
+          </div>
         </td >
-        <td className="shelf-show-cell">
-          <p>Placeholder</p>
+        <td className="shelf-show-cell shelf-show-date-added">
+          <p>PH</p>
         </td >
       </tr>
     )

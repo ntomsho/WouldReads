@@ -48,7 +48,7 @@ class ShelfShow extends React.Component {
         <tbody>
           {this.props.books.map(book => {
             return (
-              <ShelfShowItem book={book} key={book.id} />
+              <ShelfShowItem book={book} key={book.id} shelves={this.props.shelves} />
             )
             })
           }

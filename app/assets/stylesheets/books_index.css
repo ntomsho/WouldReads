@@ -1,7 +1,15 @@
 .shelf-books-list {
   text-align: left;
-  width: 100%;
+  width: 750px;
+  table-layout: fixed;
   border-spacing: 2px;
+  border-collapse: collapse;
+  box-sizing: content-box;
+}
+
+thead {
+  border-bottom: 2px solid rgb(235, 232, 213);
+  line-height: 18px;
 }
 
 th {
@@ -9,11 +17,16 @@ th {
   font-weight: 700;
   color: #382110;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  vertical-align: bottom;
 }
 
 .shelf-show-item {
-  display: flex;
-  justify-content: space-between;
+  display: table-row;
+  width: 750px;
+}
+
+.shelf-show-item p {
+  margin: 0;
 }
 
 .shelf-show-cell {
@@ -22,10 +35,15 @@ th {
   display: table-cell;
   padding: 12px 5px 5px 0;
   margin: 0;
+  vertical-align: text-top;
 }
 
 .shelf-show-cover {
   width: 50px;
+}
+
+.shelf-show-item .shelf-show-cover {
+  height: 79px;
 }
 
 .shelf-show-title {
@@ -33,19 +51,24 @@ th {
 }
 
 .shelf-show-author {
-  width: 50px;
+  width: 86px;
 }
 
 .shelf-show-avg-rating {
-  width: 50px;
+  width: 46px;
 }
 
 .shelf-show-rating {
-  width: 50px;
+  width: 86px;
 }
 
 .shelf-show-shelves {
-  width: 50px;
+  width: 59px;
+}
+
+.shelves-by-book {
+  display: flex;
+  flex-direction: column;
 }
 
 .shelf-show-date-added {
