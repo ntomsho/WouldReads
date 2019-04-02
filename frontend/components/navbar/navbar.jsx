@@ -6,7 +6,7 @@ const Navbar = ({currentUser, logout}) => {
   
   const loggedOutNavbar = () => {
     return (
-      <div className="navbar-container">
+      <div className="navbar-container navbar-loggedout">
         <Link to="/"><img src={window.logoURL}
           className="navbar-logo" /></Link>
         <SigninFormContainer />
@@ -14,14 +14,22 @@ const Navbar = ({currentUser, logout}) => {
     );
   };
 
+  const logoutFunc = () => {
+    logout();
+    const background = document.getElementById('background-container');
+    background.className ='bg-active';
+  }
+
   const loggedInNavbar = () => {
     return (
-    <div className="navbar-container">
+    <div className="navbar-container navbar-loggedin">
         <Link to="/"><img src={window.logoURL}
           className="navbar-logo" /></Link>
       <div className="logged-in-header">
-        <h2 className="header-name">Placeholder {currentUser.username}</h2>
-          <Link to="/" className="logout-button-container"><button className="logout-button" onClick={logout}>Logout</button></Link>
+        <Link to="" className="navbar-text-button">Home</Link>
+        <Link to="" className="navbar-text-button">My Books</Link>
+        <Link to="" className="navbar-text-button navbar-dropdown">Browse</Link>
+        <Link to="/" className="logout-button-container"><button className="logout-button" onClick={logoutFunc}>Logout</button></Link>
       </div>
     </div>
     );

@@ -18,6 +18,8 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user).then(() => this.props.history.push(`/shelves`));
+    const background = document.getElementById('background-container');
+    background.className ='bg-inactive';
   }
 
   update(field) {

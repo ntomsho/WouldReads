@@ -16,7 +16,11 @@
 
  #root {
    /* background-image: url("session_page_background.jpg"); */
-  background-image: image-url('session_page_background.jpg');
+  // background-image: image-url('session_page_background.jpg');
+ }
+
+ .bg-active {
+   background-image: image-url('session_page_background.jpg');
  }
 
  body {

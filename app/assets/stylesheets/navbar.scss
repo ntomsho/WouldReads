@@ -1,9 +1,18 @@
-.navbar-container {
-  height: 65px;
-  padding-top: 10px;
+.navbar-loggedout {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
+  height: 65px;
+  padding-top: 10px;
+}
+
+.navbar-loggedin {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 50px;
+  padding-top: 0px;
+  background-color: #F4F1EA;
 }
 
 .navbar-container img {
@@ -43,6 +52,21 @@
 
 .logged-in-header {
   display: flex;
+}
+
+.navbar-text-button {
+  color: #382110;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: 16px;
+  line-height: 50px;
+  padding: 0 30px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.navbar-text-button:hover {
+  color: #FFFFFF;
+  background-color: #382110;
 }
 
 .logout-button-container {
