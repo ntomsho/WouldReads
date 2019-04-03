@@ -1,10 +1,31 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import { fetchShelf } from '../../util/shelf_api_util';
 
 class ShelfShowItem extends React.Component {
 
   constructor(props) {
+    debugger
     super(props);
+    this.shelving = null;
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.book.shelf_books.forEach(shelf_book => {
+      if (shelf_book.shelf_id === parseInt(this.props.shelf)) {
+        this.shelving = shelf_book;
+      }
+    });
+  }
+
+  handleClick() {
+    debugger
+    this.props.deleteShelfBook(this.shelving.id)
+      .then(() => {
+        debugger
+        this.props.fetchShelf(this.props.shelf);
+      });
   }
 
   render() {
@@ -20,7 +41,7 @@ class ShelfShowItem extends React.Component {
     return (
       <tr className="shelf-show-item">
         <td className="shelf-show-cell shelf-show-cover">
-          <Link to={`/books/${this.props.book.id}`}>PH</Link>
+          <Link to={`/books/${this.props.book.id}`}><img src={this.props.book.coverUrl}/></Link>
         </td >
         <td className="shelf-show-cell shelf-show-title">
           <Link to={`/books/${this.props.book.id}`} className="shelf-show-link">{this.props.book.title}</Link>
@@ -42,6 +63,9 @@ class ShelfShowItem extends React.Component {
         <td className="shelf-show-cell shelf-show-date-added">
           <p>PH</p>
         </td >
+        <td className="shelf-show-cell shelf-show-delete" onClick={this.handleClick}>
+          X
+        </td>
       </tr>
     )
   };

@@ -12,3 +12,18 @@ export const fetchBook = (id) => {
     url: `api/books/${id}`
   });
 };
+
+export const createShelfBook = (shelf_book) => {
+  return $.ajax({
+    method: "POST",
+    url: `api/books`,
+    data: {shelf_book}
+  });
+};
+
+export const deleteShelfBook = (shelfBookId) => {
+  return $.ajax({
+    method: "DELETE",
+    url: `api/books/${shelfBookId}`
+  });
+};

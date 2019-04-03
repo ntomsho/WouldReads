@@ -14,7 +14,8 @@ const msp = ({entities}, ownProps) => {
 const mdp = (dispatch) => {
   return {
     fetchBooks: (shelf => dispatch(BookActions.fetchBooks(shelf))),
-    fetchShelf: (id => dispatch(ShelfActions.fetchShelf(id)))
+    fetchShelf: (id => dispatch(ShelfActions.fetchShelf(id))),
+    deleteShelfBook: (shelfBookId => dispatch(BookActions.deleteShelfBook(shelfBookId)))
   };
 };
 

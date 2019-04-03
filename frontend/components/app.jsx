@@ -13,7 +13,7 @@ import {
 import {AuthRoute, ProtectedRoute} from '../util/route_utils';
 
 const App = () => (
-  <div id="background-container" className="bg-active">
+  <div id="background-container" className="bg-inactive">
     <header>
       <NavbarContainer />
     </header>
