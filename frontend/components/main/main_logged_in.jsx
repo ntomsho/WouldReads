@@ -16,8 +16,13 @@ class MainLoggedIn extends React.Component {
   render() {
     return (
       <div className="main-logged-in">
-        <ShelfIndexContainer />
-        <Route path="/shelves/:shelfId" component={ShelfShowContainer} />
+        <div className="logged-in-header-bar">
+          <h3 className="logged-in-header">My Books</h3>
+        </div>
+        <div className="shelf-index-area">
+          <ShelfIndexContainer />
+          <Route path="/shelves/:shelfId" component={ShelfShowContainer} />
+        </div>
       </div>
     );
   }

@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 970px;
+  margin: 0px auto;
+  margin-top: 15px;
 }
 
 .book-show-top {

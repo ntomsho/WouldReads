@@ -8,7 +8,7 @@ const Navbar = ({currentUser, logout}) => {
     return (
       <div className="navbar-container navbar-loggedout">
         <Link to="/"><img src={window.logoURL}
-          className="navbar-logo" /></Link>
+          className="navbar-logo logo-logged-out" /></Link>
         <SigninFormContainer />
       </div>
     );
@@ -18,7 +18,7 @@ const Navbar = ({currentUser, logout}) => {
     return (
     <div className="navbar-container navbar-loggedin">
         <Link to="/"><img src={window.logoURL}
-          className="navbar-logo" /></Link>
+          className="navbar-logo logo-logged-in" /></Link>
       <div className="logged-in-header">
         <Link to="" className="navbar-text-button">Home</Link>
         <Link to="" className="navbar-text-button">My Books</Link>
