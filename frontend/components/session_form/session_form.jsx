@@ -18,8 +18,6 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user).then(() => this.props.history.push(`/shelves`));
-    const background = document.getElementById('background-container');
-    background.className ='bg-inactive';
   }
 
   update(field) {
@@ -67,13 +65,11 @@ class SessionForm extends React.Component {
       <div className="session-form-container">
         <form onSubmit={this.handleSubmit} className="session-form-box">
           {this.signupGreeting()}
+          {this.renderErrors()}
           {this.usernameField()}
           <input type="text" value={this.state.email} placeholder="Email Address" onChange={this.update('email')} className="session-input" />
           <input type="text" value={this.state.password} placeholder="Password" onChange={this.update('password')} className="session-input"/>
-          <div className="submit-and-errors">
-            <input type="submit" value={this.props.formType} className="session-submit" />
-            {this.renderErrors()}
-          </div>
+          <input type="submit" value={this.props.formType} className="session-submit" />
         </form>
       </div>
     )
