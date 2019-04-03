@@ -7,17 +7,19 @@ class Api::BooksController < ApplicationController
     end
 
     def create
-        debugger
         @shelf_book = ShelfBook.new(shelf_book_params)
         default_shelves = Shelf.select('id').where(:user_id => current_user.id).where(:default_shelf => true).to_a
+        default_shelf_ids = default_shelves.map {|shelf| shelf.id}
         all_shelf = Shelf.select('id').where(:user_id => current_user.id).where(:title => "All")
-        if default_shelves.include?(@shelf_book.shelf_id)
-            debugger
-            old_book = ShelfBook.find_by(shelf_id: @shelf_book.shelf_id, book_id: @shelf_book.book_id)
-            old_book.destroy
+        if default_shelf_ids.include?(@shelf_book.shelf_id)
+            old_shelvings = []
+            @shelf_book.book.shelf_books.select do |shelving|
+                old_shelvings.push(shelving) if shelving.shelf.user_id = current_user.id
+            end 
+            old_shelvings.each {|shelving| shelving.destroy}
         end
         if @shelf_book.save!
-            all_book = ShelfBook.new(shelf_id: all_shelf, book_id: @shelf_book.book_id)
+            all_book = ShelfBook.create(shelf_id: all_shelf.first.id, book_id: @shelf_book.book_id)
             @book = Book.find(@shelf_book.book_id)
             render "api/books/show"
         else

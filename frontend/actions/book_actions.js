@@ -31,7 +31,6 @@ export const receiveBook = (book) => ({
 });
 
 export const removeShelfBook = (shelfBook) => {
-  debugger
   return (
   {
   type: REMOVE_SHELFBOOK,

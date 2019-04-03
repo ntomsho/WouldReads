@@ -11,7 +11,6 @@ class SessionForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    debugger
   }
 
   handleSubmit(e) {
@@ -27,9 +26,7 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    debugger
     if (this.props.errors.length > 0) {
-      debugger
       return (
         <ul className="errors-list">
           {this.props.errors.map((error, i) => (

@@ -5,7 +5,6 @@ import { fetchShelf } from '../../util/shelf_api_util';
 class ShelfShowItem extends React.Component {
 
   constructor(props) {
-    debugger
     super(props);
     this.shelving = null;
     this.handleClick = this.handleClick.bind(this);
@@ -20,10 +19,8 @@ class ShelfShowItem extends React.Component {
   }
 
   handleClick() {
-    debugger
     this.props.deleteShelfBook(this.shelving.id)
       .then(() => {
-        debugger
         this.props.fetchShelf(this.props.shelf);
       });
   }
