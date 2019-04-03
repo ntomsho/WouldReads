@@ -16,7 +16,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then(() => this.props.history.push(`/shelves`));
   }
 
   update(field) {
@@ -28,7 +28,7 @@ class SessionForm extends React.Component {
   renderErrors() {
     if (this.props.errors.length > 0) {
       return (
-        <ul>
+        <ul className="errors-list">
           {this.props.errors.map((error, i) => (
             <li key={`error ${i}:`}>
               {error}

@@ -1,0 +1,93 @@
+.shelf-books-list {
+  text-align: left;
+  width: 750px;
+  table-layout: fixed;
+  border-spacing: 2px;
+  border-collapse: collapse;
+  box-sizing: content-box;
+}
+
+thead {
+  border-bottom: 2px solid rgb(235, 232, 213);
+  line-height: 18px;
+}
+
+th {
+  font-size: 12px;
+  font-weight: 700;
+  color: #382110;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  vertical-align: bottom;
+}
+
+.shelf-show-item {
+  display: table-row;
+  width: 750px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  border-collapse: collapse;
+}
+
+.shelf-show-item p {
+  margin: 0;
+}
+
+.shelf-show-cell {
+  font-size: 14px;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: table-cell;
+  padding: 12px 5px 5px 0;
+  margin: 0;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+.shelf-show-link {
+  color: #00635d;
+  text-decoration: none;
+}
+
+.shelf-show-link:hover {
+  text-decoration: underline;
+}
+
+.shelf-show-cover {
+  width: 50px;
+}
+
+.shelf-show-cover img {
+  width: 50px;
+}
+
+.shelf-show-item .shelf-show-cover {
+  height: 79px;
+}
+
+.shelf-show-title {
+  width: 25%;
+}
+
+.shelf-show-author {
+  width: 86px;
+}
+
+.shelf-show-avg-rating {
+  width: 46px;
+}
+
+.shelf-show-rating {
+  width: 86px;
+}
+
+.shelf-show-shelves {
+  width: 59px;
+}
+
+.shelves-by-book {
+  display: flex;
+  flex-direction: column;
+}
+
+.shelf-show-date-added {
+  width: 50px;
+}

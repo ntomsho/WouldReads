@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import configureStore from './store/store';
 import Root from './components/root';
-import * as ShelfApiUtil from './util/shelf_api_util';
+import * as BookApiUtil from './util/book_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
-  window.fetchShelves = ShelfApiUtil.fetchShelves;
+  window.fetchBooks = BookApiUtil.fetchBooks;
 
   ReactDOM.render(<Root store ={store}/>, root);
 });

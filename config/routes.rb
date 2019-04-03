@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :users, except: [:index, :new, :edit, :destroy]
     resource :session, only: [:create, :destroy, :show]
     resources :shelves, except: [:new, :edit]
-    resources :books, only: [:index, :show]
+    resources :books, only: [:index, :create, :show, :destroy]
   end
   
   root "static_pages#root"

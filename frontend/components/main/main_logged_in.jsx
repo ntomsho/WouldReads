@@ -1,13 +1,31 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Route} from 'react-router-dom';
 import ShelfIndexContainer from '../shelves/shelf_index_container';
+import ShelfShowContainer from '../shelves/shelf_show_container';
 
-const MainLoggedIn = (props) => {
-  return (
-    <div className="main-logged-in">
-      <ShelfIndexContainer />
-    </div>
-  );
+class MainLoggedIn extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  
+  componentDidMount() {
+    const background = document.getElementById('background-container');
+    background.className ='bg-inactive';
+  }
+
+  render() {
+    return (
+      <div className="main-logged-in">
+        <div className="logged-in-header-bar">
+          <h3 className="logged-in-header">My Books</h3>
+        </div>
+        <div className="shelf-index-area">
+          <ShelfIndexContainer />
+          <Route path="/shelves/:shelfId" component={ShelfShowContainer} />
+        </div>
+      </div>
+    );
+  }
 };
 
 export default withRouter(MainLoggedIn);

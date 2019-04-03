@@ -14,4 +14,6 @@ class Book < ApplicationRecord
     #     through: :shelf_books,
     #     source: :shelf
 
+    has_one_attached :cover
+
 end

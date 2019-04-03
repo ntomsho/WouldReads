@@ -8,7 +8,7 @@ class ShelfIndexItem extends React.Component {
   }
 
   render() {
-    const { title } = this.props.shelf;
+    const { title, books } = this.props.shelf;
     let deleteButton
     if (this.props.shelf.default_shelf === false) {
       deleteButton = (<button onClick={() => {
@@ -19,7 +19,11 @@ class ShelfIndexItem extends React.Component {
     
     return (
     <li className="shelf-index-item">
-      <NavLink to="">{title}</NavLink>
+      <NavLink to={`/shelves/${this.props.shelf.id}`}
+        shelf={this.props.shelf}
+        className="shelf-index-name"
+        activeClassName="shelf-index-name-active"
+        >{title} ({books.length})</NavLink>
       {deleteButton}
     </li>
     )
@@ -27,4 +31,4 @@ class ShelfIndexItem extends React.Component {
 
 }
 
-export default ShelfIndexItem
+export default withRouter(ShelfIndexItem);

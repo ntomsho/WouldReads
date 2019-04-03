@@ -7,8 +7,14 @@ class Api::ShelvesController < ApplicationController
     render :index
   end
 
+  # def index_by_book
+  #   book = Book.find(params[:id])
+  #   @shelves = book.shelves
+  #   render :index
+  # end
+
   def show
-    @shelf = Shelf.find_by(params[:id])
+    @shelf = Shelf.find(params[:id])
     render :show
   end
 
