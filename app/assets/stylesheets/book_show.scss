@@ -87,6 +87,8 @@
   vertical-align: top;
   transition: max-height 0.15s ease-out;
   overflow: hidden;
+  position: relative;
+  right: 20px;
 }
 
 .read-status-dropdown-button:hover .read-status-dropdown {
@@ -97,13 +99,22 @@
 .read-status-dropdown-shelves {
   list-style: none;
   overflow: hidden;
-  padding-left: 15px;
   padding-bottom: 2px;
+  padding-left: 0;
   color: #181818;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   line-height: 18px;
   margin: 2px 0;
+}
+
+.read-status-dropdown-shelves li {
+  padding-left: 15px;
+}
+
+.read-status-dropdown-shelves li:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
 }
 
 .book-show-top-middle {

@@ -5,16 +5,67 @@ class BookShow extends React.Component {
 
   constructor(props) {
     super(props);
+    this.currentReadShelf = this.currentReadShelf.bind(this);
+    this.shelfList = this.shelfList.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchBook(this.props.match.params.id);
+    this.props.fetchBook(parseInt(this.props.match.params.id));
     this.props.fetchShelves(this.props.currentUser);
+    debugger
   }
   
   // readStatusDropdown() {
     
   // }
+
+  currentReadShelf() {
+    debugger
+    const user_sbi = this.props.currentBook.shelf_books.map(shelf_book => {
+      return (
+        shelf_book.shelf_id
+      );
+    });
+
+    return (
+      <div>
+        {this.props.shelves.map (shelf => {
+          if (user_sbi.includes(shelf.id) && shelf.title !== "All") {
+            return (
+              <div key={shelf.id} className="default-shelf-active">
+                {shelf.title}
+              </div>
+            )
+          }
+        })}
+      </div>
+    )
+  }
+
+  shelfList() {
+    debugger
+    return (
+      <ul className="read-status-dropdown-shelves">
+        {this.props.shelves.map(shelf => {
+          if (shelf.title !== "All" && shelf.default_shelf === true && !this.props.currentBook.shelf_books.includes(shelf.id)) {
+            return (
+              <li key={shelf.id} className="default-shelf-inactive" onClick={this.addBookToShelf(shelf.id)}>
+                {shelf.title}
+              </li>
+            )
+          }
+          if (shelf.default_shelf === false) {
+            return (
+              <li key={shelf.id} className="nondefault-shelf" onClick={this.addBookToShelf(shelf.id)}>
+                {shelf.title}
+              </li>
+            )
+          }
+
+        })}
+      </ul>
+    )
+  }
 
   addBookToShelf (shelfId) {
     return e => {
@@ -25,35 +76,29 @@ class BookShow extends React.Component {
   }
 
   render() {
-    const bookShow = () => {
-      if (this.props.currentBook) {
+    const bookShow = function(props, that) {
+      debugger
+      if (that.props.currentBook) {
+        const currentReadShelf = that.currentReadShelf();
+        const shelfList = that.shelfList();
+        debugger
         return (
           <div className="book-show-main">
             <div className="book-show-top">
               <div className="book-show-top-left">
                 <div className="book-show-cover">
-                  <img src={this.props.currentBook.coverUrl} />
+                  <img src={that.props.currentBook.coverUrl} />
                 </div>
                 
                 <div className="book-show-read-status-container">
                   <div className="book-show-read-status-box">
-                    <div className="current-read-status">Read Status</div>
+                    <div className="current-read-status">{currentReadShelf}</div>
                   </div>
                   <button className="read-status-dropdown-button">
                   </button>
                 </div>
                 <div className="read-status-dropdown">
-                  <ul className="read-status-dropdown-shelves">
-                    {this.props.shelves.map(shelf => {
-                      if (shelf.title !== "All") {
-                        return (
-                          <li key={shelf.id} onClick={this.addBookToShelf(shelf.id)}>
-                            {shelf.title}
-                          </li>
-                        )
-                      }
-                    })}
-                  </ul>
+                  {shelfList}
                 </div>
                 
                 <div className="book-show-main-rating">
@@ -61,16 +106,16 @@ class BookShow extends React.Component {
               </div>
               <div className="book-show-top-middle">
                 <div className="book-show-title">
-                  {this.props.currentBook.title}
+                  {that.props.currentBook.title}
                 </div>
                 <div className="book-show-author">
-                  <p>by {this.props.currentBook.author}</p>
+                  <p>by {that.props.currentBook.author}</p>
                 </div>
                 <div className="book-show-avg-rating">
                   Placeholder
                 </div>
                 <div className="book-show-synopsis">
-                  {this.props.currentBook.synopsis}
+                  {that.props.currentBook.synopsis}
                 </div>
               </div>
               <div className="book-show-top-right">
@@ -87,7 +132,7 @@ class BookShow extends React.Component {
 
     return (
       <>
-        {bookShow()}
+        {bookShow(this.props, this)}
       </>
     )
   }
