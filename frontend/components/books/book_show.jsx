@@ -7,12 +7,12 @@ class BookShow extends React.Component {
     super(props);
     this.currentReadShelf = this.currentReadShelf.bind(this);
     this.shelfList = this.shelfList.bind(this);
+    this.toggleDropdown = this.toggleDropdown.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchBook(parseInt(this.props.match.params.id));
     this.props.fetchShelves(this.props.currentUser);
-    debugger
   }
   
   // readStatusDropdown() {
@@ -20,7 +20,6 @@ class BookShow extends React.Component {
   // }
 
   currentReadShelf() {
-    debugger
     const user_sbi = this.props.currentBook.shelf_books.map(shelf_book => {
       return (
         shelf_book.shelf_id
@@ -30,7 +29,7 @@ class BookShow extends React.Component {
     return (
       <div>
         {this.props.shelves.map (shelf => {
-          if (user_sbi.includes(shelf.id) && shelf.title !== "All") {
+          if (user_sbi.includes(shelf.id) && shelf.title !== "All" && shelf.default_shelf === true) {
             return (
               <div key={shelf.id} className="default-shelf-active">
                 {shelf.title}
@@ -43,7 +42,6 @@ class BookShow extends React.Component {
   }
 
   shelfList() {
-    debugger
     return (
       <ul className="read-status-dropdown-shelves">
         {this.props.shelves.map(shelf => {
@@ -75,13 +73,18 @@ class BookShow extends React.Component {
     };
   }
 
+  toggleDropdown() {
+    let dropdown = document.getElementById("read-status-dropdown");
+    dropdown.className === "dropdown-hidden" ? 
+    dropdown.className = "dropdown-open" :
+    dropdown.className = "dropdown-hidden";
+  }
+
   render() {
     const bookShow = function(props, that) {
-      debugger
       if (that.props.currentBook) {
         const currentReadShelf = that.currentReadShelf();
         const shelfList = that.shelfList();
-        debugger
         return (
           <div className="book-show-main">
             <div className="book-show-top">
@@ -94,10 +97,10 @@ class BookShow extends React.Component {
                   <div className="book-show-read-status-box">
                     <div className="current-read-status">{currentReadShelf}</div>
                   </div>
-                  <button className="read-status-dropdown-button">
+                  <button className="read-status-dropdown-button" onClick={that.toggleDropdown}>
                   </button>
                 </div>
-                <div className="read-status-dropdown">
+                <div id="read-status-dropdown" className="dropdown-hidden">
                   {shelfList}
                 </div>
                 
