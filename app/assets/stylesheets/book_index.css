@@ -1,0 +1,49 @@
+.book-index-container {
+  width: 970px;
+  margin: 0px auto;
+  background: #FFFFFF;
+}
+
+.books-list {
+  list-style: none;
+  margin: 0;
+}
+
+.book-index-entry {
+  display: flex;
+  justify-content: flex-start;
+  width: 625px;
+  border-collapse: collapse;
+  border-spacing: 2px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.book-index-cover img {
+  width: 50px;
+  padding: 5px;
+}
+
+.title-author-box {
+  padding: 5px;
+}
+
+.book-index-title {
+  color: #333333;
+  font-family: "Merriweather", "Georgia", serif;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.book-index-title:hover {
+  text-decoration: underline;
+}
+
+.book-index-author {
+  font-size: 12px;
+  line-height: 150%;
+  color: #333;
+  font-family: "Merriweather", "Georgia", serif;
+}
+

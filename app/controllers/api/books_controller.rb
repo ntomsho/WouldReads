@@ -1,9 +1,14 @@
 class Api::BooksController < ApplicationController
 
     def index
-        shelf = Shelf.find(params[:id])
-        @books = shelf.books
-        render :index
+        if params[:id]
+            shelf = Shelf.find(params[:id])
+            @books = shelf.books
+            render :index
+        else
+            @books = Book.all
+            render :index
+        end
     end
 
     def create
