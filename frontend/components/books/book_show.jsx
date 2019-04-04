@@ -14,10 +14,6 @@ class BookShow extends React.Component {
     this.props.fetchBook(parseInt(this.props.match.params.id));
     this.props.fetchShelves(this.props.currentUser);
   }
-  
-  // readStatusDropdown() {
-    
-  // }
 
   currentReadShelf() {
     const user_sbi = this.props.currentBook.shelf_books.map(shelf_book => {
