@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
+
 User.destroy_all
 Shelf.destroy_all
 Book.destroy_all
@@ -47,6 +49,8 @@ ShelfBook.destroy_all
       genre: "Nonfiction",
       synopsis: "A beginner's guide to voodoo"
     )
+    
+    voodoo.cover.attach(io: open("https://s3.amazonaws.com/wouldreads-seed/voodoo_cover.jpg"), filename: "voodoo_cover")
 
     ghost = Book.create!(
       title: "Ghost Rider vol. 1",
@@ -55,6 +59,8 @@ ShelfBook.destroy_all
       genre: "Comicbook",
       synopsis: "The one with the flaming skull head guy"
     )
+
+    ghost.cover.attach(io: open("https://s3.amazonaws.com/wouldreads-seed/ghost_rider_cover.jpg"), filename: "ghost_rider_cover")
 
       ShelfBook.create!(
         book_id: voodoo.id,
