@@ -10,6 +10,10 @@ class Book < ApplicationRecord
         foreign_key: :book_id,
         class_name: :ShelfBook
 
+    has_many :reviews,
+        foreign_key: :book_id,
+        class_name: :Review
+
     has_many :shelves,
         through: :shelf_books,
         source: :shelf
