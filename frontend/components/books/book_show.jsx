@@ -101,7 +101,6 @@ class BookShow extends React.Component {
   }
 
   starRating() {
-    // debugger
     if (this.myRating() === undefined) {
       return (
         <div className="active-shelf-rating">
