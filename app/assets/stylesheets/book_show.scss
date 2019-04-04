@@ -7,6 +7,12 @@
   margin-top: 15px;
 }
 
+.book-show-main-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .book-show-top {
   display: flex;
   align-items: space-between;
@@ -133,28 +139,44 @@
   text-align: center;
 }
 
-.rating img {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
+.active-shelf-rating span {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background-image: image-url('star-off.png');
+    background-size: 15px;
+    text-align: center;
 }
 
-.rating {
+.active-shelf-rating .hover {
+    background-image: image-url('star-on.png');
+    background-size: 15px;
+    width: 15px;
+    height: 15px;
+}
+
+.active-shelf-rating {
   display: flex;
   flex-direction: row-reverse;
   width: 75px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.active-rating > span:hover:before,
-.active-rating > span:hover ~ span:before {
-  // content: image-url('star-on.png');
-  position: absolute;
+.shelf-rating span {
+    width: 15px;
+    height: 15px;
+    background-image: image-url('star-off.png');
+    background-size: 15px;
+    text-align: center;
+}
+
+.shelf-rating .star-on {
+    background-image: image-url('star-on.png')
+}
+
+.shelf-rating {
+  display: flex;
+  flex-direction: row-reverse;
   width: 75px;
-  height: 15px;
-  width: 15px;
-  cursor: pointer;
 }
 
 .book-show-top-middle {

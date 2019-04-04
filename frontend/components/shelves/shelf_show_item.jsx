@@ -36,55 +36,69 @@ class ShelfShowItem extends React.Component {
     });
   }
 
+  hover(number) {
+    for (let i=parseInt(number); i > 0; i--) {
+      let star = document.getElementById(i);
+      star.className = "hover";
+    }
+  }
+
+  unhover(number) {
+    for (let i = parseInt(number); i > 0; i--) {
+      let star = document.getElementById(i);
+      star.className = "unhover";
+    }
+  }
+
   starRating() {
     if (this.myRating === null) {
       return (
-        <div className="shelf-rating">
-          <span onClick={() => this.handleSubmit(5)}>
-            <img src={window.offStar} /></span>
-          <span onClick={() => this.handleSubmit(4)}>
-            <img src={window.offStar} /></span>
-          <span onClick={() => this.handleSubmit(3)}>
-            <img src={window.offStar} /></span>
-          <span onClick={() => this.handleSubmit(2)}>
-            <img src={window.offStar} /></span>
-          <span onClick={() => this.handleSubmit(1)}>
-            <img src={window.offStar} /></span>
+        <div className="active-shelf-rating">
+          <span id="5" onMouseEnter={() => this.hover(5)} onMouseLeave={() => this.unhover(5)} onClick={() => this.handleSubmit(5)}>
+            </span>
+          <span id="4" onMouseEnter={() => this.hover(4)} onMouseLeave={() => this.unhover(4)} onClick={() => this.handleSubmit(4)}>
+            </span>
+          <span id="3" onMouseEnter={() => this.hover(3)} onMouseLeave={() => this.unhover(3)} onClick={() => this.handleSubmit(3)}>
+            </span>
+          <span id="2" onMouseEnter={() => this.hover(2)} onMouseLeave={() => this.unhover(2)} onClick={() => this.handleSubmit(2)}>
+            </span>
+          <span id="1" onMouseEnter={() => this.hover(1)} onMouseLeave={() => this.unhover(1)} onClick={() => this.handleSubmit(1)}>
+            </span>
         </div>
       )
     }
     if (this.myRating === 5) {
       return (
         <div className="shelf-rating">
-          <span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span>
+          <span className="star-on"></span><span className="star-on"></span><span className="star-on"></span><span className="star-on"></span><span className="star-on"></span>
         </div>
       )
     }
     if (this.myRating === 4) {
       return (
         <div className="shelf-rating">
-          <span><img src={window.offStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span>
+          <span></span><span className="star-on"></span><span className="star-on"></span><span className="star-on"></span><span className="star-on"></span>
         </div>
       )
     }
     if (this.myRating === 3) {
       return (
         <div className="shelf-rating">
-          <span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span>
+          <span></span><span></span><span className="star-on"></span><span className="star-on"></span><span className="star-on"></span>
         </div>
       )
     }
     if (this.myRating === 2) {
       return (
         <div className="shelf-rating">
-          <span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span>
+          <span></span><span></span><span></span><span className="star-on"></span><span className="star-on"></span>
         </div>
       )
     }
     if (this.myRating === 1) {
       return (
         <div className="shelf-rating">
-          <span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.onStar} /></span>
+          <span></span><span></span><span></span><span></span><span className="star-on"></span>
         </div>
       )
     }
@@ -99,6 +113,7 @@ class ShelfShowItem extends React.Component {
         );
       }
     });
+
     reviews.forEach((review) => {
       if (review.user_id === currentUser.id) {
         this.myRating = review.rating;
