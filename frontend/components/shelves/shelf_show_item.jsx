@@ -99,7 +99,6 @@ class ShelfShowItem extends React.Component {
         );
       }
     });
-    debugger
     reviews.forEach((review) => {
       if (review.user_id === currentUser.id) {
         this.myRating = review.rating;

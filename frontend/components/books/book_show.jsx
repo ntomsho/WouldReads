@@ -101,7 +101,7 @@ class BookShow extends React.Component {
           <span onClick={() => this.handleSubmit(1)}>
           <img src={window.offStar} /></span>
         </div>
-      )
+      );
     }
     if (this.myRating() === 5) {
       return (
