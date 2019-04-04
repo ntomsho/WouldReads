@@ -78,6 +78,68 @@ class BookShow extends React.Component {
     dropdown.className = "dropdown-hidden";
   }
 
+  handleSubmit(rating) {
+    this.props.createReview({
+      user_id: this.props.currentUser.id,
+      book_id: this.props.currentBook.id,
+      rating: rating
+    });
+  }
+
+  starRating() {
+    if (this.myRating() === undefined) {
+      return (
+        <div className="rating active-rating">
+          <span onClick={() => this.handleSubmit(5)}>
+          <img src={window.offStar} /></span>
+          <span onClick={() => this.handleSubmit(4)}>
+          <img src={window.offStar} /></span>
+          <span onClick={() => this.handleSubmit(3)}>
+          <img src={window.offStar} /></span>
+          <span onClick={() => this.handleSubmit(2)}>
+          <img src={window.offStar} /></span>
+          <span onClick={() => this.handleSubmit(1)}>
+          <img src={window.offStar} /></span>
+        </div>
+      )
+    }
+    if (this.myRating() === 5) {
+      return (
+        <div className="rating">
+          <span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span>
+        </div>
+      )
+    }
+    if (this.myRating() === 4) {
+      return (
+        <div className="rating">
+          <span><img src={window.offStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span>
+        </div>
+      )
+    }
+    if (this.myRating() === 3) {
+      return (
+        <div className="rating">
+          <span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span>
+        </div>
+      )
+    }
+    if (this.myRating() === 2) {
+      return (
+        <div className="rating">
+          <span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span>
+        </div>
+      )
+    }
+    if (this.myRating() === 1) {
+      return (
+        <div className="rating">
+          <span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.onStar} /></span>
+        </div>
+      )
+    }
+  }
+
   myRating() {
     const userId = this.props.currentUser.id;
     let tempRating;
@@ -95,7 +157,7 @@ class BookShow extends React.Component {
         const currentReadShelf = that.currentReadShelf();
         const shelfList = that.shelfList();
         const myRating = that.myRating();
-        debugger
+        const starRating = that.starRating();
         return (
           <div className="book-show-main">
             <div className="book-show-top">
@@ -120,7 +182,7 @@ class BookShow extends React.Component {
                     Rate this book
                   </div>
                   <div className="main-rating-stars">
-                    {myRating}
+                    {starRating}
                   </div>
                 </div>
               </div>

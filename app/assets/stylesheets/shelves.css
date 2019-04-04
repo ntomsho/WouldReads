@@ -78,3 +78,21 @@
     text-align: left;
     white-space: nowrap;
 }
+
+.shelf-rating img {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.shelf-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 75px;
+}
+
+.shelf-rating > span:hover:before,
+.shelf-rating > span:hover ~ span:before {
+  content: image-url('star-on.png');
+  position: absolute;
+}

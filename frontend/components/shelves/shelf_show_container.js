@@ -19,6 +19,7 @@ const mdp = (dispatch) => {
     fetchBooks: (shelf => dispatch(BookActions.fetchBooks(shelf))),
     fetchShelf: (id => dispatch(ShelfActions.fetchShelf(id))),
     fetchReviews: (book => dispatch(ReviewActions.fetchReviews(book))),
+    createReview: (review => dispatch(ReviewActions.createReview(review))),
     deleteShelfBook: (shelfBookId => dispatch(BookActions.deleteShelfBook(shelfBookId)))
   };
 };

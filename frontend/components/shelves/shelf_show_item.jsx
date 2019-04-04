@@ -28,6 +28,68 @@ class ShelfShowItem extends React.Component {
       });
   }
 
+  handleSubmit(rating) {
+    this.props.createReview({
+      user_id: this.props.currentUser.id,
+      book_id: this.props.book.id,
+      rating: rating
+    });
+  }
+
+  starRating() {
+    if (this.myRating === null) {
+      return (
+        <div className="shelf-rating">
+          <span onClick={() => this.handleSubmit(5)}>
+            <img src={window.offStar} /></span>
+          <span onClick={() => this.handleSubmit(4)}>
+            <img src={window.offStar} /></span>
+          <span onClick={() => this.handleSubmit(3)}>
+            <img src={window.offStar} /></span>
+          <span onClick={() => this.handleSubmit(2)}>
+            <img src={window.offStar} /></span>
+          <span onClick={() => this.handleSubmit(1)}>
+            <img src={window.offStar} /></span>
+        </div>
+      )
+    }
+    if (this.myRating === 5) {
+      return (
+        <div className="shelf-rating">
+          <span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span>
+        </div>
+      )
+    }
+    if (this.myRating === 4) {
+      return (
+        <div className="shelf-rating">
+          <span><img src={window.offStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span>
+        </div>
+      )
+    }
+    if (this.myRating === 3) {
+      return (
+        <div className="shelf-rating">
+          <span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span>
+        </div>
+      )
+    }
+    if (this.myRating === 2) {
+      return (
+        <div className="shelf-rating">
+          <span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.onStar} /></span><span><img src={window.onStar} /></span>
+        </div>
+      )
+    }
+    if (this.myRating === 1) {
+      return (
+        <div className="shelf-rating">
+          <span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.offStar} /></span><span><img src={window.onStar} /></span>
+        </div>
+      )
+    }
+  }
+
   render() {
     const {book, shelves, reviews, currentUser} = this.props;
     let shelvesByBook = book.shelves.map (id => {
@@ -37,12 +99,14 @@ class ShelfShowItem extends React.Component {
         );
       }
     });
-
+    debugger
     reviews.forEach((review) => {
       if (review.user_id === currentUser.id) {
         this.myRating = review.rating;
       }
     });
+
+    const starRating = this.starRating();
 
     return (
       <tr className="shelf-show-item">
@@ -59,7 +123,7 @@ class ShelfShowItem extends React.Component {
           <p>PH</p>
         </td>
         <td className="shelf-show-cell shelf-show-rating">
-          <p>{this.myRating}</p>
+          <div>{starRating}</div>
         </td>
         <td className="shelf-show-cell shelf-show-shelves">
           <div className="shelves-by-book">

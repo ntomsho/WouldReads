@@ -15,7 +15,8 @@ class Api::ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     if @review.save!
-      render "api/review/show"
+      # @book = Book.find(@review.book_id)
+      render "api/reviews/show"
     else
       render json: @review.errors.full_messages, status: 422
     end

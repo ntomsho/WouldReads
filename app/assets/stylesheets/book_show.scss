@@ -120,6 +120,43 @@
   cursor: pointer;
 }
 
+.main-rating-header {
+  box-sizing: content-box;
+  font-size: 11px;
+  height: 16px;
+  line-height: 14px;
+  margin: 0 auto;
+  padding: 3px 6px 0 6px;
+  width: 100px;
+  color: #999999;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  text-align: center;
+}
+
+.rating img {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 75px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.active-rating > span:hover:before,
+.active-rating > span:hover ~ span:before {
+  content: image-url('star-on.png');
+  position: absolute;
+  width: 75px;
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+}
+
 .book-show-top-middle {
   display: flex;
   flex-direction: column;
