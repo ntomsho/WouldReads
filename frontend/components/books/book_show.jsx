@@ -11,7 +11,9 @@ class BookShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchBook(parseInt(this.props.match.params.id));
+    this.props.fetchBook(parseInt(this.props.match.params.id)).then((action) => {
+      this.props.fetchReviews(action.book);
+    });
     this.props.fetchShelves(this.props.currentUser);
   }
 
@@ -76,11 +78,24 @@ class BookShow extends React.Component {
     dropdown.className = "dropdown-hidden";
   }
 
+  myRating() {
+    const userId = this.props.currentUser.id;
+    let tempRating;
+    this.props.reviews.forEach(review => {
+      if (review.user_id === userId) {
+        tempRating = review.rating;
+      }
+    })
+    return tempRating;
+  }
+
   render() {
     const bookShow = function(props, that) {
       if (that.props.currentBook) {
         const currentReadShelf = that.currentReadShelf();
         const shelfList = that.shelfList();
+        const myRating = that.myRating();
+        debugger
         return (
           <div className="book-show-main">
             <div className="book-show-top">
@@ -101,6 +116,12 @@ class BookShow extends React.Component {
                 </div>
                 
                 <div className="book-show-main-rating">
+                  <div className="main-rating-header">
+                    Rate this book
+                  </div>
+                  <div className="main-rating-stars">
+                    {myRating}
+                  </div>
                 </div>
               </div>
               <div className="book-show-top-middle">

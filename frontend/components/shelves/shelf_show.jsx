@@ -53,8 +53,11 @@ class ShelfShow extends React.Component {
                 key={book.id}
                 shelf={this.props.shelf}
                 shelves={this.props.shelves}
+                reviews={this.props.reviews}
                 deleteShelfBook={this.props.deleteShelfBook}
-                fetchShelf={this.props.fetchShelf}/>
+                currentUser={this.props.currentUser}
+                fetchShelf={this.props.fetchShelf}
+                fetchReviews={this.props.fetchReviews} />
             )
             })
           }

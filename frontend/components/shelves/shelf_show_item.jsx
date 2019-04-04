@@ -8,9 +8,12 @@ class ShelfShowItem extends React.Component {
     super(props);
     this.shelving = null;
     this.handleClick = this.handleClick.bind(this);
+    this.myRating = null;
   }
 
   componentDidMount() {
+    this.props.fetchReviews(this.props.book);
+    
     this.props.book.shelf_books.forEach(shelf_book => {
       if (shelf_book.shelf_id === parseInt(this.props.shelf)) {
         this.shelving = shelf_book;
@@ -26,12 +29,18 @@ class ShelfShowItem extends React.Component {
   }
 
   render() {
-    const {book, shelves} = this.props;
+    const {book, shelves, reviews, currentUser} = this.props;
     let shelvesByBook = book.shelves.map (id => {
       if (shelves[id].title !== "All") {
         return (
           <Link to={`/shelves/${id}`} className="shelf-show-link" key={shelves[id].id}>{shelves[id].title}</Link>
         );
+      }
+    });
+
+    reviews.forEach((review) => {
+      if (review.user_id === currentUser.id) {
+        this.myRating = review.rating;
       }
     });
 
@@ -50,7 +59,7 @@ class ShelfShowItem extends React.Component {
           <p>PH</p>
         </td>
         <td className="shelf-show-cell shelf-show-rating">
-          <p>PH</p>
+          <p>{this.myRating}</p>
         </td>
         <td className="shelf-show-cell shelf-show-shelves">
           <div className="shelves-by-book">

@@ -11,6 +11,7 @@ User.destroy_all
 Shelf.destroy_all
 Book.destroy_all
 ShelfBook.destroy_all
+Review.destroy_all
 
   cage = User.create!(
     username: "Nicolas Cage",
@@ -81,3 +82,10 @@ ShelfBook.destroy_all
         book_id: ghost.id,
         shelf_id: cageread.id
       )
+
+        Review.create!(
+          user_id: cage.id,
+          book_id: voodoo.id,
+          rating: 5,
+          body: "It's radical evil magic, man!"
+        )

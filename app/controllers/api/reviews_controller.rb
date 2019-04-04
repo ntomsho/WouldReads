@@ -1,7 +1,7 @@
 class Api::ReviewsController < ApplicationController
 
   def index
-    book = Book.find(params[:id])
+    book = Book.find(params[:book][:id])
     @reviews = book.reviews
     render :index
   end

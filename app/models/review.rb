@@ -11,3 +11,4 @@ class Review < ApplicationRecord
   belongs_to :book,
     foreign_key: :book_id,
     class_name: :Book
+end
