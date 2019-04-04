@@ -149,7 +149,7 @@
 
 .active-rating > span:hover:before,
 .active-rating > span:hover ~ span:before {
-  content: image-url('star-on.png');
+  // content: image-url('star-on.png');
   position: absolute;
   width: 75px;
   height: 15px;

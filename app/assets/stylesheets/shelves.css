@@ -93,6 +93,6 @@
 
 .shelf-rating > span:hover:before,
 .shelf-rating > span:hover ~ span:before {
-  content: image-url('star-on.png');
+  /* content: image-url('star-on.png'); */
   position: absolute;
 }
