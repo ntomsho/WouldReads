@@ -1,8 +1,8 @@
 # README
 
-## Wouldreads (a Goodreads clone)
+## Wouldreads
 
-Wouldreads is a social cataloguing web app for those honest readers who always have a stack of books they *would* read, but....
+Wouldreads is a social cataloguing web app, a clone of Goodreads for those honest readers who always have a stack of books they *would* read, but....
 
 Users can manage their catalogue of books they likely will never read through a set of "bookshelves" that organize the user's collection. Three default shelves ("Skimmed", "Pretending to Read", and "Would Read") are automatically generated, but users can also create custom shelves to plan their dream reading list of books they will never open.
 
@@ -16,8 +16,10 @@ Wouldreads is built with a Ruby on Rails backend utilizing React-Redux for a smo
 
 User shelvings utilize backend logic to ensure that any given book can only be placed into one of a user's default shelves, which are analogous to Goodreads' "read status". This allows users to conveniently sort books depending on whether they have read a book, are currently reading it, or if it is in their to-read list. Every book placed into one of these shelves is also placed into the user's "All" shelf and the server prevents duplicate entries in all shelves.
 
-<img src="https://i.imgur.com/A8hEjmi.png" />
-Backend code that processes adding books to shelves.
+<figure>
+  <img src="https://i.imgur.com/A8hEjmi.png" />
+  <figcaption>Backend code that processes adding books to shelves.</figcaption>
+</figure>
 
 ## Feature: Star-Ratings
 
