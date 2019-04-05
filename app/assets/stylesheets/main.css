@@ -12,15 +12,28 @@
   bottom: 25px;
 }
 
+.logged-out-masthead-container {
+  width: 970px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .logged-out-splash-message {
   width: 446px;
-  height: 116px;
+  height: 131px;
   display: flex;
   align-items: center;
-  color: brown;
-  font-size: 40px;
   position: relative;
   bottom: 20px;
+  background: -webkit-linear-gradient(#8A5E4A, #604133);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  overflow: visible;
+}
+
+.logged-out-splash-message h3 {
+  font-size: 40px;
 }
 
 .logged-out-masthead .session-form-box {
@@ -98,7 +111,7 @@
   text-align: center;
   position: relative;
   right: 50px;
-  top: 51px;
+  top: 46px;
   cursor: pointer;
 }
 

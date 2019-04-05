@@ -4,7 +4,6 @@ import * as BookActions from '../../actions/book_actions';
 import * as ReviewActions from '../../actions/review_actions';
 
 const msp = ({entities}) => {
-  debugger
   return {
     books: Object.keys(entities.books).map(id => entities.books[id]),
     reviews: Object.keys(entities.reviews).map(id => entities.reviews[id])
@@ -12,7 +11,6 @@ const msp = ({entities}) => {
 };
 
 const mdp = (dispatch) => {
-  debugger
   return {
     fetchBooks: (() => dispatch(BookActions.fetchBooks())),
     fetchReviews: ((book) => dispatch(ReviewActions.fetchReviews(book)))
