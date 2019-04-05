@@ -16,9 +16,15 @@ Wouldreads is built with a Ruby on Rails backend utilizing React-Redux for a smo
 
 User shelvings utilize backend logic to ensure that any given book can only be placed into one of a user's default shelves, which are analogous to Goodreads' "read status". This allows users to conveniently sort books depending on whether they have read a book, are currently reading it, or if it is in their to-read list. Every book placed into one of these shelves is also placed into the user's "All" shelf and the server prevents duplicate entries in all shelves.
 
-## Feature: Star Ratings
+<img src="https://i.imgur.com/A8hEjmi.png" />
+Backend code that processes adding books to shelves.
+
+## Feature: Star-Ratings
 
 Users can rate books with one to five stars through a React-based CSS interface that uses the ubiquitous star-rating UI seen across the web to provide a familiar and intuitive user experience.
+
+<img src="https://i.imgur.com/CVQhNaw.png" />
+Frontend code that creates the star-rating React component.
 
 ## Coming Features
 
