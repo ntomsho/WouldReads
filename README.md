@@ -25,8 +25,10 @@ User shelvings utilize backend logic to ensure that any given book can only be p
 
 Users can rate books with one to five stars through a React-based CSS interface that uses the ubiquitous star-rating UI seen across the web to provide a familiar and intuitive user experience.
 
-<img src="https://i.imgur.com/CVQhNaw.png" />
-Frontend code that creates the star-rating React component.
+<figure>
+  <img src="https://i.imgur.com/CVQhNaw.png" />
+  <figcaption>Frontend code that creates the star-rating React component.</figcaption>
+</figure>
 
 ## Coming Features
 
