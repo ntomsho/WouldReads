@@ -39,19 +39,19 @@ class Api::UsersController < ApplicationController
     )
     
     Shelf.create!(
-      title: "Read",
+      title: "Skimmed",
       user_id: user.id,
       default_shelf: true
     )
     
     Shelf.create!(
-      title: "Currently Reading",
+      title: "Pretending to Read",
       user_id: user.id,
       default_shelf: true
     )
 
     Shelf.create!(
-      title: "Want to Read",
+      title: "Would Read",
       user_id: user.id,
       default_shelf: true
     )
