@@ -35,7 +35,7 @@ class BookShowMyActivity extends React.Component {
         </div>
         <div className="my-activity-row">
             <div className="my-activity-subheader">Review</div>
-            <div className="my-activity-content my-activity-review"><Link className="my-activity-review-link" to="">Add a review</Link></div>
+            <div className="my-activity-content my-activity-review"><Link className="my-activity-review-link" to={`/books/${book.id}reviews`}>Add a review</Link></div>
         </div>
         </>
         )

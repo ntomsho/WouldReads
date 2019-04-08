@@ -4,6 +4,7 @@ import MainLoggedIn from './main/main_logged_in_container';
 import MainLoggedOut from './main/main_logged_out_container';
 import BookShowContainer from './books/book_show_container';
 import BookIndexContainer from './books/book_index_container';
+import CreateReviewFormContainer from './reviews/create_review_form_container';
 import {
   Route,
   Redirect,
@@ -22,6 +23,7 @@ const App = () => (
       <ProtectedRoute path="/shelves" component={MainLoggedIn} />
       <Route path="/books/:id" component={BookShowContainer} />
       <Route path="/books" component={BookIndexContainer} />
+      <ProtectedRoute path="/books/:id/reviews" component={CreateReviewFormContainer} />
       <AuthRoute exact path="/" component={MainLoggedOut} />
     </Switch>
   </div>
