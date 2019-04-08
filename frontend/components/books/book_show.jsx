@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import BookShowMyActivity from './book_show_my_activity';
 
 class BookShow extends React.Component {
 
@@ -220,6 +221,13 @@ class BookShow extends React.Component {
                 <div className="book-show-recs">
                 </div>
               </div>
+            </div>
+            <div className="book-show-my-activity">
+              <BookShowMyActivity 
+              book={that.props.currentBook} 
+              user={that.props.currentUser}
+              shelves = {that.props.shelves}
+              reviews = {that.props.reviews} />
             </div>
           </div>
         )
