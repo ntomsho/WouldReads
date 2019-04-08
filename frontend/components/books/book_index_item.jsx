@@ -15,7 +15,8 @@ class BookIndexItem extends React.Component {
           <div className="book-index-author">
             by {this.props.book.author}
           </div>
-          <div className="book-index-avg-rating">
+          <div className="avg-rating">
+            {this.props.book.avg_rating} avg rating
           </div>
         </div>
       </li>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { fetchShelf } from '../../util/shelf_api_util';
+import RatingStarsContainer from '../reviews/rating_stars_container';
 
 class ShelfShowItem extends React.Component {
 
@@ -28,82 +29,6 @@ class ShelfShowItem extends React.Component {
       });
   }
 
-  handleSubmit(rating) {
-    this.props.createReview({
-      user_id: this.props.currentUser.id,
-      book_id: this.props.book.id,
-      rating: rating
-    });
-  }
-
-  hover(number) {
-    for (let i=parseInt(number); i > 0; i--) {
-      let star = document.getElementById(i);
-      star.className = "hover";
-    }
-  }
-
-  unhover(number) {
-    for (let i = parseInt(number); i > 0; i--) {
-      let star = document.getElementById(i);
-      star.className = "unhover";
-    }
-  }
-
-  starRating() {
-    if (this.myRating === null) {
-      return (
-        <div className="active-shelf-rating">
-          <span id="5" onMouseEnter={() => this.hover(5)} onMouseLeave={() => this.unhover(5)} onClick={() => this.handleSubmit(5)}>
-            </span>
-          <span id="4" onMouseEnter={() => this.hover(4)} onMouseLeave={() => this.unhover(4)} onClick={() => this.handleSubmit(4)}>
-            </span>
-          <span id="3" onMouseEnter={() => this.hover(3)} onMouseLeave={() => this.unhover(3)} onClick={() => this.handleSubmit(3)}>
-            </span>
-          <span id="2" onMouseEnter={() => this.hover(2)} onMouseLeave={() => this.unhover(2)} onClick={() => this.handleSubmit(2)}>
-            </span>
-          <span id="1" onMouseEnter={() => this.hover(1)} onMouseLeave={() => this.unhover(1)} onClick={() => this.handleSubmit(1)}>
-            </span>
-        </div>
-      )
-    }
-    if (this.myRating === 5) {
-      return (
-        <div className="shelf-rating">
-          <span className="star-on"></span><span className="star-on"></span><span className="star-on"></span><span className="star-on"></span><span className="star-on"></span>
-        </div>
-      )
-    }
-    if (this.myRating === 4) {
-      return (
-        <div className="shelf-rating">
-          <span></span><span className="star-on"></span><span className="star-on"></span><span className="star-on"></span><span className="star-on"></span>
-        </div>
-      )
-    }
-    if (this.myRating === 3) {
-      return (
-        <div className="shelf-rating">
-          <span></span><span></span><span className="star-on"></span><span className="star-on"></span><span className="star-on"></span>
-        </div>
-      )
-    }
-    if (this.myRating === 2) {
-      return (
-        <div className="shelf-rating">
-          <span></span><span></span><span></span><span className="star-on"></span><span className="star-on"></span>
-        </div>
-      )
-    }
-    if (this.myRating === 1) {
-      return (
-        <div className="shelf-rating">
-          <span></span><span></span><span></span><span></span><span className="star-on"></span>
-        </div>
-      )
-    }
-  }
-
   render() {
     const {book, shelves, reviews, currentUser} = this.props;
     let shelvesByBook = book.shelves.map (id => {
@@ -113,14 +38,6 @@ class ShelfShowItem extends React.Component {
         );
       }
     });
-
-    reviews.forEach((review) => {
-      if (review.user_id === currentUser.id) {
-        this.myRating = review.rating;
-      }
-    });
-
-    const starRating = this.starRating();
 
     return (
       <tr className="shelf-show-item">
@@ -134,10 +51,10 @@ class ShelfShowItem extends React.Component {
           <p>{this.props.book.author}</p>
         </td>
         <td className="shelf-show-cell shelf-show-avg-rating">
-          <p>PH</p>
+          <div>{this.props.book.avg_rating}</div>
         </td>
         <td className="shelf-show-cell shelf-show-rating">
-          <div>{starRating}</div>
+          <div className="active-shelf-rating"><RatingStarsContainer currentBook={this.props.book} /></div>
         </td>
         <td className="shelf-show-cell shelf-show-shelves">
           <div className="shelves-by-book">
