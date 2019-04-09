@@ -79,7 +79,7 @@ class ReviewForm extends React.Component {
                         <div className="create-review-rating">
                             <div className="my-rating-header">My rating:</div>
                             <div className="active-shelf-rating">
-                                <RatingStarsContainer currentBook={this.props.currentBook} />
+                                <RatingStarsContainer currentUser={this.props.currentUser} currentBook={this.props.currentBook} />
                             </div>
                         </div>
                     </div>

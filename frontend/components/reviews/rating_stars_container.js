@@ -4,7 +4,7 @@ import * as ReviewActions from '../../actions/review_actions';
 
 const msp = ({session, entities}, ownProps) => {
     return {
-        currentUser: entities.users[session.id],
+        // currentUser: entities.users[session.id],
         reviews: Object.keys(entities.reviews).map(id => entities.reviews[id])
     }
 }

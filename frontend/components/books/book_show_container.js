@@ -10,7 +10,8 @@ const msp = ({session, entities}, ownProps) => {
     currentBook: entities.books[parseInt(ownProps.match.params.id)],
     // shelves: Object.keys(entities.shelves).map(id => entities.shelves[id]),
     shelves: entities.shelves,
-    reviews: Object.keys(entities.reviews).map(id => entities.reviews[id])
+    reviews: Object.keys(entities.reviews).map(id => entities.reviews[id]),
+    users: entities.users
   };
 };
 

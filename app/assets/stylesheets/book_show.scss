@@ -194,7 +194,7 @@
   width: 100%;
   height: 24px;
   font-size: 12px;
-  color: #181818;
+  color: #382110;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 18px;
   font-weight: bold;
@@ -215,5 +215,25 @@
 }
 
 .my-activity-content {
-  width: 100%;
+  width: 970px - 125px;
+}
+
+.my-activity-review-body {
+  font-family: "Merriweather", "Georgia", serif;
+  line-height: 21px;
+  font-size: 14px;
+  color: #181818;
+}
+
+.my-activity-review-link {
+  color: #00635d;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.my-activity-review-link:hover {
+  text-decoration: underline;
 }

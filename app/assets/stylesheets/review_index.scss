@@ -1,0 +1,71 @@
+.review-index-container {
+    display: flex;
+    flex-direction: column;
+    width: 960px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.review-index-header-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-index-header {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 24px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #382110;
+    border-bottom: 1px solid #D8D8D8;
+    padding: 2px 0;
+}
+
+.review-index-avg-rating {
+    font-size: 14px;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    color: #181818;
+    padding-top: 15px;
+}
+
+.reviews-list {
+    list-style: none;
+    padding-top: 12px;
+    border-top: 1px solid #D8D8D8;
+}
+
+.review-index-entry {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.review-index-entry-info {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.review-index-author {
+    color: #00635d;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    line-height: 18px;
+    padding-right: 4px;
+    font-weight: bold;
+}
+
+.review-index-rating {
+    display: flex;
+}
+
+.review-index-rating div {
+    font-size: 14px;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    line-height: 18px;
+    color: #181818;
+}
+
+.rated-it {
+    padding-right: 4px;
+}

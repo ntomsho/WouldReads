@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import BookShowMyActivity from './book_show_my_activity';
 import RatingStarsContainer from '../reviews/rating_stars_container';
+import ReviewIndex from '../reviews/review_index';
 
 class BookShow extends React.Component {
 
@@ -110,7 +111,7 @@ class BookShow extends React.Component {
                   </div>
                   <div className="main-rating-stars">
                     <div className="active-shelf-rating">
-                      <RatingStarsContainer currentBook={that.props.currentBook} />
+                      <RatingStarsContainer currentUser={that.props.currentUser} currentBook={that.props.currentBook} />
                     </div>
                   </div>
                 </div>
@@ -142,6 +143,13 @@ class BookShow extends React.Component {
                 user={that.props.currentUser}
                 shelves={that.props.shelves}
                 reviews={that.props.reviews} />
+            </div>
+            <div className="book-show-community-reviews">
+              <ReviewIndex
+                book={that.props.currentBook} 
+                currentUser={that.props.currentUser}
+                reviews={that.props.reviews}
+                users={that.props.users}/>
             </div>
           </div>
         )

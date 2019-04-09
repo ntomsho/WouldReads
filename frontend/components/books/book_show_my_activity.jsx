@@ -22,12 +22,32 @@ class BookShowMyActivity extends React.Component {
             });
         }
 
+        let myReview;
+        if (Object.keys(reviews).length > 0) {
+            myReview = reviews.map(review => {
+                if (review.user_id == user.id && review.book_id === book.id) {
+                    return (
+                        <div key={review.id}>
+                            <div className="my-activity-review-body">{review.body}</div>
+                            <Link className="my-activity-review-link" to={`/books/${book.id}/reviews`}>see review</Link>
+                        </div>
+                    )
+                } else {
+                    return (
+                        <Link className="my-activity-review-link" to={`/books/${book.id}/reviews`}>Add a review</Link>
+                    )
+                }
+            })
+        } else {
+            myReview = <Link className="my-activity-review-link" to={`/books/${book.id}/reviews`}>Add a review</Link>
+        }
+
         return (
         <>
         <div className="my-activity-header">MY ACTIVITY</div>
         <div className="my-activity-row">
             <div className="my-activity-subheader">Rating</div>
-            <div className="my-activity-content my-activity-rating active-shelf-rating"><RatingStarsContainer currentBook={book}/></div>
+            <div className="my-activity-content my-activity-rating active-shelf-rating"><RatingStarsContainer currentUser={user} currentBook={book}/></div>
         </div>
         <div className="my-activity-row">
             <div className="my-activity-subheader">Shelves</div>
@@ -35,7 +55,7 @@ class BookShowMyActivity extends React.Component {
         </div>
         <div className="my-activity-row">
             <div className="my-activity-subheader">Review</div>
-            <div className="my-activity-content my-activity-review"><Link className="my-activity-review-link" to={`/books/${book.id}/reviews`}>Add a review</Link></div>
+            <div className="my-activity-content my-activity-review">{myReview}</div>
         </div>
         </>
         )

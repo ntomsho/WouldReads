@@ -54,7 +54,7 @@ class ShelfShowItem extends React.Component {
           <div>{this.props.book.avg_rating}</div>
         </td>
         <td className="shelf-show-cell shelf-show-rating">
-          <div className="active-shelf-rating"><RatingStarsContainer currentBook={this.props.book} /></div>
+          <div className="active-shelf-rating"><RatingStarsContainer currentUser={this.props.currentUser} currentBook={this.props.book} /></div>
         </td>
         <td className="shelf-show-cell shelf-show-shelves">
           <div className="shelves-by-book">
