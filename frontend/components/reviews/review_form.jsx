@@ -9,34 +9,62 @@ class ReviewForm extends React.Component {
         this.state = {
             body: ""
         };
-        // this.currentReview = null;
+        this.currentReview = null;
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-    // componentDidMount() {
-    //     this.props.fetchReviews(this.props.currentBook).then(() => {
-    //         const userId = this.props.currentUser.id;
-    //         const bookId = this.props.currentBook.id;
-    //         this.props.reviews.forEach(review => {
-    //             if (review.user_id === userId && review.book_id === bookId) {
-    //                 this.currentReview = review;
-    //                 this.setState({ body: this.currentReview.body })
-    //             }
-    //         })
-    //     })
-    // }
     
     componentDidMount() {
-        this.props.fetchBook(parseInt(this.props.match.params.id)).then((action) => {
+        debugger
+        this.props.fetchBook(parseInt(this.props.match.params.id)).then(() => {
+            this.changeReview();
+        })
+    }
+
+    // componentDidUpdate(prevProps) {
+    //     debugger
+    //     if (prevProps.reviews !== this.props.reviews) {
+    //         this.changeReview();
+    //     }
+    // }
+
+    changeReview() {
+        this.props.fetchReviews(this.props.currentBook).then(() => {
             debugger
-            this.props.fetchReviews(action.book);
+            const userId = this.props.currentUser.id;
+            Object.values(this.props.reviews).forEach(review => {
+                if (review.user_id === userId) {
+                    debugger
+                    this.currentReview = review;
+                    if (this.currentReview.body !== null) {
+                        this.setState({ body: this.currentReview.body });
+                    }
+                }
+            })
         })
     }
     
     handleSubmit(e) {
-        e.preventDefault();
-        this.props.createReview({
-            book_id: this.props.currentBook.id,
-            body: this.state.body
+        debugger
+        this.props.fetchReviews(this.props.currentBook).then(() => {
+            debugger
+            const userId = this.props.currentUser.id;
+            Object.values(this.props.reviews).forEach(review => {
+                if (review.user_id === userId) {
+                    debugger
+                    this.currentReview = review;
+                    if (this.currentReview.body !== null) {
+                        this.setState({ body: this.currentReview.body });
+                    }
+                }
+            })
+        }).then(() => {
+            e.preventDefault();
+            debugger
+            this.props.updateReview({
+                id: this.currentReview.id,
+                book_id: this.props.currentBook.id,
+                body: this.state.body
+            })
         })
     }
 
@@ -47,31 +75,29 @@ class ReviewForm extends React.Component {
     }
 
     render() {
-        debugger
         if (this.props.currentBook != undefined) {
             const { id, title, author, coverUrl } = this.props.currentBook
-            debugger
             return (
                 <div className="create-review-main">
                     <div className="create-review-header">
                         <Link to={`/books/${id}`}>{title}</Link> > Review > Edit
                     </div>
                     <div className="create-review-book-info">
-                        <div className="book-info-box">
-                            <img className="book-info-cover" src={coverUrl} />
-                            <div className="book-info-title-author">
-                                <div className="book-info-title">{title}</div>
-                                <div className="book-info-author">{author}</div>
-                            </div>
+                        <Link className="book-index-cover" to={`/books/${id}`}> <img src={coverUrl} /> </Link>
+                        <div className="book-info-title-author">
+                            <Link to={`/books/${id}`} className="book-info-title">{title}</Link>
+                            <div className="book-info-author">by {author}</div>
                         </div>
                     </div>
                     <div className="create-review-rating-and-shelves">
                         <div className="create-review-rating">
                             <div className="my-rating-header">My rating:</div>
-                            <RatingStarsContainer currentBook={this.props.currentBook} />
+                            <div className="active-shelf-rating">
+                                <RatingStarsContainer currentBook={this.props.currentBook} />
+                            </div>
                         </div>
                     </div>
-                    <form className="create-review-form">
+                    <form onSubmit={this.handleSubmit} className="create-review-form">
                         <div className="create-review-form-header">What did you think?</div>
                         <textarea 
                             placeholder="Enter your review (optional)" 
