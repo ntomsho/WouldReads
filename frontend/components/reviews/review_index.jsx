@@ -10,7 +10,7 @@ class ReviewIndex extends React.Component {
 
     render() {
         const reviewsList = this.props.reviews.map(review => {
-            // if (review.user_id !== this.props.currentUser.id) {
+            if (review.user_id !== this.props.currentUser.id) {
                 return (
                     <ReviewIndexItem 
                     key={review.id}
@@ -18,7 +18,7 @@ class ReviewIndex extends React.Component {
                     book={this.props.book} 
                     author={this.props.users[review.user_id]}/>
                 )
-            // }
+            }
         });
 
         return (
