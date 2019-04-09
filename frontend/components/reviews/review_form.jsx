@@ -14,26 +14,16 @@ class ReviewForm extends React.Component {
     }
     
     componentDidMount() {
-        debugger
         this.props.fetchBook(parseInt(this.props.match.params.id)).then(() => {
             this.changeReview();
         })
     }
 
-    // componentDidUpdate(prevProps) {
-    //     debugger
-    //     if (prevProps.reviews !== this.props.reviews) {
-    //         this.changeReview();
-    //     }
-    // }
-
     changeReview() {
         this.props.fetchReviews(this.props.currentBook).then(() => {
-            debugger
             const userId = this.props.currentUser.id;
             Object.values(this.props.reviews).forEach(review => {
                 if (review.user_id === userId) {
-                    debugger
                     this.currentReview = review;
                     if (this.currentReview.body !== null) {
                         this.setState({ body: this.currentReview.body });
@@ -44,17 +34,11 @@ class ReviewForm extends React.Component {
     }
     
     handleSubmit(e) {
-        debugger
         this.props.fetchReviews(this.props.currentBook).then(() => {
-            debugger
             const userId = this.props.currentUser.id;
             Object.values(this.props.reviews).forEach(review => {
                 if (review.user_id === userId) {
-                    debugger
                     this.currentReview = review;
-                    if (this.currentReview.body !== null) {
-                        this.setState({ body: this.currentReview.body });
-                    }
                 }
             })
         }).then(() => {
@@ -65,6 +49,8 @@ class ReviewForm extends React.Component {
                 book_id: this.props.currentBook.id,
                 body: this.state.body
             })
+        }).then(() => {
+            this.props.history.push(`/books/${this.props.currentBook.id}`)
         })
     }
 
