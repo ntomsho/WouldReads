@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter, Link} from 'react-router-dom';
+import StaticStars from '../reviews/static_stars';
 
 class BookIndexItem extends React.Component {
   constructor(props) {
@@ -16,7 +17,15 @@ class BookIndexItem extends React.Component {
             by {this.props.book.author}
           </div>
           <div className="avg-rating">
-            {this.props.book.avg_rating} avg rating
+            <div className="inactive-shelf-rating">
+              <StaticStars rating={this.props.book.avg_rating} />
+            </div>
+            <div className="avg-rating-integer">
+              {this.props.book.avg_rating}
+            </div>
+            <div className="avg-rating-text">
+              avg rating
+            </div>
           </div>
         </div>
       </li>

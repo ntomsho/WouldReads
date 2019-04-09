@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom';
 import BookShowMyActivity from './book_show_my_activity';
 import RatingStarsContainer from '../reviews/rating_stars_container';
 import ReviewIndex from '../reviews/review_index';
+import StaticStars from '../reviews/static_stars';
 
 class BookShow extends React.Component {
 
@@ -124,7 +125,10 @@ class BookShow extends React.Component {
                   <p>by {that.props.currentBook.author}</p>
                 </div>
                 <div className="avg-rating">
-                  {that.props.currentBook.avg_rating}
+                  <div className="inactive-shelf-rating">
+                    <StaticStars rating={that.props.currentBook.avg_rating} />
+                  </div>
+                  <div className="avg-rating-integer">{that.props.currentBook.avg_rating}</div>
                 </div>
                 <div className="book-show-synopsis">
                   {that.props.currentBook.synopsis}

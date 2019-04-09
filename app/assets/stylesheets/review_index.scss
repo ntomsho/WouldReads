@@ -22,10 +22,15 @@
 }
 
 .review-index-avg-rating {
+    display: flex;
     font-size: 14px;
     font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
     color: #181818;
     padding-top: 15px;
+}
+
+.review-index-avg-rating .active-shelf-rating {
+    padding-right: 4px;
 }
 
 .reviews-list {

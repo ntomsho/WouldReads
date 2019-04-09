@@ -1,6 +1,6 @@
 import React from 'react';
 import {withRouter, Link} from 'react-router-dom';
-import RatingStarsContainer from './rating_stars_container';
+import StaticStars from './static_stars';
 
 class ReviewIndexItem extends React.Component {
     constructor(props) {
@@ -14,8 +14,8 @@ class ReviewIndexItem extends React.Component {
                     <div className="review-index-author">{this.props.author.username}</div>
                     <div className="review-index-rating">
                         <div className="rated-it">rated it</div>
-                        <div className="active-shelf-rating">
-                            <RatingStarsContainer currentUser={this.props.author} currentBook={this.props.book} />
+                        <div className="inactive-shelf-rating">
+                            <StaticStars rating={this.props.review.rating}/>
                         </div>
                     </div>
                 </div>

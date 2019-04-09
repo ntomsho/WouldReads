@@ -47,3 +47,12 @@
   font-family: "Merriweather", "Georgia", serif;
 }
 
+.avg-rating {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.avg-rating-integer {
+  padding: 0 4px;
+}

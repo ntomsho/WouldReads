@@ -19,10 +19,38 @@
   width: 75px;
 }
 
+.inactive-shelf-rating span {
+    width: 15px;
+    height: 15px;
+    background-size: 15px;
+    text-align: center;
+}
+
+.inactive-shelf-rating .hover {
+    background-image: image-url('star-on.png');
+    background-size: 15px;
+    width: 15px;
+    height: 15px;
+}
+
+.inactive-shelf-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 75px;
+}
+
   .active-star {
     background-image: image-url('star-on.png');
   }
 
   .inactive-star {
     background-image: image-url('star-off.png');
+  }
+
+  .static-star-half {
+    background-image: image-url('static-star-half.png')
+  }
+
+  .static-star-full {
+    background-image: image-url('static-star-full.png')
   }
