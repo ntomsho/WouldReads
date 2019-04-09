@@ -43,7 +43,6 @@ class ReviewForm extends React.Component {
             })
         }).then(() => {
             e.preventDefault();
-            debugger
             this.props.updateReview({
                 id: this.currentReview.id,
                 book_id: this.props.currentBook.id,

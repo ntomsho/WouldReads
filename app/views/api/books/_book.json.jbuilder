@@ -9,10 +9,14 @@ book.shelf_books.each do |shelf_book|
 end
 
 total_ratings = 0
+total_reviews = 0
 book.reviews.each do |review|
   total_ratings += review.rating
+  if review.body
+    total_reviews += 1
+  end
 end
-avg_rating = total_ratings / (book.reviews.count * 1.00)
+avg_rating = (total_ratings.to_f / book.reviews.count).floor(2)
 
 # shelf_dates = []
 # book.shelf_books.each do |shelf_book|
@@ -24,3 +28,5 @@ json.shelves shelves
 json.coverUrl url_for(book.cover)
 json.shelf_books shelvings
 json.avg_rating avg_rating
+json.total_ratings total_ratings
+json.total_reviews total_reviews

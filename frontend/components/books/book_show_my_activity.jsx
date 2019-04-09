@@ -24,20 +24,21 @@ class BookShowMyActivity extends React.Component {
 
         let myReview;
         if (Object.keys(reviews).length > 0) {
+            let haveReview = false;
             myReview = reviews.map(review => {
-                if (review.user_id == user.id && review.book_id === book.id) {
+                if (review.user_id == user.id && review.book_id === book.id && review.body != undefined) {
+                    haveReview = true
                     return (
                         <div key={review.id}>
                             <div className="my-activity-review-body">{review.body}</div>
                             <Link className="my-activity-review-link" to={`/books/${book.id}/reviews`}>see review</Link>
                         </div>
                     )
-                } else {
-                    return (
-                        <Link className="my-activity-review-link" to={`/books/${book.id}/reviews`}>Add a review</Link>
-                    )
                 }
             })
+            if (haveReview === false) {
+                myReview = <Link className="my-activity-review-link" to={`/books/${book.id}/reviews`}>Add a review</Link>
+            }
         } else {
             myReview = <Link className="my-activity-review-link" to={`/books/${book.id}/reviews`}>Add a review</Link>
         }
