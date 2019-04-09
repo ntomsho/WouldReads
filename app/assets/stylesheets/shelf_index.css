@@ -45,6 +45,7 @@ th {
 .shelf-show-link {
   color: #00635d;
   text-decoration: none;
+  margin-right: 4px;
 }
 
 .shelf-show-link:hover {
