@@ -61,8 +61,14 @@
   margin-bottom: 4px;
 }
 
-.current-read-status {
+.default-shelf-active {
+  white-space: nowrap;
+  text-overflow: ellipsis;
   font-size: 13px;
+  color: #181818;
+  line-height: 100%;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
 }
 
 .read-status-dropdown-button {
@@ -88,7 +94,8 @@
 
 .dropdown-container {
   position: relative;
-  right: 108px;
+  right: 36px;
+  bottom: 8px;
 }
 
 .dropdown-open {

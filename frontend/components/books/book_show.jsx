@@ -84,7 +84,7 @@ class BookShow extends React.Component {
 
   openDropdown() {
     let dropdown = document.getElementById("read-status-dropdown");
-    setTimeout(() => { dropdown.className = "dropdown-open" }, 300) 
+    setTimeout(() => { dropdown.className = "dropdown-open" }, 350) 
   }
 
   closeDropdown() {
@@ -105,19 +105,22 @@ class BookShow extends React.Component {
                   <img src={that.props.currentBook.coverUrl} />
                 </div>
                 
-                <div className="book-show-read-status-container">
-                  <div className="book-show-read-status-box">
-                    <div className="current-read-status">{currentReadShelf}</div>
+                <div className="book-show-read-status-area" 
+                onMouseLeave={that.closeDropdown}
+                >
+                  <div className="book-show-read-status-container">
+                    <div className="book-show-read-status-box">
+                      <div className="current-read-status">{currentReadShelf}</div>
+                    </div>
+                    <button className="read-status-dropdown-button"
+                      onClick={that.toggleDropdown}
+                      onMouseEnter={that.openDropdown}>
+                    </button>
                   </div>
-                  <button className="read-status-dropdown-button"
-                    onClick={that.toggleDropdown}
-                    onMouseEnter={that.openDropdown}
-                    onMouseLeave={that.closeDropdown}>
-                  </button>
-                </div>
-                <div className="dropdown-container">
-                  <div id="read-status-dropdown" className="dropdown-hidden" onMouseLeave={that.closeDropdown}>
-                    {shelfList}
+                  <div className="dropdown-container">
+                    <div id="read-status-dropdown" className="dropdown-hidden">
+                      {shelfList}
+                    </div>
                   </div>
                 </div>
                 
