@@ -77,9 +77,19 @@ class BookShow extends React.Component {
 
   toggleDropdown() {
     let dropdown = document.getElementById("read-status-dropdown");
-    dropdown.className === "dropdown-hidden" ? 
+    dropdown.className === "dropdown-hidden" ?
     dropdown.className = "dropdown-open" :
     dropdown.className = "dropdown-hidden";
+  }
+
+  openDropdown() {
+    let dropdown = document.getElementById("read-status-dropdown");
+    setTimeout(() => { dropdown.className = "dropdown-open" }, 300) 
+  }
+
+  closeDropdown() {
+    let dropdown = document.getElementById("read-status-dropdown");
+    setTimeout(() => { dropdown.className = "dropdown-hidden" }, 1000) 
   }
 
   render() {
@@ -99,11 +109,16 @@ class BookShow extends React.Component {
                   <div className="book-show-read-status-box">
                     <div className="current-read-status">{currentReadShelf}</div>
                   </div>
-                  <button className="read-status-dropdown-button" onClick={that.toggleDropdown}>
+                  <button className="read-status-dropdown-button"
+                    onClick={that.toggleDropdown}
+                    onMouseEnter={that.openDropdown}
+                    onMouseLeave={that.closeDropdown}>
                   </button>
                 </div>
-                <div id="read-status-dropdown" className="dropdown-hidden">
-                  {shelfList}
+                <div className="dropdown-container">
+                  <div id="read-status-dropdown" className="dropdown-hidden" onMouseLeave={that.closeDropdown}>
+                    {shelfList}
+                  </div>
                 </div>
                 
                 <div className="book-show-main-rating">

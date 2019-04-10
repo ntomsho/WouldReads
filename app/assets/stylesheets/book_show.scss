@@ -81,27 +81,29 @@
   background-repeat: no-repeat;
   background-size: 8px 4px;
   cursor: pointer;
-  z-index: 100;
+  position: relative;
+  bottom: 1px;
+  outline: none;
 }
 
-#read-status-dropdown {
+.dropdown-container {
+  position: relative;
+  right: 108px;
+}
+
+.dropdown-open {
+  display: block;
   width: 180px;
   background: #ffffff;
-  border-radius: 3px;
-  border: 1px solid #cccccc;
-  box-shadow: 0 3px 4px -3px rgba(0,0,0,0.5);
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   height: 100%;
   max-height: 250;
   vertical-align: top;
   transition: max-height 0.15s ease-out;
-  position: relative;
-  right: 20px;
-}
-
-.dropdown-open {
-  display: block;
+  position: absolute;
+  top: 1px;
+  z-index: 100;
 }
 
 .dropdown-hidden {
@@ -109,6 +111,10 @@
 }
 
 .read-status-dropdown-shelves {
+  background: #ffffff;
+  border-radius: 3px;
+  border: 1px solid #cccccc;
+  box-shadow: 0 3px 4px -3px rgba(0,0,0,0.5);
   list-style: none;
   overflow: hidden;
   padding-bottom: 2px;
