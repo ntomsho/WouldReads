@@ -84,10 +84,9 @@ class BookShow extends React.Component {
 
   removeBookFromShelf (shelfId) {
     return e => {
-      debugger
       this.props.currentBook.shelf_books.map(shelving => {
         if (shelving.shelf_id === shelfId) {
-          this.props.deleteShelving(shelving.id);
+          this.props.deleteShelving(shelving.id).then(() => this.props.fetchShelves(this.props.currentUser));
         }
       })
     }
@@ -113,7 +112,6 @@ class BookShow extends React.Component {
   }
 
   render() {
-    debugger
     const bookShow = function(props, that) {
       if (that.props.currentBook) {
         const currentReadShelf = that.currentReadShelf();

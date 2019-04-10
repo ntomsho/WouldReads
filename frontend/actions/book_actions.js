@@ -18,12 +18,10 @@ export const createShelfBook = (shelfBook) => dispatch => {
 };
 
 export const deleteShelfBook = (shelfBookId) => dispatch => {
-  debugger
   return BookApiUtil.deleteShelfBook(shelfBookId).then(shelfBook => dispatch(removeShelfBook(shelfBook)));
 };
 
 export const deleteShelving = (shelfBookId) => dispatch => {
-  debugger
   return BookApiUtil.deleteShelfBook(shelfBookId).then(shelfBook => dispatch(removeShelving(shelfBook)));
 }
 

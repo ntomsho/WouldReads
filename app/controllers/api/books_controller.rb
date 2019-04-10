@@ -30,7 +30,6 @@ class Api::BooksController < ApplicationController
     end
 
     def destroy
-        debugger
         @shelf_book = ShelfBook.find(params[:id])
         shelf_book = @shelf_book
         @shelf_book.destroy
