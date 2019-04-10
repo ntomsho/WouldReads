@@ -92,3 +92,7 @@ th {
 .shelf-show-date-added {
   width: 50px;
 }
+
+.shelf-show-delete {
+  cursor: pointer;
+}

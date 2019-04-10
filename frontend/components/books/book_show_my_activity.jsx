@@ -47,10 +47,6 @@ class BookShowMyActivity extends React.Component {
         <>
         <div className="my-activity-header">MY ACTIVITY</div>
         <div className="my-activity-row">
-            <div className="my-activity-subheader">Rating</div>
-            <div className="my-activity-content my-activity-rating active-shelf-rating"><RatingStarsContainer currentUser={user} currentBook={book}/></div>
-        </div>
-        <div className="my-activity-row">
             <div className="my-activity-subheader">Shelves</div>
             <div className="my-activity-content my-activity-shelves">{shelvesByBook}</div>
         </div>
