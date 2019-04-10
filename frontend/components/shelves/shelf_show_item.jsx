@@ -64,8 +64,8 @@ class ShelfShowItem extends React.Component {
         <td className="shelf-show-cell shelf-show-date-added">
           <p>PH</p>
         </td >
-        <td className="shelf-show-cell shelf-show-delete" onClick={this.handleClick}>
-          X
+        <td className="shelf-show-cell shelf-show-delete">
+          <div className="shelf-show-delete" onClick={this.handleClick}>X</div>
         </td>
       </tr>
     )
