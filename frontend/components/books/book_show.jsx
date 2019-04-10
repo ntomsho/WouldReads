@@ -31,13 +31,16 @@ class BookShow extends React.Component {
         shelf_book.shelf_id
       );
     });
-    
+
     return (
       <div>
         {Object.keys(this.props.shelves).map(id => this.props.shelves[id]).map (shelf => {
           if (user_sbi.includes(shelf.id) && shelf.title !== "All" && shelf.default_shelf === true) {
             return (
               <div key={shelf.id} className="default-shelf-active">
+                <button className="green-check" 
+                  title="Remove this book from your shelves"
+                  onClick={this.removeBookFromShelf(shelf.id)}/>
                 {shelf.title}
               </div>
             )
@@ -79,6 +82,17 @@ class BookShow extends React.Component {
     };
   }
 
+  removeBookFromShelf (shelfId) {
+    return e => {
+      debugger
+      this.props.currentBook.shelf_books.map(shelving => {
+        if (shelving.shelf_id === shelfId) {
+          this.props.deleteShelving(shelving.id);
+        }
+      })
+    }
+  }
+
   toggleDropdown() {
     let dropdown = document.getElementById("read-status-dropdown");
     dropdown.className === "dropdown-hidden" ?
@@ -99,6 +113,7 @@ class BookShow extends React.Component {
   }
 
   render() {
+    debugger
     const bookShow = function(props, that) {
       if (that.props.currentBook) {
         const currentReadShelf = that.currentReadShelf();

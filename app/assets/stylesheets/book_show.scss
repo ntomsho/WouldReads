@@ -71,6 +71,18 @@
   font-weight: bold;
 }
 
+.green-check {
+  background-image: image-url('green-check.png');
+  background-color: transparent;
+  cursor: pointer;
+  width: 13px;
+  height: 11px;
+  vertical-align: middle;
+  border: 0;
+  padding: 0;
+  margin-right: 4px;
+}
+
 .read-status-dropdown-button {
   background-color: #409D69;
   background-image: image-url('dropdown_arrow.png');
@@ -105,9 +117,8 @@
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   height: 100%;
-  max-height: 250;
-  vertical-align: top;
-  transition: max-height 0.15s ease-out;
+  max-height: 250px;
+  transition: max-height 5.15s ease-out;
   position: absolute;
   top: 1px;
   z-index: 100;
@@ -115,6 +126,7 @@
 
 .dropdown-hidden {
   display: none;
+  max-height: 0;
 }
 
 .read-status-dropdown-shelves {
@@ -194,6 +206,7 @@
   color: #181818;
   font-size: 14px;
   line-height: 21px;
+  white-space: pre-wrap;
 }
 
 .book-show-my-activity {

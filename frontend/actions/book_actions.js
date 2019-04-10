@@ -3,6 +3,7 @@ import * as BookApiUtil from '../util/book_api_util';
 export const RECEIVE_BOOKS = "RECEIVE_BOOKS";
 export const RECEIVE_BOOK = "RECEIVE_BOOK";
 export const REMOVE_SHELFBOOK = "REMOVE_SHELFBOOK";
+export const REMOVE_SHELVING = "REMOVE_SHELVING";
 
 export const fetchBooks = (shelf) => dispatch => {
   return BookApiUtil.fetchBooks(shelf).then(books => dispatch(receiveBooks(books)));
@@ -17,8 +18,14 @@ export const createShelfBook = (shelfBook) => dispatch => {
 };
 
 export const deleteShelfBook = (shelfBookId) => dispatch => {
+  debugger
   return BookApiUtil.deleteShelfBook(shelfBookId).then(shelfBook => dispatch(removeShelfBook(shelfBook)));
 };
+
+export const deleteShelving = (shelfBookId) => dispatch => {
+  debugger
+  return BookApiUtil.deleteShelfBook(shelfBookId).then(shelfBook => dispatch(removeShelving(shelfBook)));
+}
 
 export const receiveBooks = (books) => ({
   type: RECEIVE_BOOKS,
@@ -37,3 +44,8 @@ export const removeShelfBook = (shelfBook) => {
   shelfBook
   }
   );};
+
+export const removeShelving = (shelfBook) => ({
+  type: REMOVE_SHELVING,
+  shelfBook
+})
