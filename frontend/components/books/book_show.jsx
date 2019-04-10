@@ -12,6 +12,10 @@ class BookShow extends React.Component {
     this.currentReadShelf = this.currentReadShelf.bind(this);
     this.shelfList = this.shelfList.bind(this);
     this.toggleDropdown = this.toggleDropdown.bind(this);
+    this.openDropdown = this.openDropdown.bind(this);
+    this.closeDropdown = this.closeDropdown.bind(this);
+    this.open = null;
+    this.close = null;
   }
 
   componentDidMount() {
@@ -83,13 +87,15 @@ class BookShow extends React.Component {
   }
 
   openDropdown() {
+    clearTimeout(this.close)
     let dropdown = document.getElementById("read-status-dropdown");
-    setTimeout(() => { dropdown.className = "dropdown-open" }, 350) 
+    this.open = setTimeout(() => { dropdown.className = "dropdown-open" }, 350) 
   }
 
   closeDropdown() {
+    clearTimeout(this.open);
     let dropdown = document.getElementById("read-status-dropdown");
-    setTimeout(() => { dropdown.className = "dropdown-hidden" }, 1000) 
+    this.close = setTimeout(() => { dropdown.className = "dropdown-hidden" }, 1000) 
   }
 
   render() {
@@ -118,7 +124,7 @@ class BookShow extends React.Component {
                     </button>
                   </div>
                   <div className="dropdown-container">
-                    <div id="read-status-dropdown" className="dropdown-hidden">
+                    <div id="read-status-dropdown" className="dropdown-hidden" onMouseEnter={that.openDropdown}>
                       {shelfList}
                     </div>
                   </div>
