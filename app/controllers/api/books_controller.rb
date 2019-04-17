@@ -11,6 +11,10 @@ class Api::BooksController < ApplicationController
         end
     end
 
+    def search
+        # @books = Book.where(:title => )
+    end
+
     def create
         @shelf_book = ShelfBook.new(shelf_book_params)
         all_shelf = Shelf.select('id').where(:user_id => current_user.id).where(:title => "All")

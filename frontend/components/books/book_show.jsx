@@ -41,7 +41,7 @@ class BookShow extends React.Component {
                 <button className="green-check" 
                   title="Remove this book from your shelves"
                   onClick={this.removeBookFromShelf(shelf.id)}/>
-                {shelf.title}
+                  <div className="current-shelf-title">{shelf.title}</div>
               </div>
             )
           }
