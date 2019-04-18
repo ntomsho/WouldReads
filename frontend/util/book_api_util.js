@@ -6,6 +6,14 @@ export const fetchBooks = (id) => {
   });
 };
 
+export const searchBooks = (filter) => {
+  return $.ajax({
+    method: "GET",
+    url: "api/search",
+    data: {filter}
+  });
+};
+
 export const fetchBook = (id) => {
   return $.ajax({
     method: "GET",

@@ -1,0 +1,77 @@
+.navbar-search-bar {
+  width: 341px;
+  height: 32px;
+  margin-top: 9px;
+  margin-right: 8px;
+  margin-left: 15px;
+  border-radius: 3px;
+  border: #DCD6CC 1px solid;
+  color: #333333;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+.search-dropdown-list {
+    background: #ffffff;
+    position: relative;
+    left: 15px;
+    bottom: 3px;
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+    box-shadow: 0 3px 4px -3px rgba(0,0,0,0.5);
+    list-style: none;
+    overflow: hidden;
+    padding-bottom: 2px;
+    padding-left: 0;
+    color: #181818;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 2px 0;
+    width: 341px;
+    z-index: 200
+}
+
+.search-dropdown-list li {
+    display: flex;
+    background: #ffffff;
+    padding: 8px;
+    padding-right: 18px;
+    height: 55px;
+    border-bottom: 1px solid #D8D8D8;
+}
+
+.search-dropdown-list li:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.search-dropdown-book-cover img {
+    width: 50px;
+    flex-shrink: 0;
+}
+
+.search-dropdown-title-author {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-dropdown-book-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    color: #333333;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.search-dropdown-book-author {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    margin-top: 4px;
+    color: #333333;
+    font-family: "Merriweather", "Georgia", serif;
+}

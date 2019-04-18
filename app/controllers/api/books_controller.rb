@@ -1,8 +1,9 @@
 class Api::BooksController < ApplicationController
 
     def index
+        # debugger
         if params[:id]
-            shelf = Shelf.find(params[:id])
+            shelf = Shelf.find(params[:id][:id])
             @books = shelf.books
             render :index
         else
@@ -12,7 +13,9 @@ class Api::BooksController < ApplicationController
     end
 
     def search
-        # @books = Book.where(:title => )
+        # @books = Book.where(:title.like(params[:filter]).or(:author.like(params[:filter])))
+        @books = Book.where(["title LIKE ? OR author LIKE ?", "%#{params[:filter]}%", "%#{params[:filter]}%"])
+        render :index
     end
 
     def create

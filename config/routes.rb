@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :shelves, except: [:new, :edit]
     resources :books, only: [:index, :create, :show, :destroy]
     resources :reviews, only: [:index, :create, :show, :update]
+    get '/search', to: 'books#search'
   end
   
   root "static_pages#root"
