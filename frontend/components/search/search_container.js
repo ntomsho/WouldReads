@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import {searchBooks} from '../../actions/book_actions';
+import {searchBooks, clearSearchBooks} from '../../actions/book_actions';
 import Search from './search';
 
 const msp = ({ entities }) => {
@@ -10,7 +10,8 @@ const msp = ({ entities }) => {
 
 const mdp = (dispatch) => {
     return {
-        searchBooks: (filter) => dispatch(searchBooks(filter))
+        searchBooks: (filter) => dispatch(searchBooks(filter)),
+        clearSearchBooks: () => dispatch(clearSearchBooks())
     };
 };
 

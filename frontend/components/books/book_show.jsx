@@ -25,6 +25,15 @@ class BookShow extends React.Component {
     this.props.fetchShelves(this.props.currentUser);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      this.props.fetchBook(parseInt(this.props.match.params.id)).then((action) => {
+        this.props.fetchReviews(action.book);
+      });
+      this.props.fetchShelves(this.props.currentUser);
+    }
+  }
+
   currentReadShelf() {
     const user_sbi = this.props.currentBook.shelf_books.map(shelf_book => {
       return (

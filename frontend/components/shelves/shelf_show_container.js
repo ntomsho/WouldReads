@@ -5,10 +5,9 @@ import * as ShelfActions from '../../actions/shelf_actions';
 import * as ReviewActions from '../../actions/review_actions';
 
 const msp = ({session, entities}, ownProps) => {
-  debugger
   return {
     shelves: entities.shelves,
-    shelf: entities.shelves[ownProps.match.params.shelfId],
+    shelf: ownProps.match.params.shelfId,
     books: Object.keys(entities.books).map(id => entities.books[id]),
     reviews: Object.keys(entities.reviews).map(id => entities.reviews[id]),
     currentUser: entities.users[session.id]
