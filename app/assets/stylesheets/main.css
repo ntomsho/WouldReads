@@ -124,6 +124,17 @@
   font-size: 12px;
 }
 
+.discover-books {
+  list-style: none;
+  display: flex;
+}
+
+.discover-book-entry img {
+  width: 80px;
+  height: 120px;
+  margin-right: 12px;
+}
+
 
 .signup-greeting {
   margin-bottom: 10px;

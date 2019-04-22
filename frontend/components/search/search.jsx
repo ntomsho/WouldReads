@@ -16,13 +16,11 @@ class Search extends React.Component {
     }
 
     fetchSearched(e) {
-        debugger
         this.setState({searchValue: e.currentTarget.value});
         e.currentTarget.value === "" ? this.props.clearSearchBooks() : this.props.searchBooks(e.currentTarget.value);
     }
 
     clearInput() {
-        debugger
         this.setState({searchValue: ""});
         this.props.clearSearchBooks();
     }

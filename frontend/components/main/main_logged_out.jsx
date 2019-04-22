@@ -1,15 +1,42 @@
 import React from 'react';
 import SignupFormContainer from '../session_form/signup_form_container';
-import {withRouter} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
 class MainLoggedOut extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.booksList = this.booksList.bind(this);
   }
 
   componentDidMount() {
     const background = document.getElementById('background-container');
     background.className ='bg-active';
+    this.props.fetchBooks();
+  }
+
+  booksList() {
+    if (this.props.books.length > 0) {
+      let fiveBooks = [];
+      const numBooks = this.props.books.length
+      let randId = Object.keys(this.props.books)[Math.floor(Math.random()*numBooks)];
+      for (let i = randId; fiveBooks.length < 5; i = Object.keys(this.props.books)[Math.floor(Math.random() * numBooks)]) {
+        if (!fiveBooks.includes(this.props.books[i])) {
+          fiveBooks.push(this.props.books[i]);
+        }
+      };
+      //Try to make the cover image a link when you can
+      return (
+        <ul className="discover-books">
+          {fiveBooks.map(book => {
+            return (
+              <li className="discover-book-entry" key={book.id}>
+                <img src={book.coverUrl} />
+              </li>
+            )
+          })}
+        </ul>
+      )
+    }
   }
 
   render() {
@@ -61,7 +88,7 @@ class MainLoggedOut extends React.Component {
                   <p>You know, like, if you had the time and all...</p>
             </div>
             <div className="discover-list">
-                  
+                {this.booksList()}
             </div>
           </div>
         </div>
