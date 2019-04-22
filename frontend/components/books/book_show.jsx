@@ -14,6 +14,7 @@ class BookShow extends React.Component {
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.openDropdown = this.openDropdown.bind(this);
     this.closeDropdown = this.closeDropdown.bind(this);
+    this.closeDropdownNow = this.closeDropdownNow.bind(this);
     this.open = null;
     this.close = null;
   }
@@ -88,6 +89,7 @@ class BookShow extends React.Component {
       const newShelfBook = {shelf_id: shelfId,
         book_id: this.props.currentBook.id};
       this.props.createShelfBook(newShelfBook);
+      this.closeDropdownNow();
     };
   }
 
@@ -118,6 +120,12 @@ class BookShow extends React.Component {
     clearTimeout(this.open);
     let dropdown = document.getElementById("read-status-dropdown");
     this.close = setTimeout(() => { dropdown.className = "dropdown-hidden" }, 1000) 
+  }
+
+  closeDropdownNow() {
+    clearTimeout(this.open);
+    let dropdown = document.getElementById("read-status-dropdown");
+    this.close = setTimeout(() => { dropdown.className = "dropdown-hidden" }, 1) 
   }
 
   render() {
