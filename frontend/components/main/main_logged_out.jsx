@@ -15,7 +15,7 @@ class MainLoggedOut extends React.Component {
   }
 
   booksList() {
-    if (this.props.books.length > 0) {
+    if (this.props.books.length > 4) {
       let fiveBooks = [];
       const numBooks = this.props.books.length
       let randId = Object.keys(this.props.books)[Math.floor(Math.random()*numBooks)];

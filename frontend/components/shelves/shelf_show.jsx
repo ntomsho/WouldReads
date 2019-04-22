@@ -8,7 +8,6 @@ class ShelfShow extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.fetchBooks(this.props.shelf);
   }
 
