@@ -62,6 +62,7 @@
 }
 
 .default-shelf-active {
+  display: flex;
   white-space: nowrap;
   text-overflow: ellipsis;
   font-size: 13px;
@@ -81,6 +82,13 @@
   border: 0;
   padding: 0;
   margin-right: 4px;
+}
+
+.current-shelf-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 95px;
 }
 
 .read-status-dropdown-button {
@@ -251,6 +259,7 @@
   line-height: 21px;
   font-size: 14px;
   color: #181818;
+  white-space: pre-wrap;
 }
 
 .my-activity-review-link {

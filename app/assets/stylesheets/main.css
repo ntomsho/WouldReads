@@ -3,6 +3,11 @@
   box-sizing: content-box;
 }
 
+.logged-out-main-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .logged-out-masthead {
   height: 294px;
   display: flex;
@@ -45,6 +50,91 @@
   right: 52px;
   top: 20px;
 }
+
+.logged-out-bottom {
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.logged-out-bottom-container {
+  width: 625px;
+  display: flex;
+}
+
+.logged-out-col {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+}
+
+.col-divider {
+  width: 40px;
+}
+
+.col-header h2 {
+    margin: 0;
+    color: #000;
+    font-size: 18px;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    line-height: 1.25;
+    font-weight: normal;
+}
+
+.col-content p {
+    color: #333333;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 18px 0;
+    padding: 0;
+}
+
+.logged-out-discover-container {
+  display: flex;
+  justify-content: center;
+  background-color: #FFFFFF;
+}
+
+.logged-out-discover {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 15px 0 20px 0;
+  background-color: #f4f2e9;
+  width: 625px;
+}
+
+.discover-header h2 {
+  margin: 0 0 15px 15px;
+  color: #000;
+  font-size: 18px;
+  font-weight: normal;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  line-height: 1.25;
+}
+
+.discover-leadin p {
+  margin: 0 0 18px 15px;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 18px;
+  padding: 0;
+  font-size: 12px;
+}
+
+.discover-books {
+  list-style: none;
+  display: flex;
+}
+
+.discover-book-entry img {
+  width: 80px;
+  height: 120px;
+  margin-right: 12px;
+}
+
 
 .signup-greeting {
   margin-bottom: 10px;

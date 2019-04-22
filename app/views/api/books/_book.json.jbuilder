@@ -1,11 +1,15 @@
 shelves = []
-book.shelves.each do |shelf|
-  shelves.push(shelf.id) if shelf.user_id == current_user.id
+if current_user
+  book.shelves.each do |shelf|
+    shelves.push(shelf.id) if shelf.user_id == current_user.id
+  end
 end
 
 shelvings = []
-book.shelf_books.each do |shelf_book|
-  shelvings.push(shelf_book) if shelf_book.shelf.user_id == current_user.id
+if current_user
+  book.shelf_books.each do |shelf_book|
+    shelvings.push(shelf_book) if shelf_book.shelf.user_id == current_user.id
+  end
 end
 
 total_ratings = 0

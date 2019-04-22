@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import SigninFormContainer from '../session_form/signin_form_container';
+import SearchContainer from '../search/search_container';
 
 const Navbar = ({currentUser, logout}) => {
   
@@ -22,7 +23,7 @@ const Navbar = ({currentUser, logout}) => {
           <Link to="/shelves" className="navbar-text-button">Home</Link>
           <Link to="/shelves" className="navbar-text-button">My Books</Link>
           <Link to="/books" className="navbar-text-button navbar-dropdown">Browse</Link>
-          <input type="text" className="navbar-search-bar" placeholder="Look, I only had so much time. This doesn't work yet. Just hit Browse, okay?"></input>
+          <SearchContainer />
           <Link to="/" className="logout-button-container"><button className="logout-button" onClick={logout}>Logout</button></Link>
         </div>
       </div>

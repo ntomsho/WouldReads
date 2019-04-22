@@ -11,6 +11,12 @@ class Api::BooksController < ApplicationController
         end
     end
 
+    def search
+        filter = params[:filter].downcase
+        @books = Book.where(["lower(title) LIKE ? OR lower(author) LIKE ?", "%#{filter}%", "%#{filter}%"])
+        render :index
+    end
+
     def create
         @shelf_book = ShelfBook.new(shelf_book_params)
         all_shelf = Shelf.select('id').where(:user_id => current_user.id).where(:title => "All")
