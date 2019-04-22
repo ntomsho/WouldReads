@@ -127,6 +127,7 @@
 .discover-books {
   list-style: none;
   display: flex;
+  margin: 0;
 }
 
 .discover-book-entry img {
