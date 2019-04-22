@@ -1,3 +1,7 @@
+.search-area {
+    position: relative;
+}
+
 .navbar-search-bar {
   width: 341px;
   height: 32px;
@@ -12,9 +16,8 @@
 
 .search-dropdown-list {
     background: #ffffff;
-    position: relative;
-    left: 15px;
-    bottom: 3px;
+    position: absolute;
+    left: 16px;
     border-radius: 3px;
     border: 1px solid #cccccc;
     box-shadow: 0 3px 4px -3px rgba(0,0,0,0.5);
@@ -46,8 +49,15 @@
   cursor: pointer;
 }
 
+.search-dropdown-book-cover {
+    padding-bottom: 0;
+    overflow-y: hidden;
+}
+
 .search-dropdown-book-cover img {
     width: 50px;
+    padding-bottom: 0;
+    margin-right: 8px;
     flex-shrink: 0;
 }
 

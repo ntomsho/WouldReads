@@ -13,7 +13,6 @@ class Api::BooksController < ApplicationController
 
     def search
         filter = params[:filter].downcase
-        # @books = Book.where(["title LIKE ? OR author LIKE ?", "%#{params[:filter]}%", "%#{params[:filter]}%"])
         @books = Book.where(["lower(title) LIKE ? OR lower(author) LIKE ?", "%#{filter}%", "%#{filter}%"])
         render :index
     end
