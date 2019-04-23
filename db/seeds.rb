@@ -43,6 +43,18 @@ Review.destroy_all
     default_shelf: true
   )
 
+  cagevoodoo = Shelf.create!(
+    title: "books about voodoo",
+    user_id: cage.id,
+    default_shelf: false
+  )
+
+  cagebuns = Shelf.create!(
+    title: "fluffy bunnies",
+    user_id: cage.id,
+    default_shelf: false
+  )
+
 
 twentyone_lessons = Book.create(
     title: "21 Lessons for the 21st Century",
@@ -223,3 +235,119 @@ year_of_the_flood = Book.create(
   synopsis: "The times and species have been changing at a rapid rate, and the social compact is wearing as thin as environmental stability. Adam One, the kindly leader of the God's Gardeners--a religion devoted to the melding of science and religion, as well as the preservation of all plant and animal life--has long predicted a natural disaster that will alter Earth as we know it. Now it has occurred, obliterating most human life. Two women have survived: Ren, a young trapeze dancer locked inside the high-end sex club Scales and Tails, and Toby, a God's Gardener barricaded inside a luxurious spa where many of the treatments are edible.\n \nHave others survived? Ren's bioartist friend Amanda? Zeb, her eco-fighter stepfather? Her onetime lover, Jimmy? Or the murderous Painballers, survivors of the mutual-elimination Painball prison? Not to mention the shadowy, corrupt policing force of the ruling powers...\n \nMeanwhile, gene-spliced life forms are proliferating: the lion/lamb blends, the Mo'hair sheep with human hair, the pigs with human brain tissue. As Adam One and his intrepid hemp-clad band make their way through this strange new world, Ren and Toby will have to decide on their next move. They can't stay locked away..."
 )
 year_of_the_flood.cover.attach(io: open("https://s3.amazonaws.com/wouldreads-seed/book_covers/year_of_the_flood.jpg"), filename: "year_of_the_flood")
+
+
+sb1a = ShelfBook.create(
+    shelf_id: cageall.id,
+    book_id: twentyone_lessons.id
+)
+
+sb1b = ShelfBook.create(
+  shelf_id: cageskim.id,
+  book_id: twentyone_lessons.id
+)
+
+r1 = Review.create(
+  book_id: twentyone_lessons.id,
+  user_id: cage.id,
+  rating: 5,
+  body: "Whoa! Crazy robots and radical mind-control, man!"
+)
+
+sb2a = ShelfBook.create(
+  shelf_id: cageall.id,
+  book_id: black_panther.id
+)
+
+sb2b = ShelfBook.create(
+  shelf_id: cageskim.id,
+  book_id: black_panther.id
+)
+
+r2 = Review.create(
+  book_id: black_panther.id,
+  user_id: cage.id,
+  rating: 4
+)
+
+sb2a = ShelfBook.create(
+  shelf_id: cageall.id,
+  book_id: kings_of_the_wyld.id
+)
+
+sb2b = ShelfBook.create(
+  shelf_id: cagepretend.id,
+  book_id: kings_of_the_wyld.id
+)
+
+sb3a = ShelfBook.create(
+  shelf_id: cageall.id,
+  book_id: transmetropolitan.id
+)
+
+sb3b = ShelfBook.create(
+  shelf_id: cagewould.id,
+  book_id: transmetropolitan.id
+)
+
+sb4a = ShelfBook.create(
+  shelf_id: cageall.id,
+  book_id: black_gods_drums.id
+)
+
+sb4b = ShelfBook.create(
+  shelf_id: cagewould.id,
+  book_id: black_gods_drums.id
+)
+
+sb4c = ShelfBook.create(
+  shelf_id: cagevoodoo.id,
+  book_id: black_gods_drums.id
+)
+
+r4 = Review.create(
+  book_id: black_gods_drums.id,
+  user_id: cage.id,
+  rating: 4,
+  body: "I haven't read this yet, but it's got some crazy black-magic juju, man!"
+)
+
+sb5a = ShelfBook.create(
+  shelf_id: cageall.id,
+  book_id: marlon_bundo.id
+)
+
+sb5b = ShelfBook.create(
+  shelf_id: cagewould.id,
+  book_id: marlon_bundo.id
+)
+
+sb5c = ShelfBook.create(
+  shelf_id: cagebuns.id,
+  book_id: marlon_bundo.id
+)
+
+sb6a = ShelfBook.create(
+  shelf_id: cageall.id,
+  book_id: thank_you_bunny.id
+)
+
+sb6b = ShelfBook.create(
+  shelf_id: cagewould.id,
+  book_id: thank_you_bunny.id
+)
+
+sb6c = ShelfBook.create(
+  shelf_id: cagebuns.id,
+  book_id: thank_you_bunny.id
+)
+
+sb7a = ShelfBook.create(
+  shelf_id: cageall.id,
+  book_id: calypso.id
+)
+
+sb7b = ShelfBook.create(
+  shelf_id: cagewould.id,
+  book_id: calypso.id
+)
