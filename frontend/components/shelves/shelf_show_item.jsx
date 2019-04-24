@@ -29,6 +29,7 @@ class ShelfShowItem extends React.Component {
       });
   }
 
+  //consider adding <br> or "," to separate shelves entries
   render() {
     const {book, shelves, reviews, currentUser} = this.props;
     let shelvesByBook = book.shelves.map (id => {
