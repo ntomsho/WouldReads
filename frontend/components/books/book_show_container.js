@@ -3,6 +3,7 @@ import BookShow from './book_show';
 import * as BookActions from '../../actions/book_actions';
 import * as ShelfActions from '../../actions/shelf_actions';
 import * as ReviewActions from '../../actions/review_actions';
+import * as UserActions from '../../actions/user_actions';
 
 const msp = ({session, entities}, ownProps) => {
   return {
@@ -23,7 +24,8 @@ const mdp = (dispatch) => {
     deleteShelfBook: (shelfBookId => dispatch(BookActions.deleteShelfBook(shelfBookId))),
     deleteShelving: (shelfBookId => dispatch(BookActions.deleteShelving(shelfBookId))),
     fetchReviews: (book => dispatch(ReviewActions.fetchReviews(book))),
-    createReview: (review => dispatch(ReviewActions.createReview(review)))
+    createReview: (review => dispatch(ReviewActions.createReview(review))),
+    fetchUsers: (() => dispatch(UserActions.fetchUsers()))
   };
 };
 
