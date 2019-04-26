@@ -1,8 +1,8 @@
 # README
 
-## Wouldreads
+## [WouldReads](https://wouldreads.herokuapp.com)
 
-Wouldreads is a social cataloguing web app, a clone of Goodreads for those honest readers who always have a stack of books they *would* read, but....
+WouldReads is a social cataloguing web app, a clone of GoodReads for those honest readers who always have a stack of books they *would* read, but....
 
 <figure>
   <img src="https://i.imgur.com/zdp6w3P.png">
@@ -15,8 +15,6 @@ Users can manage their catalogue of books they likely will never read through a 
    <img src="https://i.imgur.com/m9tNEwZ.png">
     <figcaption>The user shelves index</figcaption>
 </figure>
-
-# [Wouldreads](https://wouldreads.herokuapp.com)
 
 ## Technologies Used
 
