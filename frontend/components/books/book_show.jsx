@@ -21,14 +21,11 @@ class BookShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchBook(parseInt(this.props.match.params.id)).then((action) => {
-      debugger
       this.props.fetchReviews(action.book).then(() => {
         this.props.fetchUsers();
-        debugger
       });
     });
     this.props.fetchShelves(this.props.currentUser);
-    debugger
   }
 
   componentDidUpdate(prevProps) {
