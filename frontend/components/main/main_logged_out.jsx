@@ -1,6 +1,6 @@
 import React from 'react';
 import SignupFormContainer from '../session_form/signup_form_container';
-import {Link, withRouter} from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class MainLoggedOut extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class MainLoggedOut extends React.Component {
 
   componentDidMount() {
     const background = document.getElementById('background-container');
-    background.className ='bg-active';
+    background.className = 'bg-active';
     this.props.fetchBooks();
   }
 
@@ -18,7 +18,7 @@ class MainLoggedOut extends React.Component {
     if (this.props.books.length > 4) {
       let fiveBooks = [];
       const numBooks = this.props.books.length
-      let randId = Object.keys(this.props.books)[Math.floor(Math.random()*numBooks)];
+      let randId = Object.keys(this.props.books)[Math.floor(Math.random() * numBooks)];
       for (let i = randId; fiveBooks.length < 5; i = Object.keys(this.props.books)[Math.floor(Math.random() * numBooks)]) {
         if (!fiveBooks.includes(this.props.books[i])) {
           fiveBooks.push(this.props.books[i]);
@@ -43,7 +43,7 @@ class MainLoggedOut extends React.Component {
     return (
       <div className="logged-out-main-container">
         <div className="logged-out-masthead">
-            <div className="logged-out-masthead-container">
+          <div className="logged-out-masthead-container">
             <div className="logged-out-splash-message">
               <h3>A home for all those books that you <i>would</i> read, but won't.</h3>
             </div>
@@ -51,44 +51,45 @@ class MainLoggedOut extends React.Component {
               <SignupFormContainer />
               <button className="demo-user-button" onClick={() => {
                 this.props.signin({ username: 'Nicolas Cage', email: 'wild@heart.com', password: 'notthebees' })
-                .then(() => this.props.history.push(`/shelves`))
-                }}>Or sign in as a demo user</button>
+                  //Hardcoded for the demo user's All shelf
+                  .then(() => this.props.history.push(`/shelves/28`))
+              }}>Or sign in as a demo user</button>
             </div>
           </div>
         </div>
         <div className="logged-out-bottom">
           <div className="logged-out-bottom-container">
             <div className="logged-out-col">
-                <div className="col-header">
-                  <h2>Want to read but never do?
-                    <br/>
-                  </h2>
-                </div>
-                <div className="col-content">
-                  <p>Join the club. Literally! Find the books you like, add them to your shelves, and bask in the glory of unearned literary accomplishment.</p>
-                </div>
+              <div className="col-header">
+                <h2>Want to read but never do?
+                    <br />
+                </h2>
+              </div>
+              <div className="col-content">
+                <p>Join the club. Literally! Find the books you like, add them to your shelves, and bask in the glory of unearned literary accomplishment.</p>
+              </div>
             </div>
             <span className="col-divider"></span>
             <div className="logged-out-col">
-                <div className="col-header">
-                  <h2>What are your friends not reading?</h2>
-                </div>
-                <div className="col-content">
-                  <p>Put reviews in for books that you've never read and see what your fellow pseudo-literati think.</p>
-                </div>
+              <div className="col-header">
+                <h2>What are your friends not reading?</h2>
+              </div>
+              <div className="col-content">
+                <p>Put reviews in for books that you've never read and see what your fellow pseudo-literati think.</p>
+              </div>
             </div>
           </div>
         </div>
         <div className="logged-out-discover-container">
           <div className="logged-out-discover">
             <div className="discover-header">
-                  <h2>What would <i>you</i> read?</h2>
+              <h2>What would <i>you</i> read?</h2>
             </div>
             <div className="discover-leadin">
-                  <p>You know, like, if you had the time and all...</p>
+              <p>You know, like, if you had the time and all...</p>
             </div>
             <div className="discover-list">
-                {this.booksList()}
+              {this.booksList()}
             </div>
           </div>
         </div>
