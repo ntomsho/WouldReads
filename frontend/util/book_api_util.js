@@ -6,13 +6,20 @@ export const fetchBooks = (id) => {
   });
 };
 
+// export const searchBooks = (filter) => {
+//   return $.ajax({
+//     method: "GET",
+//     url: "api/search",
+//     data: {filter}
+//   });
+// };
+
 export const searchBooks = (filter) => {
   return $.ajax({
     method: "GET",
-    url: "api/search",
-    data: {filter}
-  });
-};
+    url: `https://www.googleapis.com/books/v1/volumes?q=${filter}&country=US`
+  })
+}
 
 export const fetchBook = (id) => {
   return $.ajax({

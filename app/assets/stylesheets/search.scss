@@ -35,6 +35,10 @@
     text-decoration: none;
 }
 
+.search-dropdown-list a {
+    text-decoration: none;
+}
+
 .search-dropdown-list li {
     display: flex;
     background: #ffffff;
@@ -42,6 +46,7 @@
     padding-right: 18px;
     height: 55px;
     border-bottom: 1px solid #D8D8D8;
+    text-decoration: none;
 }
 
 .search-dropdown-list li:hover {

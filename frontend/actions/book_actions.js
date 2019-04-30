@@ -47,16 +47,20 @@ export const receiveBook = (book) => ({
 
 export const clearBooks = () => ({
   type: CLEAR_BOOKS
-})
+});
 
-export const receiveSearchBooks = (books) => ({
-  type: RECEIVE_SEARCH_BOOKS,
-  books
-})
+export const receiveSearchBooks = (books) => {
+  return (
+    {
+    type: RECEIVE_SEARCH_BOOKS,
+    books
+    }
+  )
+};
 
 export const clearSearchBooks = () => ({
   type: CLEAR_SEARCH_BOOKS
-})
+});
 
 export const removeShelfBook = (shelfBook) => {
   return (
@@ -69,4 +73,4 @@ export const removeShelfBook = (shelfBook) => {
 export const removeShelving = (shelfBook) => ({
   type: REMOVE_SHELVING,
   shelfBook
-})
+});
