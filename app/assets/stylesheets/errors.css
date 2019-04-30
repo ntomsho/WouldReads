@@ -1,0 +1,64 @@
+.errors-list {
+    display: flex;
+    background: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    list-style: none;
+    padding: 5px;
+    width: 125px;
+    box-shadow: lightgray 3px 4px 3px;
+}
+
+.errors-list li {
+    justify-content: center;
+}
+
+.review-error-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.review-errors-list {
+    position: absolute;
+    right: -61px;
+    top: 6px;
+    display: flex;
+    flex-direction: column;
+}
+
+.review-errors-list:after {
+  content: " ";
+  position: absolute;
+  right: 85px;
+  top: -15px;
+  border-top: none;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  border-bottom: 15px solid black;
+}
+
+.session-error-container {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.signup-errors-list {
+    position: absolute;
+    right: 145px;
+    top: 160px;
+    z-index: 1;
+}
+
+.signup-errors-list:after {
+  content: " ";
+  position: absolute;
+  right: 85px;
+  top: -15px;
+  border-top: none;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  border-bottom: 15px solid black;
+}

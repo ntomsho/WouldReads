@@ -2,6 +2,7 @@ import * as BookApiUtil from '../util/book_api_util';
 
 export const RECEIVE_BOOKS = "RECEIVE_BOOKS";
 export const RECEIVE_BOOK = "RECEIVE_BOOK";
+export const CLEAR_BOOKS = "CLEAR_BOOKS";
 export const RECEIVE_SEARCH_BOOKS = "RECEIVE_SEARCH_BOOKS";
 export const CLEAR_SEARCH_BOOKS = "CLEAR_SEARCH_BOOKS";
 export const REMOVE_SHELFBOOK = "REMOVE_SHELFBOOK";
@@ -43,6 +44,10 @@ export const receiveBook = (book) => ({
   type: RECEIVE_BOOK,
   book
 });
+
+export const clearBooks = () => ({
+  type: CLEAR_BOOKS
+})
 
 export const receiveSearchBooks = (books) => ({
   type: RECEIVE_SEARCH_BOOKS,

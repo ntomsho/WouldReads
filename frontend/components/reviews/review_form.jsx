@@ -7,7 +7,8 @@ class ReviewForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            body: ""
+            body: "",
+            error: ""
         };
         this.currentReview = null;
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -43,19 +44,41 @@ class ReviewForm extends React.Component {
             })
         }).then(() => {
             e.preventDefault();
-            this.props.updateReview({
-                id: this.currentReview.id,
-                book_id: this.props.currentBook.id,
-                body: this.state.body
-            })
-        }).then(() => {
-            this.props.history.push(`/books/${this.props.currentBook.id}`)
+            if (this.currentReview) {
+                this.setState({errors: ""});
+                this.props.updateReview({
+                    id: this.currentReview.id,
+                    book_id: this.props.currentBook.id,
+                    body: this.state.body
+                }).then(() => {
+                    this.props.history.push(`/books/${this.props.currentBook.id}`)
+                })
+            } else {
+                this.setState({error: "Enter a rating first"});
+            }
         })
     }
 
     update() {
         return e => {
             this.setState({ body: e.currentTarget.value});
+        }
+    }
+
+    renderErrors() {
+        if (this.state.error === "") { 
+            return (
+                <>
+                </>
+            )
+        } else {
+            return (
+                <ul className="errors-list review-errors-list">
+                    <li key="1">
+                        {this.state.error}
+                    </li>
+                </ul>
+            );
         }
     }
 
@@ -79,6 +102,9 @@ class ReviewForm extends React.Component {
                             <div className="my-rating-header">My rating:</div>
                             <div className="active-shelf-rating">
                                 <RatingStarsContainer currentUser={this.props.currentUser} currentBook={this.props.currentBook} />
+                                <div className="review-error-container">
+                                    {this.renderErrors()}
+                                </div>
                             </div>
                         </div>
                     </div>

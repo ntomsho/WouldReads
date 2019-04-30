@@ -13,6 +13,7 @@ const msp = ({entities}) => {
 const mdp = (dispatch) => {
   return {
     fetchBooks: (() => dispatch(BookActions.fetchBooks())),
+    clearBooks: (() => dispatch(BookActions.clearBooks())),
     fetchReviews: ((book) => dispatch(ReviewActions.fetchReviews(book)))
   };
 };

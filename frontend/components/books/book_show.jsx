@@ -37,6 +37,10 @@ class BookShow extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearBooks();
+  }
+
   currentReadShelf() {
     const user_sbi = this.props.currentBook.shelf_books.map(shelf_book => {
       return (

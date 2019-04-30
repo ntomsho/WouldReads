@@ -11,6 +11,10 @@ class ShelfShow extends React.Component {
     this.props.fetchBooks(this.props.shelf);
   }
 
+  componentWillUnmount() {
+    this.props.clearBooks();
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.shelfId !== this.props.match.params.shelfId) {
       this.props.fetchBooks(this.props.shelf);

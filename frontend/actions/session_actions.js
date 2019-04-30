@@ -6,7 +6,9 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 
 export const signin = (user) => dispatch => {
-  return SessionApiUtil.signin(user).then((user) => dispatch(receiveCurrentUser(user)));
+  return SessionApiUtil.signin(user)
+  .then((user) => dispatch(receiveCurrentUser(user)),
+  (errors) => dispatch(receiveErrors(errors.responseJSON)));
 };
 
 export const logout = () => dispatch => {

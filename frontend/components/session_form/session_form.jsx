@@ -16,7 +16,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(() => this.props.history.push(`/shelves/${user.all_shelf}`));
+    this.props.processForm(user).then(() => this.props.history.push(`/shelves`));
   }
 
   update(field) {
@@ -28,14 +28,23 @@ class SessionForm extends React.Component {
   renderErrors() {
     if (this.props.errors.length > 0) {
       return (
-        <ul className="errors-list">
-          {this.props.errors.map((error, i) => (
-            <li key={`error ${i}:`}>
-              {error}
-            </li>
-          ))}
-        </ul>
-      );
+        this.props.formType === "Sign in" ?
+          <ul className="errors-list signup-errors-list">
+            {this.props.errors.map((error, i) => (
+              <li key={`error ${i}:`}>
+                {error}
+              </li>
+            ))}
+          </ul>
+        :
+          <ul className="errors-list signin-errors-list">
+            {this.props.errors.map((error, i) => (
+              <li key={`error ${i}:`}>
+                {error}
+              </li>
+            ))}
+          </ul>
+        );
     };
   }
 
@@ -62,7 +71,9 @@ class SessionForm extends React.Component {
       <div className="session-form-container">
         <form onSubmit={this.handleSubmit} className="session-form-box">
           {this.signupGreeting()}
-          {this.renderErrors()}
+          <div className="session-error-container">
+            {this.renderErrors()}
+          </div>
           {this.usernameField()}
           <input type="text" value={this.state.email} placeholder="Email Address" onChange={this.update('email')} className="session-input" />
           <input type="password" value={this.state.password} placeholder="Password" onChange={this.update('password')} className="session-input"/>

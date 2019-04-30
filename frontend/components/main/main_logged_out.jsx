@@ -51,8 +51,7 @@ class MainLoggedOut extends React.Component {
               <SignupFormContainer />
               <button className="demo-user-button" onClick={() => {
                 this.props.signin({ username: 'Nicolas Cage', email: 'wild@heart.com', password: 'notthebees' })
-                  //Hardcoded for the demo user's All shelf
-                  .then(() => this.props.history.push(`/shelves/28`))
+                  .then(() => this.props.history.push(`/shelves`))
               }}>Or sign in as a demo user</button>
             </div>
           </div>

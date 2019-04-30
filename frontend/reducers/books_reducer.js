@@ -1,4 +1,4 @@
-import {RECEIVE_BOOKS, RECEIVE_BOOK, REMOVE_SHELFBOOK, REMOVE_SHELVING} from '../actions/book_actions';
+import {RECEIVE_BOOKS, RECEIVE_BOOK, CLEAR_BOOKS, REMOVE_SHELFBOOK, REMOVE_SHELVING} from '../actions/book_actions';
 
 const booksReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -7,6 +7,8 @@ const booksReducer = (state = {}, action) => {
       return action.books;
     case RECEIVE_BOOK:
       return {[action.book.id]: action.book};
+    case CLEAR_BOOKS:
+      return {};
     case REMOVE_SHELFBOOK:
       let newState = Object.assign({}, state);
       delete newState[action.shelfBook.book_id];

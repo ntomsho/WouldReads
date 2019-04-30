@@ -3,12 +3,13 @@ import ReviewForm from './review_form';
 import * as ReviewActions from '../../actions/review_actions';
 import * as BookActions from '../../actions/book_actions';
 
-const msp = ({ session, entities }, ownProps) => {
+const msp = ({ session, entities, errors }, ownProps) => {
     return {
         currentUser: entities.users[session.id],
         currentBook: entities.books[parseInt(ownProps.match.params.id)],
         shelves: entities.shelves,
-        reviews: entities.reviews
+        reviews: entities.reviews,
+        errors: errors.review
     }
 }
 

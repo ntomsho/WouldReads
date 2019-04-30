@@ -11,6 +11,10 @@ class BookIndex extends React.Component {
     this.props.fetchBooks();
   }
 
+  componentWillUnmount() {
+    this.props.clearBooks();
+  }
+
   render() {
 
     const booksList = this.props.books.map(book => {

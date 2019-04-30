@@ -17,6 +17,7 @@ const msp = ({session, entities}, ownProps) => {
 const mdp = (dispatch) => {
   return {
     fetchBooks: (shelf => dispatch(BookActions.fetchBooks(shelf))),
+    clearBooks: (() => dispatch(BookActions.clearBooks())),
     fetchShelf: (id => dispatch(ShelfActions.fetchShelf(id))),
     fetchReviews: (book => dispatch(ReviewActions.fetchReviews(book))),
     createReview: (review => dispatch(ReviewActions.createReview(review))),
