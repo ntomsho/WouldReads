@@ -20,9 +20,7 @@ class Search extends React.Component {
         const target = e.currentTarget.value;
         this.setState({searchValue: e.currentTarget.value});
         clearTimeout(this.fireSearch);
-        debugger
         this.fireSearch = setTimeout(() => {
-            debugger
             target === "" ? this.props.clearSearchBooks() : this.props.searchBooks(target);
         }, 500);
     }
@@ -46,7 +44,7 @@ class Search extends React.Component {
         return (
             <div id="search-dropdown" className={this.state.hidden === true ? `search-dropdown-hidden` : `search-dropdown-visible`}>
                 <ul className="search-dropdown-list">
-                    {this.props.searchedBooks.items.map(book => {
+                    {this.props.searchedBooks.map(book => {
                         return (
                             <Link key={book.id} to={`/books/${book.id}`} onClick={this.clearInput}>
                                 <li key={book.id} className="search-dropdown-item">

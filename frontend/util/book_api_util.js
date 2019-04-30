@@ -21,12 +21,20 @@ export const searchBooks = (filter) => {
   })
 }
 
+// export const fetchBook = (id) => {
+//   return $.ajax({
+//     method: "GET",
+//     url: `api/books/${id}`
+//   });
+// };
+
 export const fetchBook = (id) => {
+  debugger
   return $.ajax({
     method: "GET",
-    url: `api/books/${id}`
-  });
-};
+    url: `https://www.googleapis.com/books/v1/volumes/${id}`
+  })
+}
 
 export const createShelfBook = (shelf_book) => {
   return $.ajax({

@@ -4,7 +4,7 @@ const searchBooksReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_SEARCH_BOOKS:    
-            return action.books;
+            return action.books.items;
         case CLEAR_SEARCH_BOOKS:
             state = {};
             return state;

@@ -6,7 +6,8 @@ const booksReducer = (state = {}, action) => {
     case RECEIVE_BOOKS:
       return action.books;
     case RECEIVE_BOOK:
-      return {[action.book.id]: action.book};
+      debugger
+      return action.book;
     case CLEAR_BOOKS:
       return {};
     case REMOVE_SHELFBOOK:

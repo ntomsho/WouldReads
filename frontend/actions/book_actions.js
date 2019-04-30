@@ -40,10 +40,13 @@ export const receiveBooks = (books) => {
   }
   );};
 
-export const receiveBook = (book) => ({
-  type: RECEIVE_BOOK,
-  book
-});
+export const receiveBook = (book) => {
+  debugger
+  return ({
+    type: RECEIVE_BOOK,
+    book
+  })
+};
 
 export const clearBooks = () => ({
   type: CLEAR_BOOKS

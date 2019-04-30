@@ -20,19 +20,21 @@ class BookShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchBook(parseInt(this.props.match.params.id)).then((action) => {
-      this.props.fetchReviews(action.book).then(() => {
-        this.props.fetchUsers();
-      });
-    });
+    this.props.fetchBook(this.props.match.params.id)
+    // .then((action) => {
+      // this.props.fetchReviews(action.book.id).then(() => {
+      //   this.props.fetchUsers();
+      // });
+    // });
     this.props.fetchShelves(this.props.currentUser);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
-      this.props.fetchBook(parseInt(this.props.match.params.id)).then((action) => {
-        this.props.fetchReviews(action.book);
-      });
+      this.props.fetchBook(this.props.match.params.id)
+      // .then((action) => {
+        // this.props.fetchReviews(action.book.id);
+      // });
       this.props.fetchShelves(this.props.currentUser);
     }
   }
@@ -144,7 +146,7 @@ class BookShow extends React.Component {
             <div className="book-show-top">
               <div className="book-show-top-left">
                 <div className="book-show-cover">
-                  <img src={that.props.currentBook.coverUrl} />
+                  {that.props.currentBook.volumeInfo.imageLinks ? <img src={that.props.currentBook.volumeInfo.imageLinks.thumbnail} /> : <p>Placeholder</p>}
                 </div>
                 
                 <div className="book-show-read-status-area" 
@@ -172,26 +174,26 @@ class BookShow extends React.Component {
                   </div>
                   <div className="main-rating-stars">
                     <div className="active-shelf-rating">
-                      <RatingStarsContainer currentUser={that.props.currentUser} currentBook={that.props.currentBook} />
+                      {/* <RatingStarsContainer currentUser={that.props.currentUser} currentBook={that.props.currentBook} /> */}
                     </div>
                   </div>
                 </div>
               </div>
               <div className="book-show-top-middle">
                 <div className="book-show-title">
-                  {that.props.currentBook.title}
+                  {that.props.currentBook.volumeInfo.title ? that.props.currentBook.volumeInfo.title : "Untitled"}
                 </div>
                 <div className="book-show-author">
-                  <p>by {that.props.currentBook.author}</p>
+                  <p>by {that.props.currentBook.volumeInfo.authors ? that.props.currentBook.volumeInfo.authors[0] : "Unknown"}</p>
                 </div>
                 <div className="avg-rating">
                   <div className="inactive-shelf-rating">
-                    <StaticStars rating={that.props.currentBook.avg_rating} />
+                    {/* <StaticStars rating={that.props.currentBook.avg_rating} /> */}
                   </div>
-                  <div className="avg-rating-integer">{that.props.currentBook.avg_rating}</div>
+                  {/* <div className="avg-rating-integer">{that.props.currentBook.avg_rating}</div> */}
                 </div>
                 <div className="book-show-synopsis">
-                  {that.props.currentBook.synopsis}
+                  {that.props.currentBook.volumeInfo.description ? that.props.currentBook.volumeInfo.description : "Unknown"}
                 </div>
               </div>
               <div className="book-show-top-right">
@@ -201,7 +203,7 @@ class BookShow extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="book-show-my-activity">
+            {/* <div className="book-show-my-activity">
               <BookShowMyActivity 
                 book={that.props.currentBook} 
                 user={that.props.currentUser}
@@ -214,7 +216,7 @@ class BookShow extends React.Component {
                 currentUser={that.props.currentUser}
                 reviews={that.props.reviews}
                 users={that.props.users}/>
-            </div>
+            </div> */}
           </div>
         )
       }
