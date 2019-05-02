@@ -42,7 +42,7 @@ class BookShow extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.clearBooks();
+    // this.props.clearBooks();
   }
 
   currentReadShelf() {

@@ -30,7 +30,7 @@ class MainLoggedOut extends React.Component {
           {fiveBooks.map(book => {
             return (
               <li className="discover-book-entry" key={book.id}>
-                <img src={book.coverUrl} />
+                <img src={book.volumeInfo.imageLinks.thumbnail} />
               </li>
             )
           })}
