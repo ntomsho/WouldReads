@@ -46,6 +46,7 @@ class BookShow extends React.Component {
   }
 
   currentReadShelf() {
+    debugger
     const user_sbi = [];
     Object.values(this.props.shelves).forEach(shelf => {
       if (shelf.shelvedBooks.includes(this.props.currentBook.id)) {
@@ -95,10 +96,13 @@ class BookShow extends React.Component {
   }
 
   addBookToShelf (shelfId) {
+    debugger
     return e => {
       const newShelfBook = {shelf_id: shelfId,
         book_id: this.props.currentBook.id};
-      this.props.createShelfBook(newShelfBook);
+      this.props.createShelfBook(newShelfBook).then(() => {
+        this.props.fetchShelves(this.props.currentUser);
+      });
       this.closeDropdownNow();
     };
   }

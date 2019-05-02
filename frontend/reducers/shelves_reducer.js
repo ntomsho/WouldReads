@@ -4,6 +4,7 @@ const shelvesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_SHELVES:
+      debugger
       return action.shelves;
     case RECEIVE_SHELF:
       let newState = Object.assign({}, state);
