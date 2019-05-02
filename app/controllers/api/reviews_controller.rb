@@ -1,8 +1,7 @@
 class Api::ReviewsController < ApplicationController
 
   def index
-    book = Book.find(params[:book][:id])
-    @reviews = book.reviews
+    @reviews = Review.where(:book_id => params[:book][:id])
     render :index
   end
 

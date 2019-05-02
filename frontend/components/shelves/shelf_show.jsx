@@ -8,20 +8,42 @@ class ShelfShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchBooks(this.props.shelf);
+    this.props.fetchShelf(parseInt(this.props.match.params.shelfId)).then(() =>
+    this.props.fetchBooks(this.props.shelf.shelvedBooks));
   }
 
   componentWillUnmount() {
-    this.props.clearBooks();
+    // this.props.clearBooks();
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.shelfId !== this.props.match.params.shelfId) {
-      this.props.fetchBooks(this.props.shelf);
+      this.props.fetchBooks(this.props.shelf.shelvedBooks);
     }
   }
 
   render() {
+    let shelfShowItems;
+    if (Object.keys(this.props.books).length > 0) {
+      shelfShowItems = Object.keys(this.props.books).map(id => {
+        if (this.props.shelf.shelvedBooks.includes(id)) {
+          return (
+            <ShelfShowItem
+              book={this.props.books[id]}
+              key={id}
+              shelf={this.props.shelf}
+              shelves={this.props.shelves}
+              reviews={this.props.reviews}
+              deleteShelfBook={this.props.deleteShelfBook}
+              currentUser={this.props.currentUser}
+              fetchShelf={this.props.fetchShelf}
+              fetchReviews={this.props.fetchReviews}
+              createReview={this.props.createReview} />
+          )
+        }
+      })
+    }
+    
     return (
       <table className = "shelf-books-list">
         <thead>
@@ -50,22 +72,7 @@ class ShelfShow extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.books.map(book => {
-            return (
-              <ShelfShowItem
-                book={book}
-                key={book.id}
-                shelf={this.props.shelf}
-                shelves={this.props.shelves}
-                reviews={this.props.reviews}
-                deleteShelfBook={this.props.deleteShelfBook}
-                currentUser={this.props.currentUser}
-                fetchShelf={this.props.fetchShelf}
-                fetchReviews={this.props.fetchReviews}
-                createReview={this.props.createReview} />
-            )
-            })
-          }
+          {shelfShowItems}
         </tbody>
       </table>
     )

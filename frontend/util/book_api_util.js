@@ -18,8 +18,8 @@ export const searchBooks = (filter) => {
   return $.ajax({
     method: "GET",
     url: `https://www.googleapis.com/books/v1/volumes?q=${filter}&country=US`
-  })
-}
+  });
+};
 
 // export const fetchBook = (id) => {
 //   return $.ajax({
@@ -29,12 +29,11 @@ export const searchBooks = (filter) => {
 // };
 
 export const fetchBook = (id) => {
-  debugger
   return $.ajax({
     method: "GET",
     url: `https://www.googleapis.com/books/v1/volumes/${id}`
-  })
-}
+  });
+};
 
 export const createShelfBook = (shelf_book) => {
   return $.ajax({

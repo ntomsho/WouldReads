@@ -15,7 +15,7 @@ class ReviewForm extends React.Component {
     }
     
     componentDidMount() {
-        this.props.fetchBook(parseInt(this.props.match.params.id)).then(() => {
+        this.props.fetchBook(this.props.match.params.id).then(() => {
             this.changeReview();
         })
     }
@@ -84,7 +84,10 @@ class ReviewForm extends React.Component {
 
     render() {
         if (this.props.currentBook != undefined) {
-            const { id, title, author, coverUrl } = this.props.currentBook
+            const id = this.props.currentBook.id;
+            const title = this.props.currentBook.volumeInfo.title;
+            const author = this.props.currentBook.volumeInfo.authors[0];
+            const coverUrl = this.props.currentBook.volumeInfo.imageLinks.thumbnail;
             return (
                 <div className="create-review-main">
                     <div className="create-review-header">

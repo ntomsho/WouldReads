@@ -8,9 +8,12 @@ export const CLEAR_SEARCH_BOOKS = "CLEAR_SEARCH_BOOKS";
 export const REMOVE_SHELFBOOK = "REMOVE_SHELFBOOK";
 export const REMOVE_SHELVING = "REMOVE_SHELVING";
 
-export const fetchBooks = (id) => dispatch => {
-  return BookApiUtil.fetchBooks(id).then(books => dispatch(receiveBooks(books)));
-};
+
+export const fetchBooks = (arr) => dispatch => {
+  arr.forEach(id => {
+    return BookApiUtil.fetchBook(id).then(book => dispatch(receiveBook(book)));
+  })
+}
 
 export const searchBooks = (filter) => dispatch => {
   return BookApiUtil.searchBooks(filter).then(books => dispatch(receiveSearchBooks(books)));
@@ -41,7 +44,6 @@ export const receiveBooks = (books) => {
   );};
 
 export const receiveBook = (book) => {
-  debugger
   return ({
     type: RECEIVE_BOOK,
     book

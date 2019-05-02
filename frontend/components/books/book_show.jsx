@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import ReactHtmlParser from 'react-html-parser';
 import BookShowMyActivity from './book_show_my_activity';
 import RatingStarsContainer from '../reviews/rating_stars_container';
 import ReviewIndex from '../reviews/review_index';
@@ -21,20 +22,21 @@ class BookShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchBook(this.props.match.params.id)
-    // .then((action) => {
-      // this.props.fetchReviews(action.book.id).then(() => {
-      //   this.props.fetchUsers();
-      // });
-    // });
+    .then((action) => {
+      this.props.fetchReviews(action.book)
+      .then(() => {
+        this.props.fetchUsers();
+      });
+    });
     this.props.fetchShelves(this.props.currentUser);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.props.fetchBook(this.props.match.params.id)
-      // .then((action) => {
-        // this.props.fetchReviews(action.book.id);
-      // });
+      .then((action) => {
+        this.props.fetchReviews(action.book);
+      });
       this.props.fetchShelves(this.props.currentUser);
     }
   }
@@ -44,12 +46,12 @@ class BookShow extends React.Component {
   }
 
   currentReadShelf() {
-    const user_sbi = this.props.currentBook.shelf_books.map(shelf_book => {
-      return (
-        shelf_book.shelf_id
-      );
+    const user_sbi = [];
+    Object.values(this.props.shelves).forEach(shelf => {
+      if (shelf.shelvedBooks.includes(this.props.currentBook.id)) {
+        user_sbi.push(shelf.id);
+      }
     });
-
     return (
       <div>
         {Object.keys(this.props.shelves).map(id => this.props.shelves[id]).map (shelf => {
@@ -72,7 +74,7 @@ class BookShow extends React.Component {
     return (
       <ul className="read-status-dropdown-shelves">
         {Object.keys(this.props.shelves).map(id => this.props.shelves[id]).map(shelf => {
-          if (shelf.title !== "All" && shelf.default_shelf === true && !this.props.currentBook.shelf_books.includes(shelf.id)) {
+          if (shelf.title !== "All" && shelf.default_shelf === true && !shelf.shelvedBooks.includes(this.props.currentBook.id)) {
             return (
               <li key={shelf.id} className="default-shelf-inactive" onClick={this.addBookToShelf(shelf.id)}>
                 {shelf.title}
@@ -174,7 +176,7 @@ class BookShow extends React.Component {
                   </div>
                   <div className="main-rating-stars">
                     <div className="active-shelf-rating">
-                      {/* <RatingStarsContainer currentUser={that.props.currentUser} currentBook={that.props.currentBook} /> */}
+                      <RatingStarsContainer currentUser={that.props.currentUser} currentBook={that.props.currentBook} />
                     </div>
                   </div>
                 </div>
@@ -193,7 +195,7 @@ class BookShow extends React.Component {
                   {/* <div className="avg-rating-integer">{that.props.currentBook.avg_rating}</div> */}
                 </div>
                 <div className="book-show-synopsis">
-                  {that.props.currentBook.volumeInfo.description ? that.props.currentBook.volumeInfo.description : "Unknown"}
+                  {that.props.currentBook.volumeInfo.description ? ReactHtmlParser(that.props.currentBook.volumeInfo.description) : "Unknown"}
                 </div>
               </div>
               <div className="book-show-top-right">
@@ -203,7 +205,7 @@ class BookShow extends React.Component {
                 </div>
               </div>
             </div>
-            {/* <div className="book-show-my-activity">
+            <div className="book-show-my-activity">
               <BookShowMyActivity 
                 book={that.props.currentBook} 
                 user={that.props.currentUser}
@@ -216,7 +218,7 @@ class BookShow extends React.Component {
                 currentUser={that.props.currentUser}
                 reviews={that.props.reviews}
                 users={that.props.users}/>
-            </div> */}
+            </div>
           </div>
         )
       }

@@ -13,13 +13,20 @@ class BookShowMyActivity extends React.Component {
 
         let shelvesByBook;
         if (Object.keys(shelves).length > 0) {
-            shelvesByBook = book.shelves.map(id => {
-                if (shelves[id].title !== "All") {
+            shelvesByBook = Object.values(shelves).map(shelf => {
+                if (shelf.title !== "All" && shelf.shelvedBooks.includes(this.props.book.id)) {
                     return (
-                        <Link to={`/shelves/${id}`} className="shelf-show-link" key={shelves[id].id}>{shelves[id].title}</Link>
+                        <Link to={`/shelves/${shelf.id}`} className="shelf-show-link" key={shelf.id}>{shelf.title}</Link>
                     );
                 }
             });
+            // shelvesByBook = book.shelves.map(id => {
+            //     if (shelves[id].title !== "All") {
+            //         return (
+            //             <Link to={`/shelves/${id}`} className="shelf-show-link" key={shelves[id].id}>{shelves[id].title}</Link>
+            //         );
+            //     }
+            // });
         }
 
         let myReview;

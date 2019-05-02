@@ -15,11 +15,17 @@ class ShelfShowItem extends React.Component {
   componentDidMount() {
     this.props.fetchReviews(this.props.book);
     
-    this.props.book.shelf_books.forEach(shelf_book => {
-      if (shelf_book.shelf_id === parseInt(this.props.shelf)) {
-        this.shelving = shelf_book;
+    this.props.shelf.shelvings.forEach(shelving => {
+      if (shelving.book_id === this.props.book.id) {
+        this.shelving = shelving
       }
-    });
+    })
+
+    // this.props.book.shelf_books.forEach(shelf_book => {
+    //   if (shelf_book.shelf_id === parseInt(this.props.shelf)) {
+    //     this.shelving = shelf_book;
+    //   }
+    // });
   }
 
   handleClick() {
@@ -31,28 +37,34 @@ class ShelfShowItem extends React.Component {
 
   //consider adding <br> or "," to separate shelves entries
   render() {
+    debugger
     const {book, shelves, reviews, currentUser} = this.props;
-    let shelvesByBook = book.shelves.map (id => {
-      if (shelves[id].title !== "All") {
-        return (
-          <Link to={`/shelves/${id}`} className="shelf-show-link" key={shelves[id].id}>{shelves[id].title}</Link>
-        );
-      }
-    });
+    
+    let shelvesByBook;
+      if (Object.keys(shelves).length > 0) {
+        shelvesByBook = Object.values(shelves).map(shelf => {
+          if (shelf.title !== "All" && shelf.shelvedBooks.includes(book)) {
+            return (
+              <Link to={`/shelves/${shelf.id}`} className="shelf-show-link" key={shelf.id}>{shelf.title}</Link>
+            )
+          }
+        })
+      };
 
     return (
       <tr className="shelf-show-item">
         <td className="shelf-show-cell shelf-show-cover">
-          <Link to={`/books/${this.props.book.id}`}><img src={this.props.book.coverUrl}/></Link>
+          <Link to={`/books/${this.props.book.id}`}><img src={this.props.book.volumeInfo.imageLinks ? 
+          this.props.book.volumeInfo.imageLinks.thumbnail : window.phCoverSmall}/></Link>
         </td >
         <td className="shelf-show-cell shelf-show-title">
-          <Link to={`/books/${this.props.book.id}`} className="shelf-show-link">{this.props.book.title}</Link>
+          <Link to={`/books/${this.props.book.id}`} className="shelf-show-link">{this.props.book.volumeInfo.title}</Link>
         </td>
         <td className="shelf-show-cell shelf-show-author">
-          <p>{this.props.book.author}</p>
+          <p>{this.props.book.volumeInfo.authors ? this.props.book.volumeInfo.authors[0] : "Unknown"}</p>
         </td>
         <td className="shelf-show-cell shelf-show-avg-rating">
-          <div>{this.props.book.avg_rating}</div>
+          {/* <div>{this.props.book.avg_rating}</div> */}
         </td>
         <td className="shelf-show-cell shelf-show-rating">
           <div className="active-shelf-rating"><RatingStarsContainer currentUser={this.props.currentUser} currentBook={this.props.book} /></div>

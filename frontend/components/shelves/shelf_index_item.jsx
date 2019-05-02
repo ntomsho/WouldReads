@@ -8,7 +8,7 @@ class ShelfIndexItem extends React.Component {
   }
 
   render() {
-    const { title, books } = this.props.shelf;
+    const { title, shelvedBooks } = this.props.shelf;
     let deleteButton
     if (this.props.shelf.default_shelf === false) {
       deleteButton = (<button onClick={() => {
@@ -23,7 +23,7 @@ class ShelfIndexItem extends React.Component {
         shelf={this.props.shelf}
         className="shelf-index-name"
         activeClassName="shelf-index-name-active"
-        >{title} ({books.length})</NavLink>
+        >{title} ({shelvedBooks.length})</NavLink>
       {deleteButton}
     </li>
     )

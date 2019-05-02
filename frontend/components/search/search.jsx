@@ -49,7 +49,7 @@ class Search extends React.Component {
                             <Link key={book.id} to={`/books/${book.id}`} onClick={this.clearInput}>
                                 <li key={book.id} className="search-dropdown-item">
                                     <div className="search-dropdown-book-cover">
-                                        {book.volumeInfo.imageLinks ? <img src={book.volumeInfo.imageLinks.thumbnail} /> : <p>Placeholder</p>}
+                                        {book.volumeInfo.imageLinks ? <img src={book.volumeInfo.imageLinks.thumbnail} /> : <img src={window.phCoverSmall} />}
                                     </div>
                                     <div className="search-dropdown-title-author">
                                         <div className="search-dropdown-book-title">

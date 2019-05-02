@@ -6,12 +6,13 @@ const booksReducer = (state = {}, action) => {
     case RECEIVE_BOOKS:
       return action.books;
     case RECEIVE_BOOK:
-      debugger
-      return action.book;
+      let newState = Object.assign({}, state);
+      newState[action.book.id] = action.book;
+      return newState;
     case CLEAR_BOOKS:
       return {};
     case REMOVE_SHELFBOOK:
-      let newState = Object.assign({}, state);
+      newState = Object.assign({}, state);
       delete newState[action.shelfBook.book_id];
       return newState;
     case REMOVE_SHELVING:

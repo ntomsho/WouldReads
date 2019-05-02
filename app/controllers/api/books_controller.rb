@@ -23,7 +23,7 @@ class Api::BooksController < ApplicationController
         manage_default_shelves(@shelf_book)
         if @shelf_book.save!
             all_book = ShelfBook.create(shelf_id: all_shelf.first.id, book_id: @shelf_book.book_id)
-            @book = Book.find(@shelf_book.book_id)
+            @book = @shelf_book.book_id
             render "api/books/show"
         else
             render json: @shelf_book.errors.full_messages, status: 422
@@ -53,7 +53,9 @@ private
         default_shelf_ids = default_shelves.map {|shelf| shelf.id}
         if default_shelf_ids.include?(new_shelving.shelf_id)
             old_shelvings = []
-            new_shelving.book.shelf_books.select do |shelving|
+            book_shelvings = ShelfBook.where(:book_id => new_shelving.book_id)
+            # new_shelving.book.shelf_books.select do |shelving|
+            book_shelvings.select do |shelving|
                 old_shelvings.push(shelving) if shelving.shelf.user_id = current_user.id && default_shelf_ids.include?(shelving.shelf_id)
             end 
             old_shelvings.each {|shelving| shelving.destroy}
