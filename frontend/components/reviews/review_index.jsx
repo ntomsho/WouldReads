@@ -27,9 +27,9 @@ class ReviewIndex extends React.Component {
                     <div className="review-index-header">COMMUNITY REVIEWS</div>
                     <div className="review-index-avg-rating">
                         <div className="inactive-shelf-rating">
-                            <StaticStars rating={this.props.book.avg_rating} />
+                            <StaticStars rating={this.props.avgRating} />
                         </div>
-                        {this.props.book.avg_rating}
+                        {this.props.avgRating}
                     </div>
                 </div>
                 <ul className="reviews-list">

@@ -49,6 +49,15 @@ class ShelfShowItem extends React.Component {
         }
       })
     };
+    debugger
+    let avgRating;
+    debugger
+    if (reviews.length > 0) {
+      let totalRating = reviews.map(review => {
+        return review.rating;
+      });
+      avgRating = totalRating.reduce((accumulator, currentValue) => accumulator + currentValue) / reviews.length;
+    }
 
     return (
       <tr className="shelf-show-item">
@@ -63,7 +72,7 @@ class ShelfShowItem extends React.Component {
           <p>{this.props.book.volumeInfo.authors ? this.props.book.volumeInfo.authors[0] : "Unknown"}</p>
         </td>
         <td className="shelf-show-cell shelf-show-avg-rating">
-          {/* <div>{this.props.book.avg_rating}</div> */}
+          <div>{avgRating}</div>
         </td>
         <td className="shelf-show-cell shelf-show-rating">
           <div className="active-shelf-rating"><RatingStarsContainer currentUser={this.props.currentUser} currentBook={this.props.book} /></div>

@@ -141,6 +141,15 @@ class BookShow extends React.Component {
   }
 
   render() {
+    let avgRating;
+    debugger
+    if (this.props.reviews.length > 0) {
+      let totalRating = this.props.reviews.map(review => {
+        return review.rating;
+      });
+      avgRating = totalRating.reduce((accumulator, currentValue) => accumulator + currentValue) / this.props.reviews.length;
+    }
+    
     const bookShow = function(props, that) {
       if (that.props.currentBook) {
         const currentReadShelf = that.currentReadShelf();
@@ -192,9 +201,9 @@ class BookShow extends React.Component {
                 </div>
                 <div className="avg-rating">
                   <div className="inactive-shelf-rating">
-                    {/* <StaticStars rating={that.props.currentBook.avg_rating} /> */}
+                    <StaticStars rating={avgRating} />
                   </div>
-                  {/* <div className="avg-rating-integer">{that.props.currentBook.avg_rating}</div> */}
+                  <div className="avg-rating-integer">{avgRating}</div>
                 </div>
                 <div className="book-show-synopsis">
                   {that.props.currentBook.volumeInfo.description ? ReactHtmlParser(that.props.currentBook.volumeInfo.description) : "Unknown"}
@@ -219,7 +228,8 @@ class BookShow extends React.Component {
                 book={that.props.currentBook} 
                 currentUser={that.props.currentUser}
                 reviews={that.props.reviews}
-                users={that.props.users}/>
+                users={that.props.users}
+                avgRating={avgRating}/>
             </div>
           </div>
         )
