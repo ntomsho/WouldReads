@@ -8,6 +8,7 @@ class ShelfShow extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     this.props.fetchShelf(parseInt(this.props.match.params.shelfId)).then(() =>
     this.props.fetchBooks(this.props.shelf.shelvedBooks));
   }
@@ -23,6 +24,7 @@ class ShelfShow extends React.Component {
   }
 
   render() {
+    debugger
     let shelfShowItems;
     if (Object.keys(this.props.books).length > 0) {
       shelfShowItems = Object.keys(this.props.books).map(id => {

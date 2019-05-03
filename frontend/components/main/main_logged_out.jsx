@@ -11,7 +11,7 @@ class MainLoggedOut extends React.Component {
   componentDidMount() {
     const background = document.getElementById('background-container');
     background.className = 'bg-active';
-    this.props.fetchBooks();
+    this.props.fetchBooks(" ");
   }
 
   booksList() {
