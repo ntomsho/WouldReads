@@ -40,7 +40,6 @@ class ShelfShowItem extends React.Component {
     const {book, shelves, reviews, currentUser} = this.props;
     
     let shelvesByBook;
-    debugger
     if (Object.keys(shelves).length > 0) {
       shelvesByBook = Object.values(shelves).map(shelf => {
         if (shelf.title !== "All" && shelf.shelvedBooks.includes(book.id)) {

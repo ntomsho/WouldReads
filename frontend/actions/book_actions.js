@@ -10,12 +10,13 @@ export const REMOVE_SHELVING = "REMOVE_SHELVING";
 
 
 export const fetchBooks = (arr) => dispatch => {
+  debugger
   if (arr) {
     arr.forEach(id => {
       return BookApiUtil.fetchBook(id).then(book => dispatch(receiveBook(book)));
     })
   } else {
-    return BookApiUtil.searchBooks().then(books => dispatch(receiveBooks(books.items)));
+    return BookApiUtil.searchBooks("the").then(books => dispatch(receiveBooks(books.items)));
   }
 }
 

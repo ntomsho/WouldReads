@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {signin} from '../../actions/session_actions';
-import {fetchBooks} from '../../actions/book_actions';
+import {fetchBooks, clearBooks} from '../../actions/book_actions';
 import MainLoggedOut from './main_logged_out';
 
 const msp = ({entities, errors}) => {
@@ -13,7 +13,8 @@ const msp = ({entities, errors}) => {
 const mdp = (dispatch) => {
   return {
     signin: (user) => dispatch(signin(user)),
-    fetchBooks: (() => dispatch(fetchBooks()))
+    fetchBooks: (() => dispatch(fetchBooks())),
+    clearBooks: (() => dispatch(clearBooks()))
   };
 };
 
