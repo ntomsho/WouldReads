@@ -22,6 +22,7 @@ class RatingStars extends React.Component {
                     this.setState({ displayRating: this.currentReview.rating })
                 }
             })
+            this.props.refresh();
         })
     }
 

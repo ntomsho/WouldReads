@@ -10,22 +10,44 @@ class ShelfShowItem extends React.Component {
     this.shelving = null;
     this.handleClick = this.handleClick.bind(this);
     this.myRating = null;
+    this.state = {avgRating: null};
+    this.calculateAvgRating = this.calculateAvgRating.bind(this);
+    this.refreshRating = this.refreshRating.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchReviews(this.props.book);
+    debugger
+    this.props.fetchReviews(this.props.book).then(() => {
+      this.calculateAvgRating(this.props.reviews);
+    });
     
     this.props.shelf.shelvings.forEach(shelving => {
       if (shelving.book_id === this.props.book.id) {
         this.shelving = shelving
       }
     })
+  }
 
-    // this.props.book.shelf_books.forEach(shelf_book => {
-    //   if (shelf_book.shelf_id === parseInt(this.props.shelf)) {
-    //     this.shelving = shelf_book;
-    //   }
-    // });
+  refreshRating() {
+    this.props.fetchReviews(this.props.book).then(() => {
+      this.calculateAvgRating(this.props.reviews);
+    });
+  }
+
+  // componentDidUpdate(prevProps) {
+  //   debugger
+  //   if (prevProps.reviews !== this.props.reviews) {
+  //     this.calculateAvgRating(this.props.reviews);
+  //   }
+  // }
+
+  calculateAvgRating(reviews) {
+    debugger
+    let allRatings = reviews.map(review => {
+      return review.rating;
+    })
+    const avg = allRatings.length === 0 ? this.props.book.volumeInfo.averageRating : allRatings.reduce((accumulator, currentValue) => accumulator + currentValue) / allRatings.length;
+    this.setState({avgRating: avg});
   }
 
   handleClick() {
@@ -50,14 +72,14 @@ class ShelfShowItem extends React.Component {
       })
     };
     debugger
-    let avgRating;
-    debugger
-    if (reviews.length > 0) {
-      let totalRating = reviews.map(review => {
-        return review.rating;
-      });
-      avgRating = totalRating.reduce((accumulator, currentValue) => accumulator + currentValue) / reviews.length;
-    }
+    // let avgRating;
+    // debugger
+    // if (reviews.length > 0) {
+    //   let totalRating = reviews.map(review => {
+    //     if (review.book_id === book.id) return review.rating;
+    //   });
+    //   avgRating = totalRating.reduce((accumulator, currentValue) => accumulator + currentValue) / reviews.length;
+    // }
 
     return (
       <tr className="shelf-show-item">
@@ -72,10 +94,10 @@ class ShelfShowItem extends React.Component {
           <p>{this.props.book.volumeInfo.authors ? this.props.book.volumeInfo.authors[0] : "Unknown"}</p>
         </td>
         <td className="shelf-show-cell shelf-show-avg-rating">
-          <div>{avgRating}</div>
+          <div>{this.state.avgRating}</div>
         </td>
         <td className="shelf-show-cell shelf-show-rating">
-          <div className="active-shelf-rating"><RatingStarsContainer currentUser={this.props.currentUser} currentBook={this.props.book} /></div>
+          <div className="active-shelf-rating"><RatingStarsContainer currentUser={this.props.currentUser} currentBook={this.props.book} refresh={this.refreshRating} /></div>
         </td>
         <td className="shelf-show-cell shelf-show-shelves">
           <div className="shelves-by-book">
