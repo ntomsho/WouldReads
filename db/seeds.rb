@@ -56,17 +56,21 @@ Review.destroy_all
   )
 
 sb1a = ShelfBook.create(
-    shelf_id: cageall.id,
-    book_id: twentyone_lessons.id
+  shelf_id: cageall.id,
+  book_id: "MSKEDwAAQBAJ"
 )
 
 sb1b = ShelfBook.create(
   shelf_id: cageskim.id,
-  book_id: twentyone_lessons.id
+  book_id: "MSKEDwAAQBAJ"
 )
 
+sb1a = ShelfBook.create(
+  shelf_id: cageall.id,
+  book_id: twentyone_lessons.id
+
 r1 = Review.create(
-  book_id: twentyone_lessons.id,
+  book_id: "MSKEDwAAQBAJ",
   user_id: cage.id,
   rating: 5,
   body: "Whoa! Crazy robots and radical mind-control, man!"
@@ -74,98 +78,52 @@ r1 = Review.create(
 
 sb2a = ShelfBook.create(
   shelf_id: cageall.id,
-  book_id: black_panther.id
+  book_id: "uwRHDwAAQBAJ"
 )
 
 sb2b = ShelfBook.create(
-  shelf_id: cageskim.id,
-  book_id: black_panther.id
+  shelf_id: cagewould.id,
+  book_id: "uwRHDwAAQBAJ"
+)
+
+sb2c = ShelfBook.create(
+  shelf_id: cagevoodoo.id,
+  book_id: "uwRHDwAAQBAJ"
 )
 
 r2 = Review.create(
-  book_id: black_panther.id,
-  user_id: cage.id,
-  rating: 4
-)
-
-sb2a = ShelfBook.create(
-  shelf_id: cageall.id,
-  book_id: kings_of_the_wyld.id
-)
-
-sb2b = ShelfBook.create(
-  shelf_id: cagepretend.id,
-  book_id: kings_of_the_wyld.id
-)
-
-sb3a = ShelfBook.create(
-  shelf_id: cageall.id,
-  book_id: transmetropolitan.id
-)
-
-sb3b = ShelfBook.create(
-  shelf_id: cagewould.id,
-  book_id: transmetropolitan.id
-)
-
-sb4a = ShelfBook.create(
-  shelf_id: cageall.id,
-  book_id: black_gods_drums.id
-)
-
-sb4b = ShelfBook.create(
-  shelf_id: cagewould.id,
-  book_id: black_gods_drums.id
-)
-
-sb4c = ShelfBook.create(
-  shelf_id: cagevoodoo.id,
-  book_id: black_gods_drums.id
-)
-
-r4 = Review.create(
-  book_id: black_gods_drums.id,
+  book_id: "uwRHDwAAQBAJ",
   user_id: cage.id,
   rating: 4,
   body: "I haven't read this yet, but it's got some crazy black-magic juju, man!"
 )
 
-sb5a = ShelfBook.create(
+sb3a = ShelfBook.create(
   shelf_id: cageall.id,
-  book_id: marlon_bundo.id
+  book_id: "mvlRDwAAQBAJ"
 )
 
-sb5b = ShelfBook.create(
+sb3b = ShelfBook.create(
   shelf_id: cagewould.id,
-  book_id: marlon_bundo.id
+  book_id: "mvlRDwAAQBAJ"
 )
 
-sb5c = ShelfBook.create(
+sb3c = ShelfBook.create(
   shelf_id: cagebuns.id,
-  book_id: marlon_bundo.id
+  book_id: "mvlRDwAAQBAJ"
 )
 
-sb6a = ShelfBook.create(
+sb4a = ShelfBook.create(
   shelf_id: cageall.id,
-  book_id: thank_you_bunny.id
+  book_id: "zlyHHvgCZpAC"
 )
 
-sb6b = ShelfBook.create(
-  shelf_id: cagewould.id,
-  book_id: thank_you_bunny.id
+sb4b = ShelfBook.create(
+  shelf_id: cagepretend.id,
+  book_id: "zlyHHvgCZpAC"
 )
 
-sb6c = ShelfBook.create(
+sb4c = ShelfBook.create(
   shelf_id: cagebuns.id,
-  book_id: thank_you_bunny.id
-)
-
-sb7a = ShelfBook.create(
-  shelf_id: cageall.id,
-  book_id: calypso.id
-)
-
-sb7b = ShelfBook.create(
-  shelf_id: cagewould.id,
-  book_id: calypso.id
+  book_id: "zlyHHvgCZpAC"
 )

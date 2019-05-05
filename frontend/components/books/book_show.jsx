@@ -142,7 +142,6 @@ class BookShow extends React.Component {
 
   render() {
     let avgRating;
-    debugger
     if (this.props.reviews.length > 0) {
       let totalRating = this.props.reviews.map(review => {
         return review.rating;

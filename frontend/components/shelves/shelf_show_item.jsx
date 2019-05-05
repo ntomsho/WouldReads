@@ -16,7 +16,6 @@ class ShelfShowItem extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.fetchReviews(this.props.book).then(() => {
       this.calculateAvgRating(this.props.reviews);
     });
@@ -34,15 +33,7 @@ class ShelfShowItem extends React.Component {
     });
   }
 
-  // componentDidUpdate(prevProps) {
-  //   debugger
-  //   if (prevProps.reviews !== this.props.reviews) {
-  //     this.calculateAvgRating(this.props.reviews);
-  //   }
-  // }
-
   calculateAvgRating(reviews) {
-    debugger
     let allRatings = reviews.map(review => {
       return review.rating;
     })
@@ -71,15 +62,6 @@ class ShelfShowItem extends React.Component {
         }
       })
     };
-    debugger
-    // let avgRating;
-    // debugger
-    // if (reviews.length > 0) {
-    //   let totalRating = reviews.map(review => {
-    //     if (review.book_id === book.id) return review.rating;
-    //   });
-    //   avgRating = totalRating.reduce((accumulator, currentValue) => accumulator + currentValue) / reviews.length;
-    // }
 
     return (
       <tr className="shelf-show-item">
