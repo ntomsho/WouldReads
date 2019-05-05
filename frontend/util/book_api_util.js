@@ -31,7 +31,7 @@ export const searchBooks = (filter) => {
 export const fetchBook = (id) => {
   return $.ajax({
     method: "GET",
-    url: `https://www.googleapis.com/books/v1/volumes/${id}`
+    url: `https://www.googleapis.com/books/v1/volumes/${id}?q=&country=US`
   });
 };
 
