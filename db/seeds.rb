@@ -65,11 +65,6 @@ sb1b = ShelfBook.create(
   book_id: "MSKEDwAAQBAJ"
 )
 
-sb1a = ShelfBook.create(
-  shelf_id: cageall.id,
-  book_id: twentyone_lessons.id
-)
-
 r1 = Review.create(
   book_id: "MSKEDwAAQBAJ",
   user_id: cage.id,
