@@ -7,6 +7,7 @@ export const fetchShelves = (user) => {
 };
 
 export const fetchShelf = (id) => {
+  debugger
   return $.ajax({
     method: "GET",
     url: `api/shelves/${id}`

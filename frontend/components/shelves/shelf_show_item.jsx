@@ -42,9 +42,12 @@ class ShelfShowItem extends React.Component {
   }
 
   handleClick() {
+    const fetchShelf = this.props.fetchShelf;
+    const shelf = this.props.shelf;
     this.props.deleteShelfBook(this.shelving.id)
       .then(() => {
-        this.props.fetchShelf(this.props.shelf);
+        debugger
+        fetchShelf(shelf.id);
       });
   }
 
