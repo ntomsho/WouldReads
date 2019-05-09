@@ -46,7 +46,6 @@ class ShelfShowItem extends React.Component {
     const shelf = this.props.shelf;
     this.props.deleteShelfBook(this.shelving.id)
       .then(() => {
-        debugger
         fetchShelf(shelf.id);
       });
   }
@@ -65,6 +64,11 @@ class ShelfShowItem extends React.Component {
         }
       })
     };
+
+    let deleteButton;
+    if (this.props.shelf.title !== "All") {
+      deleteButton = <div className="shelf-show-delete" onClick={this.handleClick}>X</div>
+    }
 
     return (
       <tr className="shelf-show-item">
@@ -93,7 +97,7 @@ class ShelfShowItem extends React.Component {
           <p>PH</p>
         </td >
         <td className="shelf-show-cell shelf-show-delete">
-          <div className="shelf-show-delete" onClick={this.handleClick}>X</div>
+          {deleteButton}
         </td>
       </tr>
     )
