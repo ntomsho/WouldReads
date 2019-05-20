@@ -140,3 +140,31 @@ header {
   border: 1px solid #382110;
   border-radius: 3px;
 }
+
+.browse-dropdown-open {
+  position: absolute;
+  top:49px;
+  left: 325px;
+  background-color: #FFFFFF;
+  z-index: 1;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+.browse-dropdown-genres {
+
+}
+
+.genre-list {
+  list-style: none;
+  column-count: 2;
+}
+
+.genre-list-entry {
+  padding: 8px 8px 8px 16px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.browse-dropdown-preview {
+
+}

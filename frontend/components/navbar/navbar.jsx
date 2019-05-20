@@ -4,7 +4,7 @@ import SigninFormContainer from '../session_form/signin_form_container';
 import SearchContainer from '../search/search_container';
 
 const Navbar = ({currentUser, logout}) => {
-  
+
   const loggedOutNavbar = () => {
     return (
       <div className="navbar-container navbar-loggedout">
@@ -14,6 +14,19 @@ const Navbar = ({currentUser, logout}) => {
     );
   };
 
+  const GENRES = [
+    "Art", "Biography", "Business", "Children's", "Crime", "Fantasy", "Gay and Lesbian", "Graphic Novels", "Historical Fiction",
+    "History", "Horror", "Humor and Comedy", "Mystery", "Paranormal", "Romance", "Science", "Science Fiction",
+    "Suspense", "Sports", "Thriller", "Travel", "Young Adult"
+  ]
+
+  console.log(GENRES.length);
+
+  const toggleDropdown = () => {
+    let dropdown = document.getElementById("browse-dropdown");
+    dropdown.className === "dropdown-hidden" ? dropdown.className = "browse-dropdown-open" : dropdown.className = "dropdown-hidden";
+  }
+
   const loggedInNavbar = () => {
     return (
     <div className="navbar-loggedin-container">
@@ -22,7 +35,18 @@ const Navbar = ({currentUser, logout}) => {
         <div className="logged-in-header">
           <Link to="/shelves" className="navbar-text-button">Home</Link>
           <Link to="/shelves" className="navbar-text-button">My Books</Link>
-          <Link to="/books" className="navbar-text-button navbar-dropdown">Browse</Link>
+          <button className="navbar-text-button navbar-dropdown" onClick={toggleDropdown}>Browse ▾</button>
+          <div id="browse-dropdown" className="dropdown-hidden">
+            <div className="browse-dropdown-genres">
+              <ul className="genre-list">
+                {GENRES.map(genre => {
+                  return <li key={GENRES.indexOf(genre)} className="genre-list-entry">{genre}</li>
+                })}
+              </ul>
+            </div>
+            <div className="browse-dropdown-preview">
+            </div>
+          </div>
           <SearchContainer />
           <Link to="/" className="logout-button-container"><button className="logout-button" onClick={logout}>Logout</button></Link>
         </div>
