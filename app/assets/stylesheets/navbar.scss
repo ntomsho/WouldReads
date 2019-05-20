@@ -147,6 +147,8 @@ header {
 
 .browse-dropdown-open {
   position: absolute;
+  left: 50%;
+  transform: translate(-50%);
   background-color: #FFFFFF;
   z-index: 1;
   box-shadow: 0 5px 10px rgba(0,0,0,0.15);
