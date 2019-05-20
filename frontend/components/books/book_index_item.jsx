@@ -12,7 +12,6 @@ class BookIndexItem extends React.Component {
   }
 
   render() {
-    debugger
     let avgRating;
     if (this.props.reviews.length > 0) {
       let totalRating = this.props.reviews.map(review => {

@@ -33,16 +33,19 @@ const Navbar = ({currentUser, logout}) => {
         <div className="logged-in-header">
           <Link to="/shelves" className="navbar-text-button">Home</Link>
           <Link to="/shelves" className="navbar-text-button">My Books</Link>
-          <button className="navbar-text-button navbar-dropdown" onClick={toggleDropdown}>Browse ▾</button>
-          <div id="browse-dropdown" className="dropdown-hidden">
-            <div className="browse-dropdown-genres">
-              <ul className="genre-list">
-                {GENRES.map(genre => {
-                  return <li key={GENRES.indexOf(genre)} className="genre-list-entry"><Link to={`/browse/${genre}`}>{genre}</Link></li>
-                })}
-              </ul>
-            </div>
-            <div className="browse-dropdown-preview">
+          <div className="browse-container">
+            <button className="navbar-text-button navbar-dropdown" onClick={toggleDropdown}>Browse ▾</button>
+            <div id="browse-dropdown" className="dropdown-hidden">
+              <div className="browse-dropdown-genres">
+                <ul className="genre-list">
+                  <div className="genre-list-header">FAVORITE GENRES</div>
+                  {GENRES.map(genre => {
+                    return <li key={GENRES.indexOf(genre)} className="genre-list-entry"><Link to={`/browse/${genre}`}>{genre}</Link></li>
+                  })}
+                </ul>
+              </div>
+              <div className="browse-dropdown-preview">
+              </div>
             </div>
           </div>
           <SearchContainer />

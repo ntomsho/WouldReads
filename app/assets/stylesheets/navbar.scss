@@ -141,17 +141,20 @@ header {
   border-radius: 3px;
 }
 
+.browse-container {
+  position: relative;
+}
+
 .browse-dropdown-open {
   position: absolute;
-  top:49px;
-  left: 325px;
   background-color: #FFFFFF;
   z-index: 1;
   box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
 
 .browse-dropdown-genres {
-width: 320px;
+  width: 320px;
+  padding: 16px 0px;
 }
 
 .genre-list {
@@ -161,10 +164,25 @@ width: 320px;
   margin: 0;
 }
 
+.genre-list-header {
+  color: rgb(56, 33, 16);
+  font-size: 12px;
+  font-weight: bold;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 8px;
+  line-height: 16px;
+  padding-left: 16px;
+}
+
 .genre-list-entry {
   padding: 8px 8px 8px 16px;
   font-size: 14px;
+}
+
+li a {
   text-decoration: none;
+  color: rgb(24, 24, 24);
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .browse-dropdown-preview {
