@@ -19,6 +19,10 @@ export const fetchBooks = (arr) => dispatch => {
   }
 }
 
+export const fetchBooksByGenre = (genre) => dispatch => {
+  return BookApiUtil.fetchBooksByGenre(genre).then(books => dispatch(receiveBooks(books.items)));
+}
+
 export const searchBooks = (filter) => dispatch => {
   return BookApiUtil.searchBooks(filter).then(books => dispatch(receiveSearchBooks(books)));
 };

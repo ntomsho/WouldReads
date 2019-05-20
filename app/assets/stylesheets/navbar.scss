@@ -151,12 +151,14 @@ header {
 }
 
 .browse-dropdown-genres {
-
+width: 320px;
 }
 
 .genre-list {
   list-style: none;
   column-count: 2;
+  padding: 0;
+  margin: 0;
 }
 
 .genre-list-entry {

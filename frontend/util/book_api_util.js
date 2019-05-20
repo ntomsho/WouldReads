@@ -6,6 +6,13 @@ export const fetchBooks = (id) => {
   });
 };
 
+export const fetchBooksByGenre = (genre) => {
+  return $.ajax({
+    method: "GET",
+    url: `https://www.googleapis.com/books/v1/volumes?q=subject:${genre}&country=US`
+  })
+}
+
 // export const searchBooks = (filter) => {
 //   return $.ajax({
 //     method: "GET",

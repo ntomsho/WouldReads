@@ -8,7 +8,7 @@ class BookIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchBooks();
+    this.props.fetchBooksByGenre(this.props.match.params.genre);
   }
 
   componentWillUnmount() {
@@ -19,7 +19,7 @@ class BookIndex extends React.Component {
 
     const booksList = this.props.books.map(book => {
       return (
-        <BookIndexItem book={book} key={book.id} />
+        <BookIndexItem book={book} key={book.id} reviews={this.props.reviews} fetchReviews={this.props.fetchReviews} />
       )
     });
 

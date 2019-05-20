@@ -20,8 +20,6 @@ const Navbar = ({currentUser, logout}) => {
     "Suspense", "Sports", "Thriller", "Travel", "Young Adult"
   ]
 
-  console.log(GENRES.length);
-
   const toggleDropdown = () => {
     let dropdown = document.getElementById("browse-dropdown");
     dropdown.className === "dropdown-hidden" ? dropdown.className = "browse-dropdown-open" : dropdown.className = "dropdown-hidden";
@@ -40,7 +38,7 @@ const Navbar = ({currentUser, logout}) => {
             <div className="browse-dropdown-genres">
               <ul className="genre-list">
                 {GENRES.map(genre => {
-                  return <li key={GENRES.indexOf(genre)} className="genre-list-entry">{genre}</li>
+                  return <li key={GENRES.indexOf(genre)} className="genre-list-entry"><Link to={`/browse/${genre}`}>{genre}</Link></li>
                 })}
               </ul>
             </div>
