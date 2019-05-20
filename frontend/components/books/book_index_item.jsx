@@ -8,9 +8,7 @@ class BookIndexItem extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.fetchReviews(this.props.book);
-    debugger
   }
 
   render() {
@@ -21,6 +19,8 @@ class BookIndexItem extends React.Component {
         return review.rating;
       });
       avgRating = totalRating.reduce((accumulator, currentValue) => accumulator + currentValue) / this.props.reviews.length;
+    } else {
+      avgRating = this.props.book.volumeInfo.averageRating;
     }
     
     return (
@@ -34,10 +34,10 @@ class BookIndexItem extends React.Component {
           </div>
           <div className="avg-rating">
             <div className="inactive-shelf-rating">
-              <StaticStars rating={this.props.book.avg_rating} />
+              <StaticStars rating={avgRating} />
             </div>
             <div className="avg-rating-integer">
-              {this.props.book.avg_rating}
+              {avgRating ? avgRating : "No "}
             </div>
             <div className="avg-rating-text">
               avg rating

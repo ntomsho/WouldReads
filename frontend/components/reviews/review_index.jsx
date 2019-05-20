@@ -9,7 +9,10 @@ class ReviewIndex extends React.Component {
     }
 
     render() {
+        let totalRating = [];
+        let avgRating;
         const reviewsList = this.props.reviews.map(review => {
+            totalRating.push(review.rating);
             if (review.user_id !== this.props.currentUser.id) {
                 return (
                     <ReviewIndexItem 
@@ -20,6 +23,9 @@ class ReviewIndex extends React.Component {
                 )
             }
         });
+        totalRating.length > 0 ? 
+        avgRating = totalRating.reduce((accumulator, currentValue) => accumulator + currentValue) / this.props.reviews.length : 
+        avgRating = this.props.book.volumeInfo.averageRating;
 
         return (
             <div className="review-index-container">
@@ -27,9 +33,9 @@ class ReviewIndex extends React.Component {
                     <div className="review-index-header">COMMUNITY REVIEWS</div>
                     <div className="review-index-avg-rating">
                         <div className="inactive-shelf-rating">
-                            <StaticStars rating={this.props.avgRating} />
+                            <StaticStars rating={avgRating} />
                         </div>
-                        {this.props.avgRating}
+                        {avgRating}
                     </div>
                 </div>
                 <ul className="reviews-list">
