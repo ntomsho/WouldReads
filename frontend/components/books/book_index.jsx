@@ -8,7 +8,15 @@ class BookIndex extends React.Component {
   }
 
   componentDidMount() {
+    debugger
+    this.props.clearBooks()
     this.props.fetchBooksByGenre(this.props.match.params.genre);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.genre !== this.props.match.params.genre) {
+      this.props.fetchBooksByGenre(this.props.match.params.genre);
+    }
   }
 
   componentWillUnmount() {

@@ -27,7 +27,7 @@ const Navbar = ({currentUser, logout}) => {
           <ul className="genre-list">
             <div className="genre-list-header">FAVORITE GENRES</div>
             {GENRES.map(genre => {
-              return <li key={GENRES.indexOf(genre)} className="genre-list-entry"><Link to={`/browse/${genre}`}>{genre}</Link></li>
+              return <li key={GENRES.indexOf(genre)} className="genre-list-entry"><Link to={`/browse/${genre}`} onClick={toggleDropdown}>{genre}</Link></li>
             })}
           </ul>
         </div>
