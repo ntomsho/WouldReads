@@ -20,12 +20,36 @@ const Navbar = ({currentUser, logout}) => {
     "Suspense", "Sports", "Thriller", "Travel", "Young Adult"
   ]
 
+  const browseDropdown = () => {
+    return (
+      <div id="browse-dropdown" className="dropdown-hidden">
+        <div className="browse-dropdown-genres">
+          <ul className="genre-list">
+            <div className="genre-list-header">FAVORITE GENRES</div>
+            {GENRES.map(genre => {
+              return <li key={GENRES.indexOf(genre)} className="genre-list-entry"><Link to={`/browse/${genre}`}>{genre}</Link></li>
+            })}
+          </ul>
+        </div>
+        <div className="browse-dropdown-preview">
+        </div>
+      </div>
+    )
+  }
+
   const toggleDropdown = () => {
     let dropdown = document.getElementById("browse-dropdown");
     dropdown.className === "dropdown-hidden" ? dropdown.className = "browse-dropdown-open" : dropdown.className = "dropdown-hidden";
   }
 
   const loggedInNavbar = () => {
+    document.addEventListener('mousedown', (e) => {
+      let dropdown = document.getElementById("browse-dropdown");
+      if (dropdown && dropdown.className === "browse-dropdown-open" && !dropdown.contains(e.target)) {
+        toggleDropdown()
+      }
+    });
+    
     return (
     <div className="navbar-loggedin-container">
       <div className="navbar-container navbar-loggedin">
@@ -35,18 +59,7 @@ const Navbar = ({currentUser, logout}) => {
           <Link to="/shelves" className="navbar-text-button">My Books</Link>
           <div className="browse-container">
             <button className="navbar-text-button navbar-dropdown" onClick={toggleDropdown}>Browse ▾</button>
-            <div id="browse-dropdown" className="dropdown-hidden">
-              <div className="browse-dropdown-genres">
-                <ul className="genre-list">
-                  <div className="genre-list-header">FAVORITE GENRES</div>
-                  {GENRES.map(genre => {
-                    return <li key={GENRES.indexOf(genre)} className="genre-list-entry"><Link to={`/browse/${genre}`}>{genre}</Link></li>
-                  })}
-                </ul>
-              </div>
-              <div className="browse-dropdown-preview">
-              </div>
-            </div>
+            {browseDropdown()}
           </div>
           <SearchContainer />
           <Link to="/" className="logout-button-container"><button className="logout-button" onClick={logout}>Logout</button></Link>
