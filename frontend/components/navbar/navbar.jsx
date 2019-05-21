@@ -46,7 +46,9 @@ const Navbar = ({currentUser, logout}) => {
     document.addEventListener('mousedown', (e) => {
       let dropdown = document.getElementById("browse-dropdown");
       if (dropdown && dropdown.className === "browse-dropdown-open" && !dropdown.contains(e.target)) {
-        toggleDropdown()
+        if (e.target.id !== "browse-button") {
+          toggleDropdown()
+        }
       }
     });
     
@@ -58,7 +60,7 @@ const Navbar = ({currentUser, logout}) => {
           <Link to="/shelves" className="navbar-text-button">Home</Link>
           <Link to="/shelves" className="navbar-text-button">My Books</Link>
           <div className="browse-container">
-            <button className="navbar-text-button navbar-dropdown" onClick={toggleDropdown}>Browse ▾</button>
+            <button id="browse-button" className="navbar-text-button navbar-dropdown" onClick={toggleDropdown}>Browse ▾</button>
             {browseDropdown()}
           </div>
           <SearchContainer />
